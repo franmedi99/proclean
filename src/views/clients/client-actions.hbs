@@ -1,0 +1,146 @@
+    <div class="row m-0 justify-content-center align-items-center mt-5">
+        <div class="  col-md-6 form-row mx-auto">
+    
+        <!--Buscar Cliente-->
+       <div class="mx-auto col-md-4 row justify-content-center mb-5 ">
+        <a href="#ventana1" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-search  fa-5x" style="height: 100px;" aria-hidden="true"></i><h1>Buscar Cliente</h1></a>
+        
+    
+        <div>
+            <div class="modal fade" tabindex="-1" role="dialog" id="ventana1">
+            <div class="modal-dialog" role="document" style="display: contents; width: max-content;">
+            <div class="modal-content mx-auto mt-5 w-50">
+                <!--Formulario busqueda-->
+    
+            <div>
+                <div class="row mb-3 ">
+                <div class="col-12 mx-auto text-center">
+             
+                    <div class="row">
+                        <div class="col-md-12 mx-auto text-center">
+                            <div class="card">
+                                <div class="card-header">
+                <h1>Buscar Cliente</h1>
+            </div>
+            <div class="card-body">
+                <div class="ml-3 mr-3">
+                <form action="/clients/find-client" method="post">
+                <div class="form-group mb-3">
+                    <label for="tpatente">Buscar cliente</label>
+                <input list="tpatente" class="form-control text-center" name="patente"  autocomplete="off" />
+                <datalist id="tpatente">
+                 {{#each clients}}
+                <option value="{{patente}}">
+                {{/each}}
+                </datalist>
+            </div>
+                <div class="form-group">
+                <button type="submit" id="entrar2" class="btn btn-success mx-auto btn-lg btn-block" >Buscar Cliente</button>
+                </div>
+                
+                </form>
+                </div>
+    
+    
+                </div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    
+    
+            <div class="mb-3 mx-auto">
+            <button type="button" class="btn btn-secondary mx-auto btn-lg" data-dismiss="modal">Cancelar</button>
+            </div>
+            </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+       </div><!--div que cierra el boton de busqueda-->
+    
+        <!--Registrar Cliente-->
+       <div class="mx-auto col-md-4 row justify-content-center h-100">
+        <a href="#ventana2" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" ><i class="fa fa-user-circle-o fa-5x" style="height: 100px;" ></i><h1>Nuevo Cliente</h1> </i></a>
+        </div>
+    
+        <div>
+            <div class="modal fade" tabindex="-1" role="dialog" id="ventana2">
+            <div class="modal-dialog" role="document" style="display: contents; width: max-content;">
+            <div class="modal-content mx-auto mt-5 w-50">
+                <!-- Formulario registro-->
+            <div style="display: contents; width: max-content;">
+                <div class="row">
+                    <div class="col-md-12 mx-auto text-center">
+                        <div class="card">
+                            <div class="card-header">
+                                <h1>Registrar Cliente</h1>
+                            </div>
+                            <div class="card-body">
+                                <form action="/clients/new-client" method="POST">
+                                <div class="form-group text-left">
+                                <label for="patente">Patente</label>
+                                <input type="text" name="patente" class="form-control text-center" placeholder="Patente" value="{{client}}"  onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                </div>
+                                <div class="form-group  text-left">
+                                <label for="patente">Marca</label>
+                                <input type="text" name="marca" class="form-control text-center" placeholder="Marca" value="{{username}}">
+                                </div>
+                
+                                <div class="form-group  text-left">
+                                    <label for="patente">Modelo</label>
+                                <input type="text" name="modelo" class="form-control text-center" placeholder="Modelo" value="{{email}}">
+                                </div>
+                
+                                <div class="form-group  text-left">
+                                    <label for="patente">Telefono</label>
+                                <input type="tel" name="phone" class="form-control text-center" placeholder="Telefono" value="{{phone}}" autocomplete="off">
+                                </div>
+    
+                                <div class="form-group text-left">
+                                     <label for="patente">Tipo</label>
+                                    <select class="form-control text-center mx-auto" name="tipo">
+                                    <option value="Auto">Auto</option>
+                                    <option value="Camioneta">Camioneta</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-block btn-lg">Registrar Cliente</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+    
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary mx-auto btn-lg" data-dismiss="modal">Cancelar</button>
+            </div>
+            </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+
+
+
+               <!--Registro de Cochera-->
+       <div class="mx-auto col-md-4 row justify-content-center h-100 mb-5">
+        <a href="/garage" class="btn btn-success btn-block" type="submit"  style="height: 100%;" > <i class="fa fa-book  fa-5x" style="height: 100px;" aria-hidden="true"></i><h1>Registro Cochera</h1></a>
+ 
+
+       </div><!--div que cierra el boton de registro-->
+
+
+
+
+
+
+
+       </div><!--div que cierra el contenedor principal-->
+        
+    

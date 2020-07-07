@@ -1,0 +1,20 @@
+body{
+  /* The image used */
+  background-image: url(https://es.ramtrucks.com/content/dam/fca-brands/na/ramtrucks/en_us/bhp/lineup/2019-Ram-Jellybean-Warlock-BHP.jpg.image.500.jpg) ;
+            /* Full height */
+            height: 90%;
+            /* Center and scale the image nicely */
+            background-position: 50% -300%;
+            background-repeat: no-repeat;
+            background-size: 40;
+        }
+
+
+        @media (max-width: 500px){
+            body{
+              height: 100%;
+              background-position: 50% 270px;
+              background-repeat: no-repeat;
+              background-size: 70%;
+            }
+        }

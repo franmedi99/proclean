@@ -1,0 +1,101 @@
+  <link rel="stylesheet" href="/css/style.css">
+  <!--Opciones-->
+    <div class="border container mt-5 col col-md-6">
+    <h3 class="text-center">Opciones</h3>
+        <!--Cochera-->
+        <div class=" p-1 col col-md-6 form-row mt-2 mx-auto">
+        <div class="mx-auto col-12" >
+        <form action="" method="POST">
+        <a href="./cochera.html"  class="btn btn-success btn-block" type="submit"  style="height: 100%;" onclick="alerta(),event.preventDefault()" > <i class="fa fa-search"  aria-hidden="true"></i>Cochera</a>
+        </form>
+        </div>
+        </div>
+
+        <!--Lavadero-->
+        <div class=" p-1 col col-md-6 form-row mb-1 mx-auto">
+        <div class="mx-auto col-12">
+        <a href="#ventana4" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-search"  aria-hidden="true"></i>Lavadero</a>
+        </div>
+
+
+
+        <div>
+            <div class="modal fade" tabindex="-1" role="dialog" id="ventana4">
+                <div class="modal-dialog" role="document" style="width: max-content;">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="border">
+                            <form action="/NewCar" method="POST">                   
+                            <h5 class="pt-1 text-center">Atencion Recibida</h5>
+                            <div class="form-row">       
+                            <div class="form-group p-3 mx-auto" >
+                            <li style="list-style: none;">
+                                <ul>
+                                <label>Lustre</label>
+                                <input type="checkbox" name="lustre" id="lustre" value="500"  onclick="abc()" > 
+                                </ul>
+                                <ul>
+                                <label>Motor</label>
+                                <input type="checkbox" name="motor" id="motor" value="600" onclick="abc()" >
+                                </ul>
+                                <ul>
+                                <label>Lavado</label>
+                                <input type="checkbox" name="lavado" id="lavado" value="700" onclick="abc()"> 
+                                </ul>
+                                <ul>
+                                <label>Tapizado</label>
+                                <input type="checkbox" name="tapizado" id="tapizado" value="800" onclick="abc()">
+                                </ul>
+                                <ul>
+                                <label>Aduc. Barro</label>
+                                <input type="checkbox" name="barro" id="barro" value="450" onclick="abc()">
+                                </ul>
+                                <ul>
+                                <label>Hidratacion de Cuero</label>
+                                <input type="checkbox" name="cuero" id="cuero" value="1500" onclick="abc()">
+                                </ul>
+                                <ul>
+                                <label>Tratamiento Acrilico S/L</label>
+                                <input type="checkbox" name="acrilico" id="acrilico" value="2000" onclick="abc()">
+                                </ul>
+                            </li>
+                        
+                            <div class="form-group col">
+                            <div class="form-row">
+                            <div class="form-group col-md-6 text-center mx-auto">
+                            <label>Fecha</label>
+                            <input type="text" id="theDate" name="fecha" class="form-control text-center" placeholder="Fecha">
+                            </div>
+                            <div class="form-group col-md-6 text-center mx-auto">
+                            <label>Hora</label>
+                            <input type="text" id="thetime" name="hora" class="form-control text-center" placeholder="Hora">
+                            </div>
+                            </div>
+                            <div class="form-row">
+                            <label for="final">Importe</label>
+                            <input type="text" class="text-center col col-md-12" id="final" disabled>
+                            </div>
+                            </div>
+                            <div class="form-action-buttons p-3 text-center">
+                            <button type="submit" class="btn btn-success">Enviar</button>
+                            </div>
+                            </div>
+                            </div>
+                         </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+            </div>
+     </div>
+    </div>
+    </div>
+
+<script src="/js/alert.js"></script>
+<script src="/js/today_date.js"></script>
+<script src="/js/today_time.js"></script>
+<script src="/js/importe.js"></script>

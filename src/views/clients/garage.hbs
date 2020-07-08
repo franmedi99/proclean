@@ -10,15 +10,15 @@
           </tr>
         </thead>
         <tbody>
+          {{#each clients}}
           <tr>
-            <th scope="row">BSJ641</th>
-            <td>Fiat</td>
-            <td>Fiorino</td>
-            <td>06/07/2020</td>
+            <th scope="row">{{patente}}</th>
+            <td>{{marca}}</td>
+            <td>{{modelo}}</td>
+            <td>{{fecha}} {{hora}}</td>
             <td><a href="" type="submit" class="btn btn-danger btn-block">Egresar</a></td>
           </tr>
-
-
+          {{/each}}
         </tbody>
       </table>
     </div>

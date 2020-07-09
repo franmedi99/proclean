@@ -1,6 +1,4 @@
-<div class="container mt-5">
-  <div class="form-row">
-    <table class="table form-group mx-auto col-12">
+<table class="table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Patente</th>
@@ -22,7 +20,6 @@
           {{/each}}
         </tbody>
       </table>
-      </div>
 
       <!--Egreso Cochera -->
 
@@ -38,31 +35,33 @@
                             <div class="form-group p-3 col-12 mx-auto" >
                             <li style="list-style: none;">
                                 <ul>
-                                <label>Lustre</label>
-                                <input type="checkbox" name="lustre" id="lustre" value="500"  onclick="abc()" > 
+                                <label>Media hora</label>
+                                <input type="checkbox" name="mhora" id="mhora" value="500"  onclick="abc()" > 
+                                <div id="ipmh" style="display: none"><input type="number" id="txtPassportNumber" /></div>
                                 </ul>
                                 <ul>
-                                <label>Motor</label>
-                                <input type="checkbox" name="motor" id="motor" value="600" onclick="abc()" >
+                                <label>Hora</label>
+                                <input type="checkbox" name="motor" id="hora" value="600" onclick="abc()";"hora()" >
+                                <div id="iph" style="display: none"><input type="number" id="iphora" /></div>
                                 </ul>
                                 <ul>
-                                <label>Lavado</label>
+                                <label>Medio dia</label>
                                 <input type="checkbox" name="lavado" id="lavado" value="700" onclick="abc()"> 
                                 </ul>
                                 <ul>
-                                <label>Tapizado</label>
+                                <label>Dia</label>
                                 <input type="checkbox" name="tapizado" id="tapizado" value="800" onclick="abc()">
                                 </ul>
                                 <ul>
-                                <label>Aduc. Barro</label>
+                                <label>Semana</label>
                                 <input type="checkbox" name="barro" id="barro" value="450" onclick="abc()">
                                 </ul>
                                 <ul>
-                                <label>Hidratacion de Cuero</label>
+                                <label>Quincena</label>
                                 <input type="checkbox" name="cuero" id="cuero" value="1500" onclick="abc()">
                                 </ul>
                                 <ul>
-                                <label>Tratamiento Acrilico S/L</label>
+                                <label>Mes</label>
                                 <input type="checkbox" name="acrilico" id="acrilico" value="2000" onclick="abc()">
                                 </ul>
                             </li>
@@ -104,3 +103,7 @@
 
 
     </div>
+
+    <script src="/js/importe_cochera.js"></script>
+    <script src="/js/today_date.js"></script>
+    <script src="/js/today_time.js"></script>

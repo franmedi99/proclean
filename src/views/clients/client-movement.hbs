@@ -52,7 +52,8 @@
                   <div class="modal-content form-group">
                     <div class="modal-body">
                         <div class="border">
-                            <form action="/NewCar" method="POST">                   
+                            <form action="/tobox" method="POST">
+                            <input type="hidden" id="final" name="box">                
                             <h5 class="pt-1 text-center">Atencion Recibida</h5>
                             <div class="form-row">       
                             <div class="form-group p-3 col-12 mx-auto" >
@@ -100,7 +101,7 @@
                             </div>
                             <div class="form-row">
                             <label for="final">Importe</label>
-                            <input type="text" class="text-center col col-md-12" id="final" disabled>
+                            <input type="text" class="text-center col col-md-12" id="total" disabled>
                             </div>
                             </div>
                             <div class="form-action-buttons p-3 text-center">

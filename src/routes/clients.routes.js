@@ -6,7 +6,9 @@ const {
         renderListGarage,
         renderClients,
         findClient,
-        sendToGarage
+        sendToGarage,
+        sendToBox,
+        sendToBoxCar
 
 }
         = require('../controllers/clients.controller');
@@ -25,6 +27,6 @@ router.get('/garage',isAuthenticated , renderListGarage);//render forms
 router.post('/clients/new-client',isAuthenticated , createNewClient);//creando clientes
 router.post('/clients/find-client',isAuthenticated ,findClient);//buscando clientes
 router.post('/clients/send-garage',isAuthenticated , sendToGarage);//enviar cliente al garage
-
-
+router.post('/tobox',isAuthenticated , sendToBox);//enviando a la caja
+router.post('/toboxcar',isAuthenticated , sendToBoxCar);//enviando a la caja
 module.exports = router;

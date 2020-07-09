@@ -71,15 +71,73 @@ function abc(mhora,hora) {
 
     //total
     document.getElementById("final").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
+    document.getElementById("total").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
 }
 
 onload = function(){ 
-    var ele = document.querySelectorAll('.val')[0];
-    ele.onkeypress = function(e) {
+    var ele1 = document.querySelectorAll('.val1')[0];
+    var ele2 = document.querySelectorAll('.val2')[0];
+    var ele3 = document.querySelectorAll('.val3')[0];
+    var ele4 = document.querySelectorAll('.val4')[0];
+    var ele5 = document.querySelectorAll('.val5')[0];
+    var ele6 = document.querySelectorAll('.val6')[0];
+    var ele7 = document.querySelectorAll('.val7')[0];
+    ele1.onkeypress = function(e) {
        if(isNaN(this.value+String.fromCharCode(e.charCode)))
           return false;
     }
-    ele.onpaste = function(e){
+    ele1.onpaste = function(e){
        e.preventDefault();
     }
+
+    ele2.onkeypress = function(e) {
+      if(isNaN(this.value+String.fromCharCode(e.charCode)))
+         return false;
+   }
+   ele2.onpaste = function(e){
+      e.preventDefault();
+   }
+
+   ele3.onkeypress = function(e) {
+      if(isNaN(this.value+String.fromCharCode(e.charCode)))
+         return false;
+   }
+   ele3.onpaste = function(e){
+      e.preventDefault();
+   }
+
+   ele4.onkeypress = function(e) {
+      if(isNaN(this.value+String.fromCharCode(e.charCode)))
+         return false;
+   }
+   ele4.onpaste = function(e){
+      e.preventDefault();
+   }
+
+   ele5.onkeypress = function(e) {
+      if(isNaN(this.value+String.fromCharCode(e.charCode)))
+         return false;
+   }
+   ele5.onpaste = function(e){
+      e.preventDefault();
+   }
+
+   ele6.onkeypress = function(e) {
+      if(isNaN(this.value+String.fromCharCode(e.charCode)))
+         return false;
+   }
+   ele6.onpaste = function(e){
+      e.preventDefault();
+   }
+
+   ele7.onkeypress = function(e) {
+      if(isNaN(this.value+String.fromCharCode(e.charCode)))
+         return false;
+   }
+   ele7.onpaste = function(e){
+      e.preventDefault();
+   }
+
+
   }
+

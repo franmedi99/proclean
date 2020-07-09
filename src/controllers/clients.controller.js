@@ -1,9 +1,11 @@
 const clientsCtrl = {};
 const Client = require('../models/client');
 const Garage = require('../models/garage');
+const Box = require('../models/box');
 clientsCtrl.renderClients= async(req,res) =>{
     const clients = await Client.find({},{patente:1, _id:1});
-    res.render('clients/client-actions',{clients});
+    const box = await Box.aggregate([{$group:{_id:null,box:{$sum:"$box"}}}]);;
+    res.render('clients/client-actions',{clients, box});
 };
 
 clientsCtrl.findClient= async(req,res) =>{
@@ -45,6 +47,57 @@ clientsCtrl.renderListGarage=async(req,res) =>{
     const findCars =  await Garage.find();
     res.render('clients/garage',{findCars});
 }
+
+clientsCtrl.sendToBox=async(req,res) =>{
+    const{box} = req.body
+    if (isNaN(box)) {
+        req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}else{
+    if(box>0){
+        
+        const sendToBox =  await new Box({box});
+        await sendToBox.save();
+        req.flash('success_msg', 'Lavado Agregado satisfactoriamente');
+        res.redirect('/clients');
+
+
+
+}else{
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}
+}
+    
+}
+
+
+clientsCtrl.sendToBoxCar=async(req,res) =>{
+    const{box,patente} = req.body
+    if (isNaN(box)) {
+        req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}else{
+    if(box>0){
+        const borrar = await Garage.deleteMany({status:patente});
+        await borrar.save();
+        const sendToBox =  await new Box({box});
+        await sendToBox.save();
+        req.flash('success_msg', 'Movimiento completado satisfactoriamente');
+        res.redirect('/clients');
+
+
+
+}else{
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}
+}
+    
+}
+
+
+
 
 
 

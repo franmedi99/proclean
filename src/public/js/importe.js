@@ -60,7 +60,8 @@ function abc(valor_lustre, valor_motor, valor_extra) {
 
     document.getElementById("final").value = parseInt(valor_lustre) + parseInt(valor_motor) + parseInt(valor_lavado) + parseInt(valor_tapizado)
     +parseInt(valor_barro) + parseInt(valor_cuero) + parseInt(valor_acrilico);
-    
+    document.getElementById("total").value = parseInt(valor_lustre) + parseInt(valor_motor) + parseInt(valor_lavado) + parseInt(valor_tapizado)
+    +parseInt(valor_barro) + parseInt(valor_cuero) + parseInt(valor_acrilico);
 }
 
 

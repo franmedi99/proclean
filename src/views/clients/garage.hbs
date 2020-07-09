@@ -36,49 +36,54 @@
                             <li style="list-style: none;">
                                 <ul>
                                 <label>Media hora</label>
-                                <input type="checkbox" name="mhora" id="mhora" value="500"  onclick="abc()" > 
-                                <div id="ipmh" style="display: none"><input type="number" id="txtPassportNumber" /></div>
+                                <input type="checkbox" name="mhora" id="mhora" value="500"  onchange="abc()" > 
+                                <div id="ipmh" style="display: none"><input type="number" id="ipmhora" onkeyup="abc()" /></div>
                                 </ul>
                                 <ul>
                                 <label>Hora</label>
-                                <input type="checkbox" name="motor" id="hora" value="600" onclick="abc()";"hora()" >
-                                <div id="iph" style="display: none"><input type="number" id="iphora" /></div>
+                                <input type="checkbox" name="hora" id="hora" value="600" onchange="abc()" >
+                                <div id="iph" style="display: none"><input type="number" id="iphora" onkeyup="abc()"/></div>
                                 </ul>
                                 <ul>
                                 <label>Medio dia</label>
-                                <input type="checkbox" name="lavado" id="lavado" value="700" onclick="abc()"> 
+                                <input type="checkbox" name="mdia" id="mdia" value="700" onchange="abc()"> 
+                                <div id="ipmd" style="display: none"><input type="number" id="ipmdia" onkeyup="abc()"/></div>
                                 </ul>
                                 <ul>
                                 <label>Dia</label>
-                                <input type="checkbox" name="tapizado" id="tapizado" value="800" onclick="abc()">
+                                <input type="checkbox" name="dia" id="dia" value="800" onchange="abc()">
+                                <div id="ipd" style="display: none"><input type="number" id="ipdia" onkeyup="abc()" /></div>
                                 </ul>
                                 <ul>
                                 <label>Semana</label>
-                                <input type="checkbox" name="barro" id="barro" value="450" onclick="abc()">
+                                <input type="checkbox" name="semana" id="semana" value="450" onchange="abc()">
+                                <div id="ips" style="display: none"><input type="number" id="ipsemana" onkeyup="abc()" /></div>
                                 </ul>
                                 <ul>
                                 <label>Quincena</label>
-                                <input type="checkbox" name="cuero" id="cuero" value="1500" onclick="abc()">
+                                <input type="checkbox" name="quincena" id="quincena" value="1500" onchange="abc()">
+                                <div id="ipq" style="display: none"><input type="number" id="ipquincena" onkeyup="abc()"/></div>
                                 </ul>
                                 <ul>
                                 <label>Mes</label>
-                                <input type="checkbox" name="acrilico" id="acrilico" value="2000" onclick="abc()">
+                                <input type="checkbox" name="mes" id="mes" value="2000" onchange="abc()">
+                                <div id="ipm" style="display: none"><input type="number" id="ipmes" onkeyup="abc()" /></div>
                                 </ul>
                             </li>
                         
                             <div class="form-group col">
                             <div class="form-row">
                             <div class="form-group col-md-6 text-center mx-auto">
-                            <label>Fecha</label>
-                            <input type="text" id="theDate" name="fecha" class="form-control text-center" placeholder="Fecha">
+                            
+                            <input type="hidden" id="theDate" name="fecha" class="form-control text-center" placeholder="Fecha">
                             </div>
                             <div class="form-group col-md-6 text-center mx-auto">
-                            <label>Hora</label>
-                            <input type="text" id="thetime" name="hora" class="form-control text-center" placeholder="Hora">
+                            
+                            <input type="hidden" id="thetime" name="hora" class="form-control text-center" placeholder="Hora">
                             </div>
                             </div>
                             <div class="form-row">
-                            <label for="final">Importe</label>
+                            <label for="final">Importe total</label>
                             <input type="text" class="text-center col col-md-12" id="final" disabled>
                             </div>
                             </div>

@@ -1,9 +1,13 @@
   <link rel="stylesheet" href="/css/style.css">
-  <div class="border mb-1 mx-auto" style="max-width: 43rem;">
+  <div class="form-row">
+  <div class="border mb-2 mx-auto col col-md-6 " style="max-width: 43rem;">
 
+    <!-- Datos cliente -->
 
-     <h3 class=" text-center text-success">Patente</h3>
-     <h5 class="text-dark text-center">{{findClient.patente}}</h5>
+    <h4 class="text-center mt-1 text-success">Datos del Cliente</h4>
+    
+    <h3 class=" text-center text-success">Patente</h3>
+    <h5 class="text-dark text-center">{{findClient.patente}}</h5>
 
     <h3 class=" text-center text-success">Marca</h3>
     <h5 class="text-dark text-center">{{findClient.marca}}</h5>
@@ -11,13 +15,12 @@
     <h3 class=" text-center text-success">Modelo</h3>
     <h5  class="text-dark text-center">{{findClient.modelo}}</h5>
 
-
-
-
-
+ </div>
 </div>
+
   <!--Opciones-->
-    <div class="border container mt-5 col col-md-6">
+  <div class="form-row">
+    <div class="border mt-4 mx-auto col col-md-6">
     <h3 class="text-center">Opciones</h3>
         <!--Cochera-->
         <div class=" p-1 col col-md-6 form-row mt-2 mx-auto">
@@ -38,6 +41,7 @@
         <div class=" p-1 col col-md-6 form-row mb-1 mx-auto">
         <div class="mx-auto col-12">
         <a href="#ventana4" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-search"  aria-hidden="true"></i>Lavadero</a>
+        </div>
         </div>
 
 

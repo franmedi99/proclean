@@ -4,7 +4,7 @@ body{
             /* Full height */
             height: 90%;
             /* Center and scale the image nicely */
-            background-position: 50% -300%;
+            background-position: 50% 60vh;
             background-repeat: no-repeat;
             background-size: 40;
         }
@@ -13,8 +13,8 @@ body{
         @media (max-width: 500px){
             body{
               height: 100%;
-              background-position: 50% 270px;
+              background-position: 50% 65vh;
               background-repeat: no-repeat;
-              background-size: 70%;
+              background-size: 0%;
             }
         }

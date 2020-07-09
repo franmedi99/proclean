@@ -31,7 +31,7 @@ clientsCtrl.sendToGarage= async(req,res)=>{
     const findClient =  await Garage.findOne({patente:patente});
     if(findClient){
         req.flash('error_msg', 'Este cliente ya esta registrado en la cochera.');
-        
+        res.redirect('/garage');
     }else{
     const newClient =  await new Garage({patente,marca,modelo,fecha,hora,tipo});
     await newClient.save();

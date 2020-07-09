@@ -72,3 +72,14 @@ function abc(mhora,hora) {
     //total
     document.getElementById("final").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
 }
+
+onload = function(){ 
+    var ele = document.querySelectorAll('.val')[0];
+    ele.onkeypress = function(e) {
+       if(isNaN(this.value+String.fromCharCode(e.charCode)))
+          return false;
+    }
+    ele.onpaste = function(e){
+       e.preventDefault();
+    }
+  }

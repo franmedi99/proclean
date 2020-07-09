@@ -1,12 +1,13 @@
 <div class="container mt-5">
-    <table class="table">
+  <div class="form-row">
+    <table class="table form-group mx-auto col-12">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Patente</th>
             <th scope="col">Marca </th>
             <th scope="col">Modelo</th>
             <th scope="col">Entrada</th>
-            <th scope="col">Accion</th>
+            <th scope="col" class="text-center">Accion</th>
           </tr>
         </thead>
         <tbody>
@@ -16,9 +17,90 @@
             <td>{{marca}}</td>
             <td>{{modelo}}</td>
             <td>{{fecha}} {{hora}}</td>
-            <td><a href="" type="submit" class="btn btn-danger btn-block">Egresar</a></td>
+            <td><a href="#ventana6" type="submit" class="btn btn-danger btn-block"  data-toggle="modal">Egresar</a></td>
           </tr>
           {{/each}}
         </tbody>
       </table>
+      </div>
+
+      <!--Egreso Cochera -->
+
+      <div>
+            <div class="modal fade" tabindex="-1" role="dialog" id="ventana6">
+                <div class="modal-dialog form-row col-11" role="document" style="width: max-content;">
+                  <div class="modal-content form-group">
+                    <div class="modal-body">
+                        <div class="border">
+                            <form action="/NewCar" method="POST">                   
+                            <h5 class="pt-1 text-center">Atencion Recibida</h5>
+                            <div class="form-row">       
+                            <div class="form-group p-3 col-12 mx-auto" >
+                            <li style="list-style: none;">
+                                <ul>
+                                <label>Lustre</label>
+                                <input type="checkbox" name="lustre" id="lustre" value="500"  onclick="abc()" > 
+                                </ul>
+                                <ul>
+                                <label>Motor</label>
+                                <input type="checkbox" name="motor" id="motor" value="600" onclick="abc()" >
+                                </ul>
+                                <ul>
+                                <label>Lavado</label>
+                                <input type="checkbox" name="lavado" id="lavado" value="700" onclick="abc()"> 
+                                </ul>
+                                <ul>
+                                <label>Tapizado</label>
+                                <input type="checkbox" name="tapizado" id="tapizado" value="800" onclick="abc()">
+                                </ul>
+                                <ul>
+                                <label>Aduc. Barro</label>
+                                <input type="checkbox" name="barro" id="barro" value="450" onclick="abc()">
+                                </ul>
+                                <ul>
+                                <label>Hidratacion de Cuero</label>
+                                <input type="checkbox" name="cuero" id="cuero" value="1500" onclick="abc()">
+                                </ul>
+                                <ul>
+                                <label>Tratamiento Acrilico S/L</label>
+                                <input type="checkbox" name="acrilico" id="acrilico" value="2000" onclick="abc()">
+                                </ul>
+                            </li>
+                        
+                            <div class="form-group col">
+                            <div class="form-row">
+                            <div class="form-group col-md-6 text-center mx-auto">
+                            <label>Fecha</label>
+                            <input type="text" id="theDate" name="fecha" class="form-control text-center" placeholder="Fecha">
+                            </div>
+                            <div class="form-group col-md-6 text-center mx-auto">
+                            <label>Hora</label>
+                            <input type="text" id="thetime" name="hora" class="form-control text-center" placeholder="Hora">
+                            </div>
+                            </div>
+                            <div class="form-row">
+                            <label for="final">Importe</label>
+                            <input type="text" class="text-center col col-md-12" id="final" disabled>
+                            </div>
+                            </div>
+                            <div class="form-action-buttons p-3 text-center">
+                            <button type="submit" class="btn btn-success">Enviar</button>
+                            </div>
+                            </div>
+                            </div>
+                         </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+            </div>
+
+
+
+
+
     </div>

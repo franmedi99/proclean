@@ -3,7 +3,8 @@ const Client = require('../models/client');
 const Garage = require('../models/garage');
 const Box = require('../models/box');
 clientsCtrl.renderClients= async(req,res) =>{
-    const clients = await Client.find({},{patente:1, _id:1});
+    const {patente} =  req.body;
+    const clients = await Client.Clientfind( { patente: { $regex: patente } } )
     const box = await Box.aggregate([{$group:{_id:null,box:{$sum:"$box"}}}]);;
     res.render('clients/client-actions',{clients, box});
 };
@@ -73,26 +74,9 @@ clientsCtrl.sendToBox=async(req,res) =>{
 
 
 clientsCtrl.sendToBoxCar=async(req,res) =>{
-    const{box,patente} = req.body
-    if (isNaN(box)) {
-        req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
-        res.redirect('/clients');
-}else{
-    if(box>0){
-        const borrar = await Garage.deleteMany({status:patente});
-        await borrar.save();
-        const sendToBox =  await new Box({box});
-        await sendToBox.save();
-        req.flash('success_msg', 'Movimiento completado satisfactoriamente');
-        res.redirect('/clients');
+        const car = await Garage.findById(req.params.id);
+        res.render('notes/edit-note', {car});
 
-
-
-}else{
-            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
-        res.redirect('/clients');
-}
-}
     
 }
 

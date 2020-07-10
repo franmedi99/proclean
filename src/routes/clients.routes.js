@@ -19,7 +19,7 @@ const {
 //GET
 router.get('/clients',isAuthenticated , renderClients);//render forms
 router.get('/garage',isAuthenticated , renderListGarage);//render forms
-
+router.get('/notes/edit/:id',isAuthenticated , sendToBoxCar);//render del formulario con cochera
 
 
 

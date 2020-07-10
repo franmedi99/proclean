@@ -74,17 +74,9 @@ clientsCtrl.sendToBox=async(req,res) =>{
 
 clientsCtrl.sendToBoxCar=async(req,res) =>{
         const car = await Garage.findById(req.params.id);
-        res.render('notes/edit-note', {car});
+        res.render('clients/egreso', {car});
 
     
-}
-
-
-clientsCtrl.egreso=async(req,res) =>{
-    
-    res.render('clients/egreso');
-
-
 }
 
 

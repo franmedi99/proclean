@@ -10,11 +10,41 @@ body{
         }
 
 
-        @media (max-width: 500px){
+        @media (max-width: 1440px){
+          body{
+            height: 100%;
+            background-position: 50% 55vh;
+            background-repeat: no-repeat;
+            background-size: 25%;
+          }
+      }
+
+
+
+
+        @media (max-width: 1024px){
             body{
               height: 100%;
-              background-position: 50% 65vh;
+              background-position: 50% 70vh;
               background-repeat: no-repeat;
-              background-size: 0%;
+              background-size: 25%;
             }
         }
+
+        @media (max-width: 1024px){
+          body{
+            height: 100%;
+            background-position: 50% 75vh;
+            background-repeat: no-repeat;
+            background-size: 20%;
+          }
+      }
+
+        @media (max-width: 425px){
+          body{
+            height: 100%;
+            background-position: 50% 75vh;
+            background-repeat: no-repeat;
+            background-size: 50%;
+          }
+      }

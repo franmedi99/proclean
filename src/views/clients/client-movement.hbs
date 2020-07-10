@@ -15,16 +15,18 @@
     <h3 class=" text-center text-success">Modelo</h3>
     <h5  class="text-dark text-center">{{findClient.modelo}}</h5>
 
- </div>
-</div>
 
-  <!--Opciones-->
-  <div class="form-row">
-    <div class="border mt-4 mx-auto col col-md-6">
-    <h3 class="text-center">Opciones</h3>
-        <!--Cochera-->
-        <div class=" p-1 col col-md-6 form-row mt-2 mx-auto">
-        <div class="mx-auto col-12" >
+
+
+    <!--Opciones-->
+    <div class="text-center"><hr></div>
+    <div class="text-center mt-4 mb-4 text-primary"><h2>Opciones</h2></div>
+  <div class="container mx-auto mb-3">
+    <div class="form-row col-12 mx-auto">
+      
+    
+    
+        <div class="col-6 mb-1">
         <form action="/clients/send-garage" method="POST" onsubmit="return confirm('Desea enviar este cliente a la cochera?');">
         <input type="hidden" name="patente" value="{{findClient.patente}}">
         <input type="hidden" name="marca" value="{{findClient.marca}}">
@@ -32,17 +34,24 @@
         <input type="hidden" name="fecha" id="theDate">
         <input type="hidden" name="hora" id="thetime">
         <input type="hidden" name="tipo" value="{{findClient.tipo}}">
-        <button  type="submit" class="btn btn-success btn-block" > <i class="fa fa-search"  aria-hidden="true"></i>Cochera</button>
+        <button  type="submit" class="btn btn-success btn-block"> <i class="fa fa-search"  aria-hidden="true"></i>Cochera</button>
         </form>
+        </div>
+        
+
+        <!--Lavadero-->
+        <div class="col-6 mb-1">
+        <div>
+        <a href="#ventana4" class="btn btn-success btn-block"  type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-search"  aria-hidden="true"></i>Lavadero</a>
+        </div>
+        </div>        
         </div>
         </div>
 
-        <!--Lavadero-->
-        <div class=" p-1 col col-md-6 form-row mb-1 mx-auto">
-        <div class="mx-auto col-12">
-        <a href="#ventana4" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-search"  aria-hidden="true"></i>Lavadero</a>
-        </div>
-        </div>
+ </div>
+</div>
+
+  
 
 
 
@@ -119,8 +128,8 @@
                 </div><!-- /.modal-dialog -->
               </div><!-- /.modal -->
             </div>
-     </div>
-    </div>
+    
+    
     </div>
 
 <script src="/js/alert.js"></script>

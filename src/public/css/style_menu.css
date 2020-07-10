@@ -33,7 +33,7 @@ body{
           @media (max-width: 600px){
             body{
               height: 100%;
-              background-position: 50%  38vh;
+              background-position: 50%  30vh;
               background-repeat: no-repeat;
               background-size: 50%;
             }

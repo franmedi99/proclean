@@ -6,7 +6,13 @@
                             <h5 class="pt-1 text-center">Atencion Recibida</h5>
                             <div class="form-row">       
                             <div class="form-group p-3 col-8 mx-auto" >
-                            <li style="list-style: none;" class="border p-2">
+                            <li style="list-style: none;" class="border p-2 form-row ">
+                                <div class="col-12">
+                                    <div class="text-center mx-auto">
+                                        <h3>Cliente</h3>
+                                        <h2>{{car.patente}}</h2>
+                                    </div>
+                                    
                                 <ul>
                                 <label>Media hora</label>
                                 <input type="checkbox" name="mhora" id="mhora" value="500"  onchange="abc()"  > 
@@ -42,6 +48,8 @@
                                 <input type="checkbox" name="mes" id="mes" value="2000" onchange="abc()">
                                 <div id="ipm" style="display: none" class="mr-5"><input type="text"  min="0" class="val7 form-control text-center" id="ipmes" onkeyup="abc()"   placeholder="Mes"/></div>
                                 </ul>
+                                
+                                </div>
                             </li>
                             <div class="form-group col">
                             <div class="form-row">

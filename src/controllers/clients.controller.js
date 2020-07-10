@@ -1,7 +1,7 @@
 const clientsCtrl = {};
 const Client = require('../models/client');
 const Garage = require('../models/garage');
-const Box = require('../models/box');
+const Box = require('../models/empleado.caja');
 clientsCtrl.renderClients= async(req,res) =>{
     const clients = await Client.find({},{patente:1, _id:1});
     const box = await Box.aggregate([{$group:{_id:null,box:{$sum:"$box"}}}]);;
@@ -49,14 +49,16 @@ clientsCtrl.renderListGarage=async(req,res) =>{
 }
 
 clientsCtrl.sendToBox=async(req,res) =>{
-    const{box} = req.body
+    const{box,type} = req.body
+    const user = req.user.username;
+    const action = "LAVADO";
     if (isNaN(box)) {
         req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
         res.redirect('/clients');
 }else{
     if(box>0){
         
-        const sendToBox =  await new Box({box});
+        const sendToBox =  await new Box({box, user,action,type});
         await sendToBox.save();
         req.flash('success_msg', 'Lavado Agregado satisfactoriamente');
         res.redirect('/clients');
@@ -80,7 +82,9 @@ clientsCtrl.sendToBoxCar=async(req,res) =>{
 }
 
 clientsCtrl.deleteofGarage=async(req,res) =>{
-    const{identi, box} = req.body
+    const{identi, box,type} = req.body;
+    const user = req.user.username;
+    const action = "COCHERA";
     if (isNaN(box)) {
         req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
         res.redirect('/clients');
@@ -88,7 +92,8 @@ clientsCtrl.deleteofGarage=async(req,res) =>{
 
     if(box>0){
         
-        const sendToBox =  await new Box({box});
+        
+        const sendToBox =  await new Box({box, user,action,type})
         await sendToBox.save();
         await Garage.findByIdAndDelete(identi);
         req.flash('success_msg', 'Cliente egresado satisfactoriamente');

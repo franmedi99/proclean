@@ -3,8 +3,7 @@ const Client = require('../models/client');
 const Garage = require('../models/garage');
 const Box = require('../models/box');
 clientsCtrl.renderClients= async(req,res) =>{
-    const {patente} =  req.body;
-    const clients = await Client.Clientfind( { patente: { $regex: patente } } )
+    const clients = await Client.find({},{patente:1, _id:1});
     const box = await Box.aggregate([{$group:{_id:null,box:{$sum:"$box"}}}]);;
     res.render('clients/client-actions',{clients, box});
 };

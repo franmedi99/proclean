@@ -79,6 +79,32 @@ clientsCtrl.sendToBoxCar=async(req,res) =>{
     
 }
 
+clientsCtrl.deleteofGarage=async(req,res) =>{
+    const{identi, box} = req.body
+    if (isNaN(box)) {
+        req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}else{
+
+    if(box>0){
+        
+        const sendToBox =  await new Box({box});
+        await sendToBox.save();
+        await Garage.findByIdAndDelete(identi);
+        req.flash('success_msg', 'Cliente egresado satisfactoriamente');
+        res.redirect('/clients');
+
+
+
+}else{
+  
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}
+}
+}
+
+
 
 
 module.exports = clientsCtrl;

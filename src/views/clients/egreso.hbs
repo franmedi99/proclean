@@ -1,8 +1,9 @@
 
 <div class="form-row">
                             <div class="border col-md-8 mx-auto">
-                            <form action="/toboxcar" method="POST">  
-                            <input type="hidden" id="final" name="box">                 
+                            <form  action="/egresar" method="POST">  
+                            <input type="hidden" id="final" name="box">
+                            <input type="hidden" name="identi" value="{{car._id}}">              
                             <h5 class="pt-1 text-center">Atencion Recibida</h5>
                             <div class="form-row">       
                             <div class="form-group p-3 col-8 mx-auto" >
@@ -15,7 +16,7 @@
                                     
                                 <ul>
                                 <label>Media hora</label>
-                                <input type="checkbox" name="mhora" id="mhora" value="500"  onchange="abc()"  > 
+                                <input type="checkbox" name="mhora" id="mhora" value="500"  onchange="abc();" > 
                                 <div id="ipmh" style="display: none" class="mr-5"><input type="text"  min="0" class="val1 form-control text-center" id="ipmhora" onkeyup="abc()" placeholder="Media hora"/></div>
                                 </ul>
                                 <ul>
@@ -78,4 +79,5 @@
 
 
 <script src="/js/today_date.js"></script>
-<script src="/js/today_time.js"></script><script src="/js/importe_cochera.js"></script>
+<script src="/js/today_time.js"></script>
+<script src="/js/importe_cochera.js"></script>

@@ -48,7 +48,7 @@ function abc(mhora,hora) {
     
     var iphora = document.getElementById('iphora');
     var hora_total = hora.value * iphora.value;
-    console.log(hora_total);
+
     
 
     var ipmdia = document.getElementById('ipmdia');
@@ -77,6 +77,7 @@ function abc(mhora,hora) {
 
     
    }
+
 
 onload = function(){ 
     var ele1 = document.querySelectorAll('.val1')[0];

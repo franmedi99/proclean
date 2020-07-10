@@ -15,7 +15,7 @@
             <td>{{marca}}</td>
             <td>{{modelo}}</td>
             <td>{{fecha}} {{hora}}</td>
-            <td><a href="#ventana6" type="submit" class="btn btn-danger btn-block"  data-toggle="modal">Egresar</a></td>
+            <td><a href="./egreso.hbs" type="submit" class="btn btn-danger btn-block" >Egresar</a></td>
           </tr>
           {{/each}}
         </tbody>
@@ -23,93 +23,9 @@
 
       <!--Egreso Cochera -->
 
-      <div>
-            <div class="modal fade" tabindex="-1" role="dialog" id="ventana6">
-                <div class="modal-dialog form-row col-11" role="document" style="width: max-content;">
-                  <div class="modal-content form-group">
-                    <div class="modal-body">
-                        <div class="border">
-                            <form action="/toboxcar" method="POST">  
-                            <input type="hidden" id="final" name="box">                 
-                            <h5 class="pt-1 text-center">Atencion Recibida</h5>
-                            <div class="form-row">       
-                            <div class="form-group p-3 col-12 mx-auto" >
-                            <li style="list-style: none;">
-                                <ul>
-                                <label>Media hora</label>
-                                <input type="checkbox" name="mhora" id="mhora" value="500"  onchange="abc()" > 
-                                <div id="ipmh" style="display: none"><input type="text"  min="0" class="val1 form-control text-center" id="ipmhora" onkeyup="abc()" placeholder="Media hora"/></div>
-                                </ul>
-                                <ul>
-                                <label>Hora</label>
-                                <input type="checkbox" name="hora" id="hora" value="600" onchange="abc()" >
-                                <div id="iph" style="display: none"><input type="text"  min="0" class="val2 form-control text-center" id="iphora" onkeyup="abc()" placeholder="Horas" /></div>
-                                </ul>
-                                <ul>
-                                <label>Medio dia</label>
-                                <input type="checkbox" name="mdia" id="mdia" value="700" onchange="abc()"> 
-                                <div id="ipmd" style="display: none"><input type="text"  min="0" class="val3 form-control text-center" id="ipmdia" onkeyup="abc()" placeholder="Medio Dia"/></div>
-                                </ul>
-                                <ul>
-                                <label>Dia</label>
-                                <input type="checkbox" name="dia" id="dia" value="800" onchange="abc()">
-                                <div id="ipd" style="display: none"><input type="text"  min="0" class="val4 form-control text-center" id="ipdia" onkeyup="abc()"  placeholder="Dias"/></div>
-                                </ul>
-                                <ul>
-                                <label>Semana</label>
-                                <input type="checkbox" name="semana" id="semana" value="450" onchange="abc()">
-                                <div id="ips" style="display: none"><input type="text"  min="0" class="val5 form-control text-center" id="ipsemana" onkeyup="abc()"   placeholder="Semana"/></div>
-                                </ul>
-                                <ul>
-                                <label>Quincena</label>
-                                <input type="checkbox" name="quincena" id="quincena" value="1500" onchange="abc()">
-                                <div id="ipq" style="display: none"><input type="text"  min="0" class="val6 form-control text-center" id="ipquincena" onkeyup="abc()"   placeholder="Quincena"/></div>
-                                </ul>
-                                <ul>
-                                <label>Mes</label>
-                                <input type="checkbox" name="mes" id="mes" value="2000" onchange="abc()">
-                                <div id="ipm" style="display: none"><input type="text"  min="0" class="val7 form-control text-center" id="ipmes" onkeyup="abc()"   placeholder="Mes"/></div>
-                                </ul>
-                            </li>
-                        
-                            <div class="form-group col">
-                            <div class="form-row">
-                            <div class="form-group col-md-6 text-center mx-auto">
-                            
-                            <input type="hidden" id="theDate" name="fecha" class="form-control text-center" placeholder="Fecha">
-                            </div>
-                            <div class="form-group col-md-6 text-center mx-auto">
-                            
-                            <input type="hidden" id="thetime" name="hora" class="form-control text-center" placeholder="Hora">
-                            </div>
-                            </div>
-                            <div class="form-row">
-                            <label for="final">Importe total</label>
-                            <input type="text" class="text-center col col-md-12" id="total" disabled>
-                            </div>
-                            </div>
-                            <div class="form-action-buttons p-3 text-center">
-                            <button type="submit" class="btn btn-success">Enviar</button>
-                            </div>
-                            </div>
-                            </div>
-                         </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-              </div><!-- /.modal -->
-            </div>
-
-
-
-
-
-    </div>
-
-    <script src="/js/importe_cochera.js"></script>
     <script src="/js/today_date.js"></script>
     <script src="/js/today_time.js"></script>
+    <script src="/js/importe_cochera.js"></script>
+
+    
+ 

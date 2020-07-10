@@ -9,3 +9,4 @@ if (day < 10) day = "0" + day;
 
 var today = day + "/" + month + "/" + year;
 document.getElementById("theDate").value = today;
+document.getElementById("theDate1").value = today;

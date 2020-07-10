@@ -1,4 +1,5 @@
 function abc(mhora,hora) {
+   
 
     //media hora
     var mhora = document.getElementById('mhora');
@@ -9,6 +10,7 @@ function abc(mhora,hora) {
     var hora = document.getElementById('hora');
     var iph = document.getElementById('iph');
     iph.style.display = hora.checked ? "block" : "none";
+    
 
     //medio dia
     var mdia = document.getElementById('mdia');
@@ -43,10 +45,10 @@ function abc(mhora,hora) {
     var ipmhora = document.getElementById('ipmhora');
     var mhora_total = mhora.value  * ipmhora.value;
     
-
     
     var iphora = document.getElementById('iphora');
     var hora_total = hora.value * iphora.value;
+    console.log(hora_total);
     
 
     var ipmdia = document.getElementById('ipmdia');
@@ -72,7 +74,9 @@ function abc(mhora,hora) {
     //total
     document.getElementById("final").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
     document.getElementById("total").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
-}
+
+    
+   }
 
 onload = function(){ 
     var ele1 = document.querySelectorAll('.val1')[0];

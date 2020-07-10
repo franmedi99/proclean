@@ -81,7 +81,12 @@ clientsCtrl.sendToBoxCar=async(req,res) =>{
 }
 
 
+clientsCtrl.egreso=async(req,res) =>{
+    
+    res.render('clients/egreso');
 
+
+}
 
 
 

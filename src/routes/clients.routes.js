@@ -8,7 +8,8 @@ const {
         findClient,
         sendToGarage,
         sendToBox,
-        sendToBoxCar
+        sendToBoxCar,
+        egreso
 
 }
         = require('../controllers/clients.controller');
@@ -21,7 +22,7 @@ router.get('/clients',isAuthenticated , renderClients);//render forms
 router.get('/garage',isAuthenticated , renderListGarage);//render forms
 router.get('/notes/edit/:id',isAuthenticated , sendToBoxCar);//render del formulario con cochera
 
-
+router.get('/egreso',isAuthenticated , egreso);
 
 //POST
 router.post('/clients/new-client',isAuthenticated , createNewClient);//creando clientes

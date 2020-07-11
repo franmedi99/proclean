@@ -9,7 +9,8 @@ const {
         sendToGarage,
         sendToBox,
         sendToBoxCar,
-       deleteofGarage
+       deleteofGarage,
+       closeBox
 
 }
         = require('../controllers/clients.controller');
@@ -29,4 +30,7 @@ router.post('/clients/find-client',isAuthenticated ,findClient);//buscando clien
 router.post('/clients/send-garage',isAuthenticated , sendToGarage);//enviar cliente al garage
 router.post('/tobox',isAuthenticated , sendToBox);//enviando a la caja
 router.post('/egresar',isAuthenticated ,deleteofGarage);//enviando a la caja
+
+router.post('/closebox',isAuthenticated ,closeBox);//enviando a la caja
+
 module.exports = router;

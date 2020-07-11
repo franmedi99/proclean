@@ -4,8 +4,8 @@ const Garage = require('../models/garage');
 const Box = require('../models/empleado.caja');
 clientsCtrl.renderClients= async(req,res) =>{
     const clients = await Client.find({},{patente:1, _id:1});
-    const box = await Box.aggregate([{$group:{_id:null,box:{$sum:"$box"}}}]);;
-    res.render('clients/client-actions',{clients, box});
+    const box = await Box.aggregate([{$match:{user:req.user.username}},{$match:{show:1}},{$group:{_id:null,box:{$sum:"$box"}}}]);
+     res.render('clients/client-actions',{clients, box});
 };
 
 clientsCtrl.findClient= async(req,res) =>{
@@ -96,6 +96,15 @@ clientsCtrl.sendToBoxCar=async(req,res) =>{
 
     
 }
+
+clientsCtrl.closeBox=async(req,res) =>{
+    await Box.updateMany({user:req.user.username},{ $set: { show: 0 } })
+    req.flash('success_msg', 'Caja cerrada satisfactoriamente');
+    res.redirect('/');
+    
+}
+
+
 
 clientsCtrl.deleteofGarage=async(req,res) =>{
     const{identi, box,type, fecha , hora} = req.body;

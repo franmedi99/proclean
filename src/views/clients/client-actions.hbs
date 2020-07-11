@@ -1,6 +1,5 @@
     <link rel="stylesheet" href="/css/style_menu.css">
 
-
         <div class="text-center mx-auto col-12" style="height: 60vh;">
             <h2>Proclean</h2>
             <h4>Un tratamiento diferente para tu auto</h4>
@@ -142,7 +141,7 @@
                     <div class="col-md-12 mx-auto text-center">
                         <div class="card">
                             <h1>Registro de Caja</h1>
-                            <div class="container mx-auto text-center form-group col-md-4"><h1>${{#each box as |item|}}{{item.box}}{{/each}}</h1></div>
+                            <div class="container mx-auto text-center form-group col-md-4"><h1>{{#if box}}{{#each box as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h1></div>
 
                             
             </div>
@@ -150,7 +149,9 @@
             </div>
             </div>
             <div class="modal-footer">
-            <button href="#" class="btn btn-danger btn-lg" type="submit">Cerrar Caja</button>
+                <form action="/closebox" method="post">
+            <button type="submit" class="btn btn-danger btn-lg">Cerrar Caja</button>
+            </form>
             <button type="button" class="btn btn-secondary ml-auto btn-lg" data-dismiss="modal">Cancelar</button>
             </div>
             </div><!-- /.modal-content -->

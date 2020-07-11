@@ -45,6 +45,7 @@ usersCtrl.signup =async (req, res) =>{
 
 
 usersCtrl.renderSigninForm = (req, res) =>{
+    req.logout();
     res.render('users/login');
 }
 

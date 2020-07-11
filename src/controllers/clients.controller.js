@@ -2,6 +2,7 @@ const clientsCtrl = {};
 const Client = require('../models/client');
 const Garage = require('../models/garage');
 const Box = require('../models/empleado.caja');
+//---------------------------------------------CONTROLADORES GENERALES----------------------------------------------------
 clientsCtrl.renderClients= async(req,res) =>{
 if(req.user.rol == 1){
 res.send('vista de administrador')
@@ -23,6 +24,9 @@ clientsCtrl.findClient= async(req,res) =>{
     }
 };
 
+
+
+
 clientsCtrl.createNewClient= async (req,res) =>{
     const{patente,marca,modelo,phone,tipo} = req.body
     if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.tipo){
@@ -37,32 +41,16 @@ clientsCtrl.createNewClient= async (req,res) =>{
 }
 };
 
-clientsCtrl.sendToGarage= async(req,res)=>{
-    const{patente,marca,modelo,fecha,hora,tipo} = req.body
 
-    const findClient =  await Garage.findOne({patente:patente});
-    if(findClient){
-        req.flash('error_msg', 'Este cliente ya esta registrado en la cochera.');
-        res.redirect('/garage');
-    }else{
-        if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.fecha|| !req.body.hora|| !req.body.tipo){
- 
-            req.flash('error_msg', 'Ha ocurrido un error a la hora de ingresar el cliente a la cochera, por favor vuelva a intentarlo');
-            res.redirect('/clients');
-        }else{
-    const newClient =  await new Garage({patente,marca,modelo,fecha,hora,tipo});
-    await newClient.save();
-    req.flash('success_msg', 'Cliente agregado Satisfactoriamente');
-    res.redirect('/garage');
-}
-}
-}
+clientsCtrl.closeBox=async(req,res) =>{
+    await Box.updateMany({user:req.user.username},{ $set: { show: 0 } })
+    req.flash('success_msg', 'Caja cerrada y Cierre de sesión satisfactorio');
+    res.redirect('/login');
+    
+};
 
 
-clientsCtrl.renderListGarage=async(req,res) =>{
-    const findCars =  await Garage.find();
-    res.render('clients/garage',{findCars});
-}
+//----------------------------------------CONTROLADORES DE LAVADO----------------------------------------
 
 clientsCtrl.sendToBox=async(req,res) =>{
     const{box,type, fecha, hora} = req.body
@@ -94,20 +82,48 @@ clientsCtrl.sendToBox=async(req,res) =>{
 }
 
 
+
+
+
+//-----------------------------------CONTROLADORES DE COCHERA-----------------------------------------
+
+
+clientsCtrl.sendToGarage= async(req,res)=>{
+    const{patente,marca,modelo,fecha,hora,tipo} = req.body
+
+    const findClient =  await Garage.findOne({patente:patente});
+    if(findClient){
+        req.flash('error_msg', 'Este cliente ya esta registrado en la cochera.');
+        res.redirect('/garage');
+    }else{
+        if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.fecha|| !req.body.hora|| !req.body.tipo){
+ 
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de ingresar el cliente a la cochera, por favor vuelva a intentarlo');
+            res.redirect('/clients');
+        }else{
+    const newClient =  await new Garage({patente,marca,modelo,fecha,hora,tipo});
+    await newClient.save();
+    req.flash('success_msg', 'Cliente agregado Satisfactoriamente');
+    res.redirect('/garage');
+}
+}
+}
+
+
+clientsCtrl.renderListGarage=async(req,res) =>{
+    const findCars =  await Garage.find();
+    res.render('clients/garage',{findCars});
+}
+
+
+
+
 clientsCtrl.sendToBoxCar=async(req,res) =>{
         const car = await Garage.findById(req.params.id);
         res.render('clients/egreso', {car});
 
     
 }
-
-clientsCtrl.closeBox=async(req,res) =>{
-    await Box.updateMany({user:req.user.username},{ $set: { show: 0 } })
-    req.flash('success_msg', 'Caja cerrada satisfactoriamente');
-    res.redirect('/');
-    
-}
-
 
 
 clientsCtrl.deleteofGarage=async(req,res) =>{

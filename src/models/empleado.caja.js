@@ -5,7 +5,8 @@ const RUcajaSchema= new Schema({
     box:{type:Number, required:true},
     action: {type:String, required:true},
     type:{type:String, required:true},
-
+    egreso:{type:String,required:true},
+    show:{type:Number, default: 1}
 })
 
 

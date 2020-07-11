@@ -4,8 +4,8 @@ const Garage = require('../models/garage');
 const Box = require('../models/empleado.caja');
 clientsCtrl.renderClients= async(req,res) =>{
     const clients = await Client.find({},{patente:1, _id:1});
-    const box = await Box.aggregate([{$group:{_id:null,box:{$sum:"$box"}}}]);;
-    res.render('clients/client-actions',{clients, box});
+    const box = await Box.aggregate([{$match:{user:req.user.username}},{$match:{show:1}},{$group:{_id:null,box:{$sum:"$box"}}}]);
+     res.render('clients/client-actions',{clients, box});
 };
 
 clientsCtrl.findClient= async(req,res) =>{
@@ -21,10 +21,16 @@ clientsCtrl.findClient= async(req,res) =>{
 
 clientsCtrl.createNewClient= async (req,res) =>{
     const{patente,marca,modelo,phone,tipo} = req.body
+    if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.tipo){
+ 
+    req.flash('error_msg', 'la patente,marca,modelo y tipo son obligatorias para ingresar un nuevo cliente.');
+    res.redirect('/clients');
+}else{
     const newClient = await  new Client({patente,marca,modelo,phone,tipo});
     await newClient.save();
     req.flash('success_msg', 'Cliente agregado Satisfactoriamente');
     res.redirect('/clients');
+}
 };
 
 clientsCtrl.sendToGarage= async(req,res)=>{
@@ -35,10 +41,16 @@ clientsCtrl.sendToGarage= async(req,res)=>{
         req.flash('error_msg', 'Este cliente ya esta registrado en la cochera.');
         res.redirect('/garage');
     }else{
+        if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.fecha|| !req.body.hora|| !req.body.tipo){
+ 
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de ingresar el cliente a la cochera, por favor vuelva a intentarlo');
+            res.redirect('/clients');
+        }else{
     const newClient =  await new Garage({patente,marca,modelo,fecha,hora,tipo});
     await newClient.save();
     req.flash('success_msg', 'Cliente agregado Satisfactoriamente');
     res.redirect('/garage');
+}
 }
 }
 
@@ -49,7 +61,8 @@ clientsCtrl.renderListGarage=async(req,res) =>{
 }
 
 clientsCtrl.sendToBox=async(req,res) =>{
-    const{box,type} = req.body
+    const{box,type, fecha, hora} = req.body
+    const egreso = req.body.fecha+" "+req.body.hora;
     const user = req.user.username;
     const action = "LAVADO";
     if (isNaN(box)) {
@@ -57,12 +70,15 @@ clientsCtrl.sendToBox=async(req,res) =>{
         res.redirect('/clients');
 }else{
     if(box>0){
-        
-        const sendToBox =  await new Box({box, user,action,type});
+        if (!req.body.box||!user||!req.body.type ) {
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+            res.redirect('/clients');
+        }else{
+        const sendToBox =  await new Box({box, user,action,type, egreso});
         await sendToBox.save();
         req.flash('success_msg', 'Lavado Agregado satisfactoriamente');
         res.redirect('/clients');
-
+    }
 
 
 }else{
@@ -81,8 +97,18 @@ clientsCtrl.sendToBoxCar=async(req,res) =>{
     
 }
 
+clientsCtrl.closeBox=async(req,res) =>{
+    await Box.updateMany({user:req.user.username},{ $set: { show: 0 } })
+    req.flash('success_msg', 'Caja cerrada satisfactoriamente');
+    res.redirect('/');
+    
+}
+
+
+
 clientsCtrl.deleteofGarage=async(req,res) =>{
-    const{identi, box,type} = req.body;
+    const{identi, box,type, fecha , hora} = req.body;
+    const egreso = req.body.fecha+" "+req.body.hora;
     const user = req.user.username;
     const action = "COCHERA";
     if (isNaN(box)) {
@@ -91,14 +117,16 @@ clientsCtrl.deleteofGarage=async(req,res) =>{
 }else{
 
     if(box>0){
-        
-        
-        const sendToBox =  await new Box({box, user,action,type})
+        if (!req.body.box||!user||!req.body.type || !req.body.identi ) {
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+            res.redirect('/clients');
+        }else{            
+        const sendToBox =  await new Box({box, user,action,type, egreso})
         await sendToBox.save();
         await Garage.findByIdAndDelete(identi);
         req.flash('success_msg', 'Cliente egresado satisfactoriamente');
         res.redirect('/clients');
-
+    }
 
 
 }else{

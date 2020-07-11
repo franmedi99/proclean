@@ -1,10 +1,12 @@
     <link rel="stylesheet" href="/css/style_menu.css">
 
 
-        <div class="text-center mx-auto col-12" style="height: 60vh;">
-            <h2>Proclean</h2>
-            <h4>Un tratamiento diferente para tu auto</h4>
+        <div class="text-center mx-auto col-12 form-row" >
+            <h2 class="col-12">Proclean</h2>
+            <h4 class="col-12">Un tratamiento diferente para tu auto</h4>
+            <div class=" mx-auto mb-2"><img src="/img/audi.jpg" class=" img-fluid"></div>
             </div>
+            
        
         <div class="col-md-12 form-row mx-auto ">
           
@@ -35,7 +37,7 @@
                 <div class="ml-3 mr-3">
                 <form action="/clients/find-client" method="post">
                 <div class="form-group mb-3">
-                    <label for="tpatente">Buscar cliente</label>
+                    
                 <input list="tpatente" class="form-control text-center" name="patente"  autocomplete="off" />
                 <datalist id="tpatente">
                  {{#each clients}}
@@ -44,7 +46,7 @@
                 </datalist>
                 </div>
                 <div class="form-group">
-                <button type="submit" id="entrar2" class="btn btn-success mx-auto btn-lg btn-block" >Buscar Cliente</button>
+                <button type="submit" id="entrar2" class="btn btn-success mx-auto btn-lg btn-block" >Buscar</button>
                 </div>           
                 </form>
                 </div>   

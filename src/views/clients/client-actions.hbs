@@ -1,19 +1,18 @@
-    <link rel="stylesheet" href="/css/style_menu.css">
+    
 
 
         <div class="text-center mx-auto col-12 form-row" >
-            <h2 class="col-12">Proclean</h2>
-            <h4 class="col-12">Un tratamiento diferente para tu auto</h4>
-            <div class=" mx-auto mb-2"><img src="/img/audi.jpg" class=" img-fluid"></div>
+            <h1 class="col-12">Proclean</h1>
+            <h4 class="col-12">Un tratamiento diferente para tu auto <i class="fa fa-flag-checkered" aria-hidden="true"></i></h4>
+            <div class=" mx-auto "><img src="/img/audi.jpg" class="img-fluid"></div>
             </div>
-            
-       
-        <div class="col-md-12 form-row mx-auto ">
+
+        <div class="col-md-11 form-row mx-auto ">
           
     
         <!--Buscar Cliente-->
-       <div class="mx-auto col-md-6 row justify-content-center mt-4" style="height: 20%;">
-        <a href="#ventana1" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-search  fa-5x" style="height: 100px;" aria-hidden="true"></i><h3>Buscar Cliente</h3></a>
+       <div class="mx-auto col-md-5 row justify-content-center mb-1 ">
+        <a href="#ventana1" class="btn btn-success btn-block" type="submit" data-toggle="modal"  > <i class="fa fa-search  fa-5x"  aria-hidden="true"></i><h3>Buscar Cliente</h3></a>
         
     
         <div>
@@ -37,7 +36,7 @@
                 <div class="ml-3 mr-3">
                 <form action="/clients/find-client" method="post">
                 <div class="form-group mb-3">
-                    
+                <label for="tpatente" class="text-left">Patente</label>
                 <input list="tpatente" class="form-control text-center" name="patente"  autocomplete="off" />
                 <datalist id="tpatente">
                  {{#each clients}}
@@ -68,8 +67,8 @@
 
     
         <!--Registrar Cliente-->
-       <div class="mx-auto col-md-6 row justify-content-center mt-4" style="height: 20%;">
-        <a href="#ventana2" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" ><i class="fa fa-user-circle-o fa-5x" style="height: 100px;" ></i><h3>Nuevo Cliente</h3> </i></a>
+       <div class="mx-auto col-md-7 row justify-content-center mb-1 " >
+        <a href="#ventana2" class="btn btn-success btn-block" type="submit" data-toggle="modal" ><i class="fa fa-user-circle-o fa-5x"  ></i><h3>Nuevo Cliente</h3> </i></a>
         </div>
     
         <div>
@@ -131,8 +130,8 @@
 
 
         <!--Caja-->
-        <div class="mx-auto col-md-6 row justify-content-center mt-4 " style="height: 20%;">
-        <a href="#ventana7" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;" ><i class="fa fa-money fa-5x" style="height: 100px;" ></i><h3>Caja</h3> </i></a>
+        <div class="mx-auto col-md-5 row justify-content-center mt-1 mb-1 ">
+        <a href="#ventana7" class="btn btn-success btn-block" type="submit" data-toggle="modal" ><i class="fa fa-money fa-5x"  ></i><h3>Caja</h3> </i></a>
         </div>
         <div>
             <div class="modal fade" tabindex="-1" role="dialog" id="ventana7">
@@ -144,7 +143,7 @@
                     <div class="col-md-12 mx-auto text-center">
                         <div class="card">
                             <h1>Registro de Caja</h1>
-                            <div class="container mx-auto text-center form-group col-md-4"><h1>{{#if box}}{{#each box as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h1></div>
+                            <div class="container mx-auto text-center form-group col-md-4"><h1 class="text-primary">{{#if box}}{{#each box as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h1></div>
 
                             
             </div>
@@ -153,9 +152,9 @@
             </div>
             <div class="modal-footer">
                 <form action="/closebox" method="post">
-            <button type="submit" class="btn btn-danger btn-lg">Cerrar Caja</button>
+            <button type="submit" class="btn btn-danger btn-lg"><i class="fa fa-user mr-1"  aria-hidden="true"></i>Cerrar Caja</button>
             </form>
-            <button type="button" class="btn btn-secondary ml-auto btn-lg" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-secondary ml-auto btn-lg" data-dismiss="modal"><i class="fa fa-times mr-1"  aria-hidden="true"></i>Cancelar</button>
             </div>
             </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -163,9 +162,18 @@
         </div>
 
                <!--Registro de Cochera-->
-       <div class="mx-auto col-md-6 row justify-content-center mb-4 mt-4" style="height: 20%;">
-        <a href="/garage" class="btn btn-success btn-block" type="submit"  style="height: 100%;" > <i class="fa fa-book  fa-5x" style="height: 100px;" aria-hidden="true"></i><h3>Registro Cochera</h3></a>
+       <div class="mx-auto col-md-5 row justify-content-center  mt-1 mb-1">
+        <a href="/garage" class="btn btn-success btn-block" type="submit"   > <i class="fa fa-book fa-5x" aria-hidden="true"></i><h3>Registro Cochera</h3></a>
        </div><!--div que cierra el boton de registro-->
+
+       <!--Cerrar Secion-->
+       <div class="mx-auto col-md-2 row justify-content-center  mt-1 mb-1" >
+           <a  href="/" class="btn btn-primary btn-block"  type="submit"  > <i class="fa fa-user fa-5x"  aria-hidden="true"></i><h3>Cerrar Sesión</h3></a>
+       </div>
+
+
+
+
        </div><!--div que cierra el contenedor principal-->
         
     

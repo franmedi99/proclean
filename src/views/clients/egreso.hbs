@@ -1,18 +1,22 @@
 
-<div class="form-row">
-                            <div class="border col-md-8 mx-auto">
+<div class="form-row ">
+                            <div class=" col-md-8 mx-auto">
                             <form  action="/egresar" method="POST">  
                             <input type="hidden" id="final" name="box">
                             <input type="hidden" name="type" value="{{car.tipo}}">   
                             <input type="hidden" name="identi" value="{{car._id}}">              
-                            <h5 class="pt-1 text-center">Atencion Recibida</h5>
+                            
                             <div class="form-row">       
-                            <div class="form-group p-3 col-8 mx-auto" >
+                                
+                            <div class="form-group p-3 col-10 mx-auto" >
                             <li style="list-style: none;" class="border p-2 form-row ">
                                 <div class="col-12">
                                     <div class="text-center mx-auto">
-                                        <h3>Cliente</h3>
-                                        <h2>{{car.patente}}</h2>
+                                        <h2 class="pt-1 text-center">Atencion Recibida</h2>
+                                        <hr>
+                                        <h3 class="text-success ">Cliente</h3>
+                                        <h2 class="text-primary">{{car.patente}}</h2>
+                                        <hr>
                                     </div>
                                     
                                 <ul>

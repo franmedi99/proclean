@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const favicon = require('express-favicon');
 require('./config/passport');
 //inicializando sv
 const app = express();
@@ -24,6 +25,7 @@ app.set('view engine', 'hbs');
 //inicializaciones
 
 //middlewares
+app.use(favicon(__dirname + '/favicon.ico'));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));

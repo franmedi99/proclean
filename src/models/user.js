@@ -4,7 +4,7 @@ const bcrypt= require('bcryptjs');
 const UserSchema= new Schema({
     username: {type:String, required: true},
     password: {type:String, required: true},
-    rol: {type:Number,required: true, default:2}
+    rol: {type:String,required: true, default:"Usuario"}
 },
 {timestamps:true});
 

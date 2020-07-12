@@ -13,7 +13,7 @@ const {
        closeBox
 
 }
-        = require('../controllers/clients.controller');
+        = require('../controllers/users.controller');
 
         const { isAuthenticated } = require('../helpers/auth');
 

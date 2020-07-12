@@ -1,0 +1,25 @@
+<table class="table container">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nombre de usuario</th>
+            <th scope="col">rol</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each users}}
+          <tr>
+            <th scope="row">{{username}}</th>
+            <td>{{rol}}</td>
+
+        <td><a class="btn btn-primary" href="/customers/edit/{{_id}}">Editar</a></td>
+      <td>  <form action="/customers/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">Borrar</button>
+                </form>
+</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>

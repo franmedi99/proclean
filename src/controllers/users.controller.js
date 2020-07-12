@@ -1,66 +1,160 @@
 const usersCtrl = {};
-
-const passport = require('passport');
-
-
-
-
-const User = require('../models/user')
-
-usersCtrl.rendersignupForm = (req, res) =>{
-    res.render('users/register');
+const Client = require('../models/client');
+const Garage = require('../models/garage');
+const Box = require('../models/empleado.caja');
+//---------------------------------------------CONTROLADORES GENERALES----------------------------------------------------
+usersCtrl.renderClients= async(req,res) =>{
+if(req.user.rol == "Administrador"){
+res.render('admins/admin-actions');
+}else{
+    const clients = await Client.find({},{patente:1, _id:1});
+    const box = await Box.aggregate([{$match:{user:req.user.username}},{$match:{show:1}},{$group:{_id:null,box:{$sum:"$box"}}}]);
+     res.render('clients/client-actions',{clients, box});
 }
+};
 
-usersCtrl.signup =async (req, res) =>{
-    const errors = [];
-   const {username, password, confirm_password} = req.body;
-   if(password != confirm_password){
-      errors.push({text: 'Las contraseñas no coinciden'});
-   }
-   if(!req.body.username  || !req.body.password || !req.body.confirm_password){
-    errors.push({text: 'Para registrar un empleado se deben completar todos los campos'});
-   }
+usersCtrl.findClient= async(req,res) =>{
+    const {patente} = req.body;
+    const findClient =  await Client.findOne({patente:patente});
+    if(findClient){
+        res.render('clients/client-movement',{findClient});
+    }else{
+        req.flash('error_msg', 'Cliente inválido.');
+        res.redirect('/clients');
+    }
+};
 
-   if(errors.length>0){
-       res.render('users/register',{
-           errors,
-           username,
-           password,
-           confirm_password
-       })
-   }else{
-   const nickUser =  await User.findOne({username: username});
-   if(nickUser){
-       req.flash('error_msg', 'Este usuario ya esta registrado.');
-       res.redirect('/register');
-   }else{
-       const newUser = new User({username, password});
-       newUser.password = await newUser.encryptPassword(password)
-       await newUser.save();
-       req.flash('success_msg', 'Registrado Correctamente');
-       res.redirect('/login');
-   }
-   }
+
+
+
+usersCtrl.createNewClient= async (req,res) =>{
+    const{patente,marca,modelo,phone,tipo} = req.body
+    if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.tipo){
+ 
+    req.flash('error_msg', 'la patente,marca,modelo y tipo son obligatorias para ingresar un nuevo cliente.');
+    res.redirect('/clients');
+}else{
+    const newClient = await  new Client({patente,marca,modelo,phone,tipo});
+    await newClient.save();
+    req.flash('success_msg', 'Cliente agregado Satisfactoriamente');
+    res.redirect('/clients');
 }
+};
 
 
-usersCtrl.renderSigninForm = (req, res) =>{
-    req.logout();
-    res.render('users/login');
+usersCtrl.closeBox=async(req,res) =>{
+    await Box.updateMany({user:req.user.username},{ $set: { show: 0 } })
+    req.flash('success_msg', 'Caja cerrada y Cierre de sesión satisfactorio');
+    res.redirect('/login');
+    
+};
+
+
+//----------------------------------------CONTROLADORES DE LAVADO----------------------------------------
+
+usersCtrl.sendToBox=async(req,res) =>{
+    const{box,type, fecha, hora} = req.body
+    const egreso = req.body.fecha+" "+req.body.hora;
+    const user = req.user.username;
+    const action = "LAVADO";
+    if (isNaN(box)) {
+        req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}else{
+    if(box>0){
+        if (!req.body.box||!user||!req.body.type ) {
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+            res.redirect('/clients');
+        }else{
+        const sendToBox =  await new Box({box, user,action,type, egreso});
+        await sendToBox.save();
+        req.flash('success_msg', 'Lavado Agregado satisfactoriamente');
+        res.redirect('/clients');
+    }
+
+
+}else{
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
 }
-
-
-usersCtrl.signin = passport.authenticate('local',{
-    failureRedirect: '/login',
-    successRedirect: '/clients',
-    failureFlash: true
-})
-
-usersCtrl.logout = (req, res) =>{
-    req.logout();
-    req.flash('success_msg', 'Cierre de sesion correcto.');
-    res.redirect('login');
 }
+    
+};
+
+
+
+
+
+//-----------------------------------CONTROLADORES DE COCHERA-----------------------------------------
+
+
+usersCtrl.sendToGarage= async(req,res)=>{
+    const{patente,marca,modelo,fecha,hora,tipo} = req.body
+
+    const findClient =  await Garage.findOne({patente:patente});
+    if(findClient){
+        req.flash('error_msg', 'Este cliente ya esta registrado en la cochera.');
+        res.redirect('/garage');
+    }else{
+        if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.fecha|| !req.body.hora|| !req.body.tipo){
+ 
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de ingresar el cliente a la cochera, por favor vuelva a intentarlo');
+            res.redirect('/clients');
+        }else{
+    const newClient =  await new Garage({patente,marca,modelo,fecha,hora,tipo});
+    await newClient.save();
+    req.flash('success_msg', 'Cliente agregado Satisfactoriamente');
+    res.redirect('/garage');
+}
+}
+};
+
+
+usersCtrl.renderListGarage=async(req,res) =>{
+    const findCars =  await Garage.find();
+    res.render('clients/garage',{findCars});
+};
+
+
+
+
+usersCtrl.sendToBoxCar=async(req,res) =>{
+        const car = await Garage.findById(req.params.id);
+        res.render('clients/egreso', {car});    
+};
+
+
+usersCtrl.deleteofGarage=async(req,res) =>{
+    const{identi, box,type, fecha , hora} = req.body;
+    const egreso = req.body.fecha+" "+req.body.hora;
+    const user = req.user.username;
+    const action = "COCHERA";
+    if (isNaN(box)) {
+        req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}else{
+
+    if(box>0){
+        if (!req.body.box||!user||!req.body.type || !req.body.identi ) {
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+            res.redirect('/clients');
+        }else{            
+        const sendToBox =  await new Box({box, user,action,type, egreso})
+        await sendToBox.save();
+        await Garage.findByIdAndDelete(identi);
+        req.flash('success_msg', 'Cliente egresado satisfactoriamente');
+        res.redirect('/clients');
+    }
+
+
+}else{
+  
+            req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
+        res.redirect('/clients');
+}
+}
+};
+
 
 
 

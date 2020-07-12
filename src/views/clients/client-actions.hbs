@@ -1,6 +1,5 @@
     
 
-
         <div class="text-center mx-auto col-12 form-row" >
             <div class="col-6 mx-auto "><img src="/img/proclean.png" class="img-fluid"></div>
             <h4 class="col-12">Un tratamiento diferente para tu auto <i class="fa fa-flag-checkered" aria-hidden="true"></i></h4>
@@ -13,7 +12,7 @@
         <!--Buscar Cliente-->
        <div class="mx-auto col-md-5 row justify-content-center mb-1 ">
         <a href="#ventana1" class="btn btn-success btn-block" type="submit" data-toggle="modal"  > <i class="fa fa-search  fa-5x"  aria-hidden="true"></i><h3>Buscar Cliente</h3></a>
-        
+
     
         <div>
             <div class="modal fade" tabindex="-1" role="dialog" id="ventana1">
@@ -151,7 +150,7 @@
             </div>
             </div>
             <div class="modal-footer">
-                <form action="/closebox" method="post">
+                <form action="/closebox" method="post" onsubmit="return confirm('Desea cerrar la caja?');">
             <button type="submit" class="btn btn-danger btn-lg"><i class="fa fa-user mr-1"  aria-hidden="true"></i>Cerrar Caja</button>
             </form>
             <button type="button" class="btn btn-success ml-auto btn-lg" data-dismiss="modal"><i class="fa fa-reply-all mr-1"  aria-hidden="true"></i>Continuar</button>
@@ -168,12 +167,11 @@
 
        <!--Cerrar Secion-->
        <div class="mx-auto col-md-2 row justify-content-center  mb-1" >
-           <a  href="/login" class="btn btn-primary btn-block"  type="submit"  > <i class="fa fa-user fa-5x"  aria-hidden="true"></i><h3>Cerrar Sesión</h3></a>
+       <a href="/login" class="btn btn-primary btn-block"  type="submit"  > <i class="fa fa-user fa-5x"  aria-hidden="true"></i><h3>Cerrar Sesión</h3></a>
        </div>
 
-
-
-
        </div><!--div que cierra el contenedor principal-->
+
+       <script src="/js/inspec.js"></script>
         
     

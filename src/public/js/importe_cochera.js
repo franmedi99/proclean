@@ -1,4 +1,6 @@
 function abc(mhora,hora) {
+
+   var valor = 0;
    
 
     //media hora
@@ -6,10 +8,18 @@ function abc(mhora,hora) {
     var ipmh = document.getElementById("ipmh");
     ipmh.style.display = mhora.checked ? "block" : "none";
 
+    if ( document.getElementById('mhora').checked === false ) {
+      clearmh(); }
+
+
     //hora
     var hora = document.getElementById('hora');
     var iph = document.getElementById("iph");
     iph.style.display = hora.checked ? "block" : "none";
+
+    if ( document.getElementById('hora').checked === false ) {
+      clearh(); }
+     
     
 
     //medio dia
@@ -17,25 +27,41 @@ function abc(mhora,hora) {
     var ipmd = document.getElementById('ipmd');
     ipmd.style.display = mdia.checked ? "block" : "none";
 
+    if ( document.getElementById('mdia').checked === false ) {
+      clearmd(); }
+
     //dia
     var dia = document.getElementById('dia');
     var ipd = document.getElementById('ipd');
     ipd.style.display = dia.checked ? "block" : "none";
+
+    if ( document.getElementById('dia').checked === false ) {
+      cleard(); }
 
     //semana
     var semana = document.getElementById('semana');
     var ips = document.getElementById('ips');
     ips.style.display = semana.checked ? "block" : "none";
 
+    if ( document.getElementById('semana').checked === false ) {
+      clears(); }
+
     //quincena
     var quincena = document.getElementById('quincena');
     var ipq = document.getElementById('ipq');
     ipq.style.display = quincena.checked ? "block" : "none";
 
+    if ( document.getElementById('quincena').checked === false ) {
+      clearq(); }
+
     //mes
     var mes = document.getElementById('mes');
     var ipm = document.getElementById('ipm');
     ipm.style.display = mes.checked ? "block" : "none";
+
+    if ( document.getElementById('mes').checked === false ) {
+      clearm(); }
+
 
 
     //Importe
@@ -145,4 +171,51 @@ onload = function(){
 
 
   }
+
+  function clearmh(){
+   var ipmhora = document.getElementById('ipmhora');
+   ipmhora.value = 0;
+
+  }
+
+  function clearh(){
+   var iphora = document.getElementById('iphora');
+   iphora.value = 0;
+
+  }
+
+  function clearmd(){
+   var ipmdia = document.getElementById('ipmdia');
+   ipmdia.value = 0;
+
+  }
+
+  function cleard(){
+   var ipdia = document.getElementById('ipdia');
+   ipdia.value = 0;
+
+  }
+
+  function clears(){
+   var ipsemana = document.getElementById('ipsemana');
+   ipsemana.value = 0;
+
+  }
+
+  function clearq(){
+   var ipquincena = document.getElementById('ipquincena');
+   ipquincena.value = 0;
+
+  }
+
+  function clearm(){
+   var ipmes = document.getElementById('ipmes');
+   ipmes.value = 0;
+
+  }
+
+
+
+
+
 

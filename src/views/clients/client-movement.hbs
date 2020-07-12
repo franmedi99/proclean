@@ -34,13 +34,15 @@
     
     <!--Cochera-->
         <div class="col-6 mb-1">
-        <form action="/clients/send-garage" method="POST" onsubmit="return confirm('Desea enviar este cliente a la cochera?');">
+        <form action="/clients/send-garage"  method="POST" onsubmit="return confirm('Desea enviar este cliente a la cochera?');">
+        <div id="element-to-hide">
         <input type="hidden" name="patente" value="{{findClient.patente}}">
         <input type="hidden" name="marca" value="{{findClient.marca}}">
         <input type="hidden" name="modelo" value="{{findClient.modelo}}">
         <input type="hidden" name="fecha" id="theDate">
         <input type="hidden" name="hora" id="thetime">
         <input type="hidden" name="tipo" value="{{findClient.tipo}}">
+        </div>
         <button  type="submit" class="btn btn-success btn-block"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Cochera</button>
         </form>
         </div>
@@ -69,8 +71,11 @@
                     <div class="modal-body">
                         <div class="border">
                             <form action="/tobox" method="POST">
+                            <div id="element-to-hide">
                             <input type="hidden" id="final" name="box">
-                            <input type="hidden" name="type" value="{{findClient.tipo}}">         
+                            <input type="hidden" name="type" value="{{findClient.tipo}}">
+                            </div> 
+                                   
                             <h5 class="pt-1 text-center">Atencion Recibida</h5>
                             <div class="form-row">       
                             <div class="form-group p-3 col-12 mx-auto" >

@@ -17,7 +17,13 @@ adminCtrl.renderbox= async(req,res) =>{
     
 };
 
-
+adminCtrl.deleteuser= async(req,res) =>{
+  
+   await User.findByIdAndDelete(req.params.id);
+   req.flash('success_msg', 'Usuario borrado Satisfactoriamente');
+    res.redirect('/list-users');
+    
+};
 
 
 

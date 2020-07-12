@@ -1,10 +1,11 @@
-<table class="table container text-center">
+<h2 class="mx-auto text-center p-1"><i class="fa fa-users mr-1 " aria-hidden="true"></i>Usuarios</h2>
+<!--Tabla-->
+<table class="table container mx-auto">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre de usuario</th>
-            <th scope="col">rol</th>
-           
-            <th scope="col">Borrar</th>
+            <th scope="col">Rol</th>
+            <th scope="col" class="text-center">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -12,12 +13,11 @@
           <tr>
             <th scope="row">{{username}}</th>
             <td>{{rol}}</td>
-
-        
-      <td>  <form action="/user/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea borrar este usuario?');">
-                    <button type="submit" class="btn btn-danger btn-block">Borrar</button>
-                </form>
-</td>
+            <td>  
+            <form action="/user/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea borrar este usuario?');">
+            <button type="submit" class="btn btn-danger col-8 ml-auto btn-block">Eliminar</button>
+            </form>
+            </td>
           </tr>
           {{/each}}
         </tbody>

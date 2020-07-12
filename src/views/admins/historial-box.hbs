@@ -1,21 +1,30 @@
 <table class="table container">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">historial de usuario</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Borrar</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Ocupó</th>
+            <th scope="col">Fecha y Hora</th>
+            <th scope="col" class="text-center">Importe</th>
+            <th scope="col" class="text-center">Editar</th>
+            <th scope="col" class="text-center">Borrar</th>
           </tr>
         </thead>
         <tbody>
           {{#each historial}}
           <tr>
-            <th scope="row">{{user}} egreso {{type}}: {{action}}, fecha:{{fecha}}  {{hora}}  valor:{{box}}</th>
-            <td><a class="btn btn-primary" href="/customers/edit/{{_id}}">Editar</a></td>
-      <td>  <form action="/customers/delete/{{_id}}?_method=DELETE" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-danger">Borrar</button>
-                </form>
-</td>
+          <th scope="row">{{user}}</th>
+          <th scope="row">{{type}}</th>
+          <th scope="row">{{action}}</th>
+          <th scope="row">{{fecha}} ; {{hora}}</th>
+          <th scope="row" class="text-center">${{box}}</th>
+          <td><a class="btn btn-primary col-12 mx-auto" href="/customers/edit/{{_id}}">Editar</a></td>
+          <td>
+            <form action="/customers/delete/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger col-12 mx-auto">Borrar</button>
+            </form>
+          </td>
           </tr>
           {{/each}}
         </tbody>

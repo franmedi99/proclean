@@ -15,10 +15,14 @@
             <td>{{rol}}</td>
             <td>  
             <form action="/user/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea borrar este usuario?');">
-            <button type="submit" class="btn btn-danger col-8 ml-auto btn-block">Eliminar</button>
+            <button type="submit" class="btn btn-danger col-12  ml-auto btn-block">Eliminar</button>
             </form>
             </td>
           </tr>
           {{/each}}
         </tbody>
-      </table>
+</table>
+
+      <div class="container">
+        <a href="/register" class="btn btn-primary btn-block col-4 mx-auto mt-5 p-3">Registrar Usuario</a>
+      </div>

@@ -51,7 +51,7 @@ app.use((req,res,next)=>{
 
 //routes
 app.use(require('./routes/routes'));
-app.use(require('./routes/clients.routes'));
+app.use(require('./routes/admin.routes'));
 app.use(require('./routes/users.routes'));
 
 //archivos estaticos

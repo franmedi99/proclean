@@ -5,7 +5,8 @@
                             <input type="hidden" id="final" name="box">
                             <input type="hidden" name="type" value="{{car.tipo}}">   
                             <input type="hidden" name="identi" value="{{car._id}}">              
-                            
+                            <input type="hidden" id="theDate" name="fecha">
+                            <input type="hidden" id="thetime1" name="hora">                            
                             <div class="form-row">       
                                 
                             <div class="form-group p-3 col-10 mx-auto" >
@@ -26,9 +27,10 @@
                                 </ul>
                                 <ul>
                                 <label>Hora</label>
-                                <input type="checkbox" name="hora" id="hora" value="600" onchange="abc()" >
-                                <div id="iph" style="display: none" class="mr-5"><input type="text"  min="0" class="val2 form-control text-center" id="iphora" onkeyup="abc()" placeholder="Horas" /></div>
+                                <input type="checkbox" name="horas" id="hora" value="600"  onchange="abc();" > 
+                                <div id="iph" style="display: none" class="mr-5"><input type="text"  min="0" class="val2 form-control text-center" id="iphora" onkeyup="abc()" placeholder="Hora"/></div>
                                 </ul>
+
                                 <ul>
                                 <label>Medio dia</label>
                                 <input type="checkbox" name="mdia" id="mdia" value="700" onchange="abc()"> 
@@ -57,21 +59,16 @@
                                 
                                 </div>
                             </li>
-                            <div class="form-group col">
-                            <div class="form-row">
-                            <div class="form-group col-md-6 text-center mx-auto">
-                            <input type="hidden" id="theDate" name="fecha">
-                            </div>
-                            <div class="form-group col-md-6 text-center mx-auto">
-                            <input type="hidden" id="thetime1" name="hora">
-                            </div>
-                            </div>
+                           
+                            
+                    
+
                             <div>
                             <label for="final">Importe total</label>
                             <br>
                             <input type="text" class="text-center col col-md-12" id="total" disabled>
                             </div>
-                            </div>
+                            
                             <div class="form-action-buttons p-3 text-center">
                             <button type="submit" class="btn btn-success btn-block">Enviar</button>
                             </div>

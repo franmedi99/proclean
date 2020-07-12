@@ -8,7 +8,7 @@ function abc(mhora,hora) {
 
     //hora
     var hora = document.getElementById('hora');
-    var iph = document.getElementById('iph');
+    var iph = document.getElementById("iph");
     iph.style.display = hora.checked ? "block" : "none";
     
 
@@ -47,7 +47,7 @@ function abc(mhora,hora) {
     
     
     var iphora = document.getElementById('iphora');
-    var hora_total = hora.value * iphora.value;
+    var hora_total = mhora.value  * iphora.value;
 
     
 
@@ -72,7 +72,7 @@ function abc(mhora,hora) {
     
 
     //total
-    document.getElementById("final").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
+    document.getElementById("final").value = parseInt(mhora_total) +  parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
     document.getElementById("total").value = parseInt(mhora_total) + parseInt(hora_total) + parseInt(mdia_total) + parseInt(dia_total) + parseInt(semana_total) + parseInt(quincena_total) + parseInt(mes_total);
 
     

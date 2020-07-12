@@ -1,6 +1,5 @@
 const adminCtrl = {};
 const User = require('../models/user');
-const Garage = require('../models/garage');
 const Box = require('../models/empleado.caja');
 
 adminCtrl.renderusers= async(req,res) =>{
@@ -10,6 +9,12 @@ adminCtrl.renderusers= async(req,res) =>{
     
     };
 
+
+adminCtrl.renderbox= async(req,res) =>{
+    const historial = await Box.find();
+    res.render('admins/historial-box',{historial});
+    
+};
 
 
 

@@ -54,7 +54,6 @@ usersCtrl.closeBox=async(req,res) =>{
 
 usersCtrl.sendToBox=async(req,res) =>{
     const{box,type, fecha, hora} = req.body
-    const egreso = req.body.fecha+" "+req.body.hora;
     const user = req.user.username;
     const action = "LAVADO";
     if (isNaN(box)) {
@@ -66,7 +65,7 @@ usersCtrl.sendToBox=async(req,res) =>{
             req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
             res.redirect('/clients');
         }else{
-        const sendToBox =  await new Box({box, user,action,type, egreso});
+        const sendToBox =  await new Box({box,user,action,type,fecha,hora});
         await sendToBox.save();
         req.flash('success_msg', 'Lavado Agregado satisfactoriamente');
         res.redirect('/clients');
@@ -126,7 +125,6 @@ usersCtrl.sendToBoxCar=async(req,res) =>{
 
 usersCtrl.deleteofGarage=async(req,res) =>{
     const{identi, box,type, fecha , hora} = req.body;
-    const egreso = req.body.fecha+" "+req.body.hora;
     const user = req.user.username;
     const action = "COCHERA";
     if (isNaN(box)) {
@@ -139,10 +137,10 @@ usersCtrl.deleteofGarage=async(req,res) =>{
             req.flash('error_msg', 'Ha ocurrido un error a la hora de enviar este dato, por favor vuelva a intentarlo.');
             res.redirect('/clients');
         }else{            
-        const sendToBox =  await new Box({box, user,action,type, egreso})
+        const sendToBox =  await new Box({box, user,action,type,fecha,hora})
         await sendToBox.save();
         await Garage.findByIdAndDelete(identi);
-        req.flash('success_msg', 'Cliente egresado satisfactoriamente');
+        req.flash('success_msg', 'Cliente egresado de la cochera satisfactoriamente');
         res.redirect('/clients');
     }
 

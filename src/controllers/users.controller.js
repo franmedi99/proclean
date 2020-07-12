@@ -125,6 +125,7 @@ usersCtrl.sendToBoxCar=async(req,res) =>{
 
 usersCtrl.deleteofGarage=async(req,res) =>{
     const{identi, box,type, fecha , hora} = req.body;
+    console.log(req.body);
     const user = req.user.username;
     const action = "COCHERA";
     if (isNaN(box)) {

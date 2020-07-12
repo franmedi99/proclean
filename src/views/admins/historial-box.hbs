@@ -1,0 +1,24 @@
+<table class="table container">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">historial de usuario</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each historial}}
+          <tr>
+            <th scope="row">{{user}} egreso {{type}} la fecha {{fecha}} a las {{hora}} con un valor de {{box}}</th>
+            <td><a class="btn btn-primary" href="/customers/edit/{{_id}}">Editar</a></td>
+      <td>  <form action="/customers/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">Borrar</button>
+                </form>
+</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+<div class="mx-auto text-center">{{#if result}}{{#each result as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</div>

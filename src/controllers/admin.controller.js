@@ -12,7 +12,8 @@ adminCtrl.renderusers= async(req,res) =>{
 
 adminCtrl.renderbox= async(req,res) =>{
     const historial = await Box.find();
-    res.render('admins/historial-box',{historial});
+    const result = await Box.aggregate([{$match:{show:1}},{$group:{_id:null,box:{$sum:"$box"}}}]);
+    res.render('admins/historial-box',{historial,result});
     
 };
 

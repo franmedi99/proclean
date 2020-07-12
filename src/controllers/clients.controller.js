@@ -5,7 +5,7 @@ const Box = require('../models/empleado.caja');
 //---------------------------------------------CONTROLADORES GENERALES----------------------------------------------------
 clientsCtrl.renderClients= async(req,res) =>{
 if(req.user.rol == 1){
-res.send('vista de administrador')
+res.render('admins/admin-actions');
 }else{
     const clients = await Client.find({},{patente:1, _id:1});
     const box = await Box.aggregate([{$match:{user:req.user.username}},{$match:{show:1}},{$group:{_id:null,box:{$sum:"$box"}}}]);
@@ -79,7 +79,7 @@ clientsCtrl.sendToBox=async(req,res) =>{
 }
 }
     
-}
+};
 
 
 
@@ -107,23 +107,21 @@ clientsCtrl.sendToGarage= async(req,res)=>{
     res.redirect('/garage');
 }
 }
-}
+};
 
 
 clientsCtrl.renderListGarage=async(req,res) =>{
     const findCars =  await Garage.find();
     res.render('clients/garage',{findCars});
-}
+};
 
 
 
 
 clientsCtrl.sendToBoxCar=async(req,res) =>{
         const car = await Garage.findById(req.params.id);
-        res.render('clients/egreso', {car});
-
-    
-}
+        res.render('clients/egreso', {car});    
+};
 
 
 clientsCtrl.deleteofGarage=async(req,res) =>{
@@ -155,7 +153,7 @@ clientsCtrl.deleteofGarage=async(req,res) =>{
         res.redirect('/clients');
 }
 }
-}
+};
 
 
 

@@ -174,43 +174,43 @@ onload = function(){
 
   function clearmh(){
    var ipmhora = document.getElementById('ipmhora');
-   ipmhora.value = 0;
+   ipmhora.value = "";
 
   }
 
   function clearh(){
    var iphora = document.getElementById('iphora');
-   iphora.value = 0;
+   iphora.value = "";
 
   }
 
   function clearmd(){
    var ipmdia = document.getElementById('ipmdia');
-   ipmdia.value = 0;
+   ipmdia.value = "";
 
   }
 
   function cleard(){
    var ipdia = document.getElementById('ipdia');
-   ipdia.value = 0;
+   ipdia.value = "";
 
   }
 
   function clears(){
    var ipsemana = document.getElementById('ipsemana');
-   ipsemana.value = 0;
+   ipsemana.value = "";
 
   }
 
   function clearq(){
    var ipquincena = document.getElementById('ipquincena');
-   ipquincena.value = 0;
+   ipquincena.value ="";
 
   }
 
   function clearm(){
    var ipmes = document.getElementById('ipmes');
-   ipmes.value = 0;
+   ipmes.value = "";
 
   }
 

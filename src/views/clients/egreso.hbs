@@ -1,14 +1,14 @@
 
-<div class="form-row element-to-hide">
+<div class="form-row ">
                             <div class=" col-md-8 mx-auto">
-                            <form  action="/egresar" method="POST">  
-                           
+                            <form  action="/egresar" method="POST">
                             <input type="hidden" id="final" name="box">
+                            <div id="element-to-hide">  
                             <input type="hidden" name="type" value="{{car.tipo}}">   
                             <input type="hidden" name="identi" value="{{car._id}}">              
                             <input type="hidden" id="theDate" name="fecha">
                             <input type="hidden" id="thetime1" name="hora">
-                                                     
+                            </div>                            
                             <div class="form-row">       
                                 
                             <div class="form-group p-3 col-10 mx-auto" >
@@ -24,38 +24,38 @@
                                     
                                 <ul>
                                 <label>Media hora</label>
-                                <input type="checkbox" name="mhora" id="mhora" value="500"  onchange="abc();" > 
+                                <input type="checkbox"  id="mhora" value="500"  onchange="abc();" > 
                                 <div id="ipmh" style="display: none" class="mr-5"><input type="text"  min="0" class="val1 form-control text-center" id="ipmhora" onkeyup="abc()" placeholder="Media hora"/></div>
                                 </ul>
                                 <ul>
                                 <label>Hora</label>
-                                <input type="checkbox" name="horas" id="hora" value="600"  onchange="abc();" > 
+                                <input type="checkbox"  id="hora" value="600"  onchange="abc();" > 
                                 <div id="iph" style="display: none" class="mr-5"><input type="text"  min="0" class="val2 form-control text-center" id="iphora" onkeyup="abc()" placeholder="Hora"/></div>
                                 </ul>
 
                                 <ul>
                                 <label>Medio dia</label>
-                                <input type="checkbox" name="mdia" id="mdia" value="700" onchange="abc()"> 
+                                <input type="checkbox" id="mdia" value="700" onchange="abc()"> 
                                 <div id="ipmd" style="display: none" class="mr-5"><input type="text"  min="0" class="val3 form-control text-center" id="ipmdia" onkeyup="abc()" placeholder="Medio Dia"/></div>
                                 </ul>
                                 <ul>
                                 <label>Dia</label>
-                                <input type="checkbox" name="dia" id="dia" value="800" onchange="abc()">
+                                <input type="checkbox"  id="dia" value="800" onchange="abc()">
                                 <div id="ipd" style="display: none" class="mr-5"><input type="text"  min="0" class="val4 form-control text-center" id="ipdia" onkeyup="abc()"  placeholder="Dias"/></div>
                                 </ul>
                                 <ul>
                                 <label>Semana</label>
-                                <input type="checkbox" name="semana" id="semana" value="450" onchange="abc()">
+                                <input type="checkbox"  id="semana" value="450" onchange="abc()">
                                 <div id="ips" style="display: none" class="mr-5"><input type="text"  min="0" class="val5 form-control text-center" id="ipsemana" onkeyup="abc()"   placeholder="Semana"/></div>
                                 </ul>
                                 <ul>
                                 <label>Quincena</label>
-                                <input type="checkbox" name="quincena" id="quincena" value="1500" onchange="abc()">
+                                <input type="checkbox"  id="quincena" value="1500" onchange="abc()">
                                 <div id="ipq" style="display: none" class="mr-5"><input type="text"  min="0" class="val6 form-control text-center" id="ipquincena" onkeyup="abc()"   placeholder="Quincena"/></div>
                                 </ul>
                                 <ul>
                                 <label>Mes</label>
-                                <input type="checkbox" name="mes" id="mes" value="2000" onchange="abc()">
+                                <input type="checkbox" id="mes" value="2000" onchange="abc()">
                                 <div id="ipm" style="display: none" class="mr-5"><input type="text"  min="0" class="val7 form-control text-center" id="ipmes" onkeyup="abc()"   placeholder="Mes"/></div>
                                 </ul>
                                 

@@ -113,11 +113,22 @@ adminCtrl.renderclients=async(req,res) =>{
 
 
         adminCtrl.renderdays=async(req,res) =>{
+         
           const historial = await Mes.find();
-          res.render('admins/month-register',{historial});
+          const result = await Mes.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
+           console.log(result);
+          res.render('admins/month-register',{historial,result});
           };
 
-
+          adminCtrl.closemonth=async(req,res) =>{
+            const{ fecha , total} = req.body;
+            const sendmonth =  await new Mes({fecha,total});
+            await sendmonth.save();
+            await Box.deleteMany( { show: 0 } );
+            req.flash('success_msg', 'Dia cerrado Satisfactoriamente');
+            res.redirect('/list-box');
+            
+            };
 
 
 

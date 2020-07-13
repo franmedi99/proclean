@@ -1,0 +1,44 @@
+<!--Registro Mensual-->
+
+<nav class="nav nav-bar">
+  <a href="/clients" class=" text-primary ml-5 btn-block mt-2"><h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4></a>
+</nav>
+
+
+<div class="container mx-auto mt-3">
+  
+     <div class="col-6 mx-auto border">
+       <h3 class="text-center mt-3"><i class="fa fa-archive mr-1" aria-hidden="true"></i>Registro Diario</h3>
+     <form action="/close-month" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
+     
+     <input type="hidden" id="theDate" name="fecha">
+     <input type="hidden" name="total" {{#each result as |item|}} value="{{item.box}}"{{/each}}>
+     <div class="mx-auto col-4">
+     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 "> Cerrar Mes </button>
+     </div>
+  </form>
+  </div>
+</div>
+
+<div class="container col-10 mx-auto">
+<table class="table col-11 mx-auto mt-3">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col" class="text-center">Caja Diaria</th>    
+          </tr>
+
+         
+        </thead>
+        <tbody>
+
+          {{#each historial}}
+          <tr>
+          <th scope="row">{{fecha}}</th>
+          <th scope="row" class="text-center">$ {{total}}</th>
+          </tr>
+          {{/each}}
+          
+        </tbody>
+      </table>
+</div>

@@ -113,7 +113,7 @@ adminCtrl.renderclients=async(req,res) =>{
 
 
         adminCtrl.renderdays=async(req,res) =>{
-          const historial = await Mes.findById();
+          const historial = await Mes.find();
           res.render('admins/month-register',{historial});
           };
 

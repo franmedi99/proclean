@@ -98,8 +98,7 @@ adminCtrl.renderclients=async(req,res) =>{
       adminCtrl.updateclient = async(req,res)=>{
   
         const {marca,modelo,phone,patente,tipo} =req.body;
-      
-        await Box.findByIdAndUpdate(req.params.id,{marca,modelo,phone,patente,tipo});
+        await Client.findByIdAndUpdate(req.params.id,{marca,modelo,phone,patente,tipo});
         req.flash('success_msg', 'Cliente Editado Satisfactoriamente');
         res.redirect('/all-clients');
       }

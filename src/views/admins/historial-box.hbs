@@ -5,6 +5,8 @@
   <h5 class="text-success">Importe total</h5>
   <h4 class="text-primary">{{#if result}}{{#each result as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h4>
   <form action="/close-day" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
+    <input type="hidden" id="theDate" name="fecha">
+    <input type="hidden" name="total" {{#each result as |item|}} value="{{item.box}}"{{/each}}>
     <button type="submit" class=" btn btn-primary mt-1 "> Cerrar Dia </button>
   </form>
 </div>
@@ -14,7 +16,7 @@
             <th scope="col">Usuario</th>
             <th scope="col">Tipo</th>
             <th scope="col">Ocupó</th>
-            <th scope="col">Fecha y Hora</th>
+            <th scope="col">Hora</th>
             <th scope="col" class="text-center">Importe</th>
             <th scope="col" class="text-center">Editar</th>
             <th scope="col" class="text-center">Borrar</th>
@@ -29,7 +31,7 @@
           <th scope="row">{{user}}</th>
           <th scope="row">{{type}}</th>
           <th scope="row">{{action}}</th>
-          <th scope="row">{{fecha}}  {{hora}}</th>
+          <th scope="row">{{hora}}</th>
           <th scope="row" class="text-center">${{box}}</th>
           <td><a class="btn btn-primary col-12 mx-auto" href="/historial/edit/{{_id}}">Editar</a></td>
           <td>
@@ -48,4 +50,4 @@
 
      
 
-    
+    <script src="/js/today_date.js"></script>

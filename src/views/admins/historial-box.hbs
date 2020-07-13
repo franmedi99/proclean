@@ -26,12 +26,11 @@
           <th scope="row">{{user}}</th>
           <th scope="row">{{type}}</th>
           <th scope="row">{{action}}</th>
-          <th scope="row">{{fecha}} ; {{hora}}</th>
+          <th scope="row">{{fecha}}  {{hora}}</th>
           <th scope="row" class="text-center">${{box}}</th>
-          <td><a class="btn btn-primary col-12 mx-auto" href="/customers/edit/{{_id}}">Editar</a></td>
+          <td><a class="btn btn-primary col-12 mx-auto" href="/historial/edit/{{_id}}">Editar</a></td>
           <td>
-            <form action="/customers/delete/{{_id}}?_method=DELETE" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
+            <form action="/historial/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea eliminar este recibo de la caja?');">
             <button type="submit" class="btn btn-danger col-12 mx-auto">Borrar</button>
             </form>
           </td>

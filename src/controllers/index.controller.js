@@ -41,7 +41,7 @@ indexCtrl.rendersignupForm = (req, res) =>{
            newUser.password = await newUser.encryptPassword(password)
            await newUser.save();
            req.flash('success_msg', 'Registrado Correctamente');
-           res.redirect('/login');
+           res.redirect('/list-users');
        }
        }
     };

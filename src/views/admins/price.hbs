@@ -1,0 +1,33 @@
+   <!--Opciones-->
+    <div class="text-center"><hr></div>
+    <div class="text-center mt-4 mb-1 text-primary"><h2>Opciones</h2></div>
+    <div class="col-4 mx-auto mb-2"><img src="/img/ram.jpg" class=" img-fluid"></div>
+    <div class="container mx-auto mb-3">
+    <div class="form-row col-12 mx-auto">
+      
+    
+    <!--Cochera-->
+        <div class="col-6 mb-1">
+        <form action="/clients/send-garage"  method="POST" onsubmit="return confirm('Desea enviar este cliente a la cochera?');">
+        <div id="element-to-hide">
+        <input type="hidden" name="patente" value="{{findClient.patente}}">
+        <input type="hidden" name="marca" value="{{findClient.marca}}">
+        <input type="hidden" name="modelo" value="{{findClient.modelo}}">
+        <input type="hidden" name="fecha" id="theDate">
+        <input type="hidden" name="hora" id="thetime">
+        <input type="hidden" name="tipo" value="{{findClient.tipo}}">
+        </div>
+        <button  type="submit" class="btn btn-success btn-block"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Cochera</button>
+        </form>
+        </div>
+        
+
+        <!--Lavadero-->
+        <div class="col-6 mb-1">
+        <div>
+        <a href="#ventana4" class="btn btn-success btn-block"  type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-tint mr-1"  aria-hidden="true"></i>Lavadero</a>
+        </div>
+        </div>        
+        </div>
+        </div>
+        

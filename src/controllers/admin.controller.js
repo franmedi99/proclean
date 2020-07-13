@@ -70,5 +70,10 @@ adminCtrl.renderclients=async(req,res) =>{
       
       };
 
+      adminCtrl.renderprices=async(req,res) =>{
+        res.render('admins/price');
+        };
+
+
 
 module.exports = adminCtrl;

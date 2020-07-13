@@ -2,7 +2,7 @@ const {Router} = require('express');
 const router = Router();
 const {rendersignupForm,  signup}   = require('../controllers/index.controller');
 const { isAuthenticated, isAdmin } = require('../helpers/auth');
-const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt, renderclients,closeday } = require('../controllers/admin.controller');
+const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt, renderclients,closeday,renderprices} = require('../controllers/admin.controller');
 
 
 //registrar usuario
@@ -22,6 +22,8 @@ router.post('/close-day',isAuthenticated,isAdmin,closeday);//render edit receipt
 //rutas de clientes
 router.get('/all-clients',isAuthenticated,isAdmin, renderclients);//render list users
 
+
+router.get('/price',isAuthenticated,isAdmin, renderprices);//render list users
 
 
 router.post('/user/delete/:id',isAuthenticated,isAdmin, deleteuser );//render del formulario con cochera

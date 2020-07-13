@@ -4,6 +4,9 @@
 <div class="mx-auto text-center col-4 p-3 border">
   <h5 class="text-success">Importe total</h5>
   <h4 class="text-primary">{{#if result}}{{#each result as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h4>
+  <form action="/close-day" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
+    <button type="submit" class=" btn btn-primary mt-1 "> Cerrar Dia </button>
+  </form>
 </div>
    <table class="table col-11 mx-auto mt-3">
         <thead class="thead-dark">

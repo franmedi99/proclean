@@ -1,33 +1,203 @@
-   <!--Opciones-->
-    <div class="text-center"><hr></div>
-    <div class="text-center mt-4 mb-1 text-primary"><h2>Opciones</h2></div>
-    <div class="col-4 mx-auto mb-2"><img src="/img/ram.jpg" class=" img-fluid"></div>
-    <div class="container mx-auto mb-3">
-    <div class="form-row col-12 mx-auto">
-      
-    
-    <!--Cochera-->
-        <div class="col-6 mb-1">
-        <form action="/clients/send-garage"  method="POST" onsubmit="return confirm('Desea enviar este cliente a la cochera?');">
-        <div id="element-to-hide">
-        <input type="hidden" name="patente" value="{{findClient.patente}}">
-        <input type="hidden" name="marca" value="{{findClient.marca}}">
-        <input type="hidden" name="modelo" value="{{findClient.modelo}}">
-        <input type="hidden" name="fecha" id="theDate">
-        <input type="hidden" name="hora" id="thetime">
-        <input type="hidden" name="tipo" value="{{findClient.tipo}}">
-        </div>
-        <button  type="submit" class="btn btn-success btn-block"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Cochera</button>
-        </form>
-        </div>
-        
+<!--Opciones-->
+<div class="container mx-auto col-10 border mt-5">
+<h1 class="text-center text-primary mt-3 mb-3">Opciones</h1>
+<div class=" mx-auto text-center "><img src="/img/cherokee.jpg" class="img-fluid"></div>
 
-        <!--Lavadero-->
-        <div class="col-6 mb-1">
-        <div>
-        <a href="#ventana4" class="btn btn-success btn-block"  type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-tint mr-1"  aria-hidden="true"></i>Lavadero</a>
+<!--Botonos-->
+<div class="mx-auto form-row col-12 mb-5">
+    <!--Cochera-->
+    <div class="col-5 mx-auto">
+<a href="#ventana10" type="submit" class="btn btn-success btn-block " data-toggle="modal"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Cochera</a>
+    </div>
+    <!--Lavadero-->
+    <div class="col-5 mx-auto">
+<a href="#ventana9" class="btn btn-success btn-block "  type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-tint mr-1"  aria-hidden="true"></i>Lavadero</a>
+    </div>
+</div>
+</div>
+
+<!--Modal Cochera-->
+<div class="modal" tabindex="-1" role="dialog" id="ventana10">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body"> <!--Contenido-->
+
+      <div class="form-row"> <!--Division-->
+
+      <div class="col-6"> <!--Auto-->
+
+      <form action="#" method="post">
+          <h3 class="text-center">Auto</h3>
+          <hr>
+          
+          <div class="form-group">    
+             <label>Media Hora</label>
+             <input type="number" name="media hora" id="media_hora" class="form-control">
+          </div>
+      
+         <div class="form-group">
+             <label>Hora</label>
+             <input type="number" name="hora" id="hora" class="form-control">
+         </div>
+         
+        <div class="form-group">
+             <label>Medio Dia</label>
+             <input type="number" name="medio dia" id="medio_dia" class="form-control">
+         </div>
+          
+         <div class="form-group">
+             <label>Dia</label>
+             <input type="number" name="dia" id="dia" class="form-control">
+         </div>
+      
+        <div class="form-group">
+            <label>Semana</label>
+            <input type="number" name="semana" id="semana" class="form-control">
         </div>
-        </div>        
+           
+        <div class="form-group">
+            <label>Quicena</label>
+            <input type="number" name="quincena" id="quincena" class="form-control">
         </div>
+          
+        <div class="form-group">
+            <label>Mes</label>
+            <input type="number" name="mes" id="mes" class="form-control">
         </div>
+           
+      </form>
+
+       </div> <!--Fin Auto-->
+
+       
+       
+       
+       
+       
+       
+       
+       <div class="col-6"> <!--Camioneta-->
+
+           <form action="#" method="post">
+          <h3 class="text-center">Camioneta</h3>
+          <hr>
+      
+          <div class="form-group">    
+             <label>Media Hora</label>
+             <input type="number" name="media hora" id="media_hora" class="form-control">
+          </div>
+      
+         <div class="form-group">
+             <label>Hora</label>
+             <input type="number" name="hora" id="hora" class="form-control">
+         </div>
+         
+        <div class="form-group">
+             <label>Medio Dia</label>
+             <input type="number" name="medio dia" id="medio_dia" class="form-control">
+         </div>
+          
+         <div class="form-group">
+             <label>Dia</label>
+             <input type="number" name="dia" id="dia" class="form-control">
+         </div>
+      
+        <div class="form-group">
+            <label>Semana</label>
+            <input type="number" name="semana" id="semana" class="form-control">
+        </div>
+           
+        <div class="form-group">
+            <label>Quicena</label>
+            <input type="number" name="quincena" id="quincena" class="form-control">
+        </div>
+          
+        <div class="form-group">
+            <label>Mes</label>
+            <input type="number" name="mes" id="mes" class="form-control">
+        </div>
+           
+      </form>
+       </div> <!--Fin Camioneta-->
+
+
+       </div>
+                
+      </div> <!--Fin Contenido-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerra</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Modal Lavadero-->
+<div class="modal" tabindex="-1" role="dialog" id="ventana9">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body"> <!--Contenido-->
+
+      <div class="col-12"> <!--Lavadero-->
+
+           <form action="#" method="post">
+          <h3 class="text-center">Precios Lavadero</h3>
+          <hr>
+      
+          <div class="form-group">    
+             <label>Lavado</label>
+             <input type="number" name="lavado" class="form-control">
+          </div>
+      
+         <div class="form-group">
+             <label>Motor</label>
+             <input type="number" name="motor" class="form-control">
+         </div>
+         
+        <div class="form-group">
+             <label>Hidr. Cuero</label>
+             <input type="number" name="motor" class="form-control">
+         </div>
+
+         <div class="form-group">
+             <label>Trat. Acrilico S/L</label>
+             <input type="number" name="acrilico" class="form-control">
+         </div>
+      
+        <div class="form-group">
+            <label>Tapizado</label>
+            <input type="number" name="tapizado" class="form-control">
+        </div>
+           
+        <div class="form-group">
+            <label>Adic. Barro</label>
+            <input type="number" name="barro" class="form-control">
+        </div>
+          
+        <div class="form-group">
+            <label>Adic. Lustre</label>
+            <input type="number" name="lustre" class="form-control">
+        </div>
+           
+      </form>
+       </div> <!--Fin Camioneta-->
+          
+
+
+
+
+
+
+
+        
+      </div> <!--Fin Contenido-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
         

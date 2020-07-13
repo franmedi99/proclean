@@ -10,25 +10,28 @@
                             </div>
                             <div class="card-body">
                                 
-                                <form action="#" method="POST">
+                                <form action="/historial/edit/{{receipt._id}}" method="POST">
                                 <div class="form-group text-left">
                                 <label for="patente">Usuario</label>
-                                <input type="text" name="patente" class="form-control text-center" placeholder="Patente" value="{{receipt.user}}"  onkeyup="javascript:this.value=this.value.toUpperCase();" autocomplete="off">
+                                <input type="text" name="user" class="form-control text-center" placeholder="Usuario" value="{{receipt.user}}" autocomplete="off">
                                 </div>
-                                <div class="form-group  text-left">
-                                <label for="patente">Accion</label>
-                                <input type="text" name="marca" class="form-control text-center" placeholder="Marca" value="{{receipt.action}}">
+                                <div class="form-group text-left">
+                                     <label>Accion</label>
+                                    <select class="form-control text-center mx-auto" name="action">
+                                    <option value="LAVADO">Lavado</option>
+                                    <option value="COCHERA">Cochera</option>
+                                    </select>
                                 </div>
                 
                                 <div class="form-group  text-left">
                                     <label for="patente">Importe</label>
-                                <input type="text" name="modelo" class="form-control text-center" placeholder="Modelo" value="${{receipt.box}}">
+                                <input type="text" name="box" class="form-control text-center" placeholder="Importe" value="{{receipt.box}}">
                                 </div>
                 
   
                                 <div class="form-group text-left">
                                      <label>Tipo</label>
-                                    <select class="form-control text-center mx-auto" name="tipo">
+                                    <select class="form-control text-center mx-auto" name="type">
                                     <option value="Auto">Auto</option>
                                     <option value="Camioneta">Camioneta</option>
                                     </select>

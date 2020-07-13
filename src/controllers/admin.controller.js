@@ -8,7 +8,6 @@ const Client = require('../models/client');
 const Mes = require('../models/registro.mes');
 //users
 adminCtrl.renderusers= async(req,res) =>{
-        console.log(req.user.id);
         const users = await User.find();
          res.render('admins/users-list',{users});
     
@@ -40,6 +39,22 @@ adminCtrl.editreceipt= async(req,res) =>{
     const receipt = await Box.findById(req.params.id);
     res.render('admins/edit-receipt', {receipt});
 };
+
+adminCtrl.updatereceipt = async(req,res)=>{
+  
+  const {user,action,type,box} =req.body;
+
+  await Box.findByIdAndUpdate(req.params.id,{user,action,type,box});
+  req.flash('success_msg', 'Registro Editado Satisfactoriamente');
+  res.redirect('/list-box');
+}
+
+
+
+
+
+
+
 
 adminCtrl.deletereceipt= async(req,res) =>{
 
@@ -75,5 +90,30 @@ adminCtrl.renderclients=async(req,res) =>{
         };
 
 
+        adminCtrl.editclient= async(req,res) =>{
+          const client = await Client.findById(req.params.id);
+          res.render('admins/edit-client', {client});
+      };
 
+      adminCtrl.updateclient = async(req,res)=>{
+  
+        const {marca,modelo,phone,patente,tipo} =req.body;
+      
+        await Box.findByIdAndUpdate(req.params.id,{marca,modelo,phone,patente,tipo});
+        req.flash('success_msg', 'Cliente Editado Satisfactoriamente');
+        res.redirect('/all-clients');
+      }
+
+
+      adminCtrl.deleteclient= async(req,res) =>{
+
+        await Client.findByIdAndDelete(req.params.id);
+        req.flash('success_msg', 'Cliente Eliminado satisfactoriamente');
+        res.redirect('/all-clients');
+           
+          
+        
+        };
+
+      
 module.exports = adminCtrl;

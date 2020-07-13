@@ -2,7 +2,7 @@ const {Router} = require('express');
 const router = Router();
 const {rendersignupForm,  signup}   = require('../controllers/index.controller');
 const { isAuthenticated, isAdmin } = require('../helpers/auth');
-const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt,updatereceipt, renderclients,closeday,renderprices,editclient,updateclient,deleteclient} = require('../controllers/admin.controller');
+const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt,updatereceipt, renderclients,closeday,renderprices,editclient,updateclient,deleteclient,renderdays} = require('../controllers/admin.controller');
 
 
 //registrar usuario
@@ -27,6 +27,9 @@ router.get('/client/edit/:id',isAuthenticated,isAdmin, editclient);//render list
 router.post('/client/edit/:id',isAuthenticated,isAdmin, updateclient);//render list users
 
 router.post('/client/delete/:id',isAuthenticated,isAdmin, deleteclient);//render list users
+
+//registros
+router.get('/register/days',isAuthenticated,isAdmin, renderdays);//render list users
 
 
 

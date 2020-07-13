@@ -2,10 +2,9 @@ const adminCtrl = {};
 const User = require('../models/user');
 const Box = require('../models/empleado.caja');
 const Client = require('../models/client');
-
-
-
 const Mes = require('../models/registro.mes');
+
+
 //users
 adminCtrl.renderusers= async(req,res) =>{
         const users = await User.find();
@@ -109,10 +108,18 @@ adminCtrl.renderclients=async(req,res) =>{
         await Client.findByIdAndDelete(req.params.id);
         req.flash('success_msg', 'Cliente Eliminado satisfactoriamente');
         res.redirect('/all-clients');
-           
-          
-        
+                   
         };
+
+
+        adminCtrl.renderdays=async(req,res) =>{
+          const historial = await Mes.findById();
+          res.render('admins/month-register',{historial});
+          };
+
+
+
+
 
       
 module.exports = adminCtrl;

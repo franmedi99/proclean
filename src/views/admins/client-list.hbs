@@ -31,10 +31,10 @@
           <th scope="row">{{modelo}}</th>
           <th scope="row">{{tipo}}</th>
           <th scope="row">{{phone}}</th>
-          <td><a class="btn btn-primary col-12 mx-auto" href="/client/edit/{{_id}}">Editar</a></td>
+          <td><a class="btn btn-primary col-12 mx-auto" href="/client/edit/{{_id}}"><i class="fa fa-pencil mr-1" aria-hidden="true"></i>Editar</a></td>
           <td>
            <form action="/client/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea eliminar este cliente?');">
-           <button type="submit" class="btn btn-danger col-12 mx-auto">Borrar</button>
+           <button type="submit" class="btn btn-danger col-12 mx-auto"><i class="fa fa-trash-o mr-1" aria-hidden="true"></i>Borrar</button>
            </form>
            </td>
           </td>

@@ -8,6 +8,7 @@
   <div class="col-6 mx-auto border">
      <h3 class="text-center mt-3"><i class="fa fa-archive mr-1" aria-hidden="true"></i>Registro Anual</h3>
     <h4 class="text-success text-center">Importe total</h4>
+    
   <h4 class="text-primary text-center">{{#if result}}{{#each result as |item|}}${{item.total}}{{/each}}{{else}} $0{{/if}}</h4>
   <!--Cantidad C y L-->
   <hr>
@@ -26,8 +27,13 @@
           <input type="hidden" name="lavados" {{#each lavados as |item|}} value="{{item.lavados}}"{{/each}}>
      <input type="hidden" name="cocheras" {{#each cocheras as |item|}} value="{{item.cocheras}}"{{/each}}>
      <input type="hidden" name="total" {{#each result as |item|}} value="{{item.total}}"{{/each}}>
-     <div class="mx-auto col-md-4">
-     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 ">Cerrar Año</button>
+     <div class="col-12 mx-auto form-row">
+     <div class="mx-auto row col-md-6">
+     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 "><i class="fa fa-flag-checkered mr-1" aria-hidden="true"></i>Cerrar Año</button>
+     </div>
+     <div class="mx-auto row col-md-6">
+       <a href="/old/months" class="btn btn-info btn-block mt-3 mb-3"><i class="fa fa-history mr-1" aria-hidden="true"></i>Historial de Meses</a>
+     </div>
      </div>
   </form>
   </div>

@@ -7,7 +7,8 @@
 
     <!-- Datos cliente -->
 
-    <h4 class="text-center mt-1 text-success">Datos del Cliente</h4>
+    <h3 class="text-center mt-1 text-primary">Datos del Cliente</h3>
+    <hr>
 
      
     
@@ -76,7 +77,8 @@
                             <input type="hidden" name="type" value="{{findClient.tipo}}">
                             </div> 
                                    
-                            <h5 class="pt-1 text-center">Atencion Recibida</h5>
+                            <h3 class="pt-1 text-center text-primary">Atencion Recibida</h3>
+                            <hr>
                             <div class="form-row">       
                             <div class="form-group p-3 col-12 mx-auto" >
                             <li style="list-style: none;">
@@ -121,13 +123,13 @@
                             <input type="text" id="thetime1" name="hora" class="form-control text-center" placeholder="Hora">
                             </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row text-primary">
                             <label for="final">Importe</label>
-                            <input type="text" class="text-center col col-md-12" id="total" disabled>
+                            <input type="text" class="text-center text-danger col col-md-12" id="total" disabled>
                             </div>
                             </div>
                             <div class="form-action-buttons p-3 text-center">
-                            <button type="submit" class="btn btn-success">Enviar</button>
+                            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-paper-plane mr-1" aria-hidden="true"></i>Enviar</button>
                             </div>
                             </div>
                             </div>
@@ -135,7 +137,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1" aria-hidden="true"></i>Cerrar</button>
                     </div>
                   </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

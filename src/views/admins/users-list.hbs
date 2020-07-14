@@ -15,7 +15,7 @@
             <td>{{rol}}</td>
             <td>  
             <form action="/user/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea borrar este usuario?');">
-            <button type="submit" class="btn btn-danger col-12  ml-auto btn-block">Eliminar</button>
+            <button type="submit" class="btn btn-danger col-12  ml-auto btn-block"><i class="fa fa-trash-o mr-1" aria-hidden="true"></i>Eliminar</button>
             </form>
             </td>
           </tr>
@@ -25,14 +25,15 @@
 <!--Botones-->
 
       <div class="container">
+        <hr>
         
         <div class="form-row">
           
           <div class="col-md-5 mx-auto ">
-        <a href="/register" class="btn btn-primary btn-block mx-auto mt-5 p-2">Registrar Usuario</a>
+        <a href="/register" class="btn btn-primary btn-block mx-auto mt-1 p-2"><i class="fa fa-plus mr-1" aria-hidden="true"></i>Registrar Usuario</a>
         </div>
         <div class="col-md-5 mx-auto">
-        <a href="/clients" class="btn btn-success btn-block  mx-auto mt-5 p-2">Volver</a>
+        <a href="/clients" class="btn btn-success btn-block  mx-auto mt-1 p-2"><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver</a>
         </div>
         </div>
       </div>

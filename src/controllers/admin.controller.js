@@ -4,7 +4,7 @@ const Box = require('../models/empleado.caja');
 const Client = require('../models/client');
 const Mes = require('../models/registro.mes');
 const Anual = require('../models/registro.anual');
-
+const Total = require('../models/registro.total');
 
 //users
 adminCtrl.renderusers= async(req,res) =>{
@@ -133,10 +133,29 @@ adminCtrl.renderclients=async(req,res) =>{
 
             adminCtrl.rendermonths=async(req,res) =>{
          
-              const historial = await Anual.find();
-              const result = await Anual.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
+              const historial = await Anual.find({show:1});
+              const result = await Anual.aggregate([{$match:{show:1}},{$group:{_id:null,total:{$sum:"$total"}}}]);
               res.render('admins/year-register',{historial,result});
               };
+
+              adminCtrl.closemonths=async(req,res) =>{
+                const{ fecha , total} = req.body;
+                const sendmonth =  await new Total({fecha,total});
+                await sendmonth.save();
+                await Anual.updateMany({show:1},{ $set: { show: 0 } })
+                req.flash('success_msg', 'Mes cerrado Satisfactoriamente');
+                res.redirect('/list-box');
+                
+                };
+
+
+                adminCtrl.renderyears=async(req,res) =>{
+         
+                  const historial = await Total.find();
+                  const result = await Total.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
+                  res.render('admins/total-register',{historial,result});
+                  };
+
 
       
 module.exports = adminCtrl;

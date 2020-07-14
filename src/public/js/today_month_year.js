@@ -12,4 +12,5 @@ var mes =  month + "/" + year;
 
 
 document.getElementById("month").value = mes;
-document.getElementById("year").value = year;
+
+

@@ -3,7 +3,8 @@ const router = Router();
 const {rendersignupForm,  signup}   = require('../controllers/index.controller');
 const { isAuthenticated, isAdmin } = require('../helpers/auth');
 const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt,updatereceipt, renderclients,closeday,
-        renderprices,editclient,updateclient,deleteclient,renderdays, closemonth, rendermonths,closemonths,renderyears} = require('../controllers/admin.controller');
+        renderprices,editclient,updateclient,deleteclient,renderdays, closemonth, rendermonths,closemonths,
+        oldmonths,renderyears} = require('../controllers/admin.controller');
 
 
 //registrar usuario
@@ -40,7 +41,13 @@ router.get('/register/month',isAuthenticated,isAdmin, rendermonths);//render lis
 router.get('/register/total',isAuthenticated,isAdmin,renderyears);//render list users
 
 
+
 //rutas de precio
 router.get('/price',isAuthenticated,isAdmin, renderprices);//render list users
+
+
+router.get('/old/months',isAuthenticated,isAdmin,oldmonths);//render list users
+
+
 
 module.exports = router;

@@ -164,5 +164,12 @@ adminCtrl.renderclients=async(req,res) =>{
                   };
 
 
+
+                  adminCtrl.oldmonths=async(req,res) =>{
+                      const months=  await Anual.find({show:0});
+                      res.render('admins/old-month',{months});
+                    };
+  
+
       
 module.exports = adminCtrl;

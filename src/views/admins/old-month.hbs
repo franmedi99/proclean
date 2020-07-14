@@ -5,9 +5,8 @@
 
 
 <div class="container mx-auto mt-3">
-  <div class="col-8 mx-auto border">
-    <h3 class="text-center mt-3"><i class="fa fa-archive mr-1" aria-hidden="true"></i>Registro Diario</h3>
-    <hr>
+  <div class="col-6 mx-auto border">
+     <h3 class="text-center mt-3"><i class="fa fa-archive mr-1" aria-hidden="true"></i>Meses Anteriores</h3>
     <h4 class="text-success text-center">Importe total</h4>
   <h4 class="text-primary text-center">{{#if result}}{{#each result as |item|}}${{item.total}}{{/each}}{{else}} $0{{/if}}</h4>
   <!--Cantidad C y L-->
@@ -21,12 +20,12 @@
   </div>
   </div>
   <hr>
-  <!--Botones-->  
-     <form action="/close-month" method="post" onsubmit="return confirm('¿Desea cerrar el mes?');">
-     <input type="hidden" id="month" name="fecha">
+     
+     <form action="/close-year" method="post" onsubmit="return confirm('¿Desea cerrar el año?');">
+     <input type="hidden" id="year" name="fecha">
      <input type="hidden" name="total" {{#each result as |item|}} value="{{item.total}}"{{/each}}>
      <div class="mx-auto col-md-4">
-     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 "> Cerrar Mes </button>
+     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 ">Cerrar Año</button>
      </div>
   </form>
   </div>
@@ -49,8 +48,8 @@
           {{#each historial}}
           <tr>
           <th scope="row">{{fecha}}</th>
-          <th scope="row">{{lavados}}</th>
-          <th scope="row">{{cocheras}}</th>
+          <th scope="row"></th>
+          <th scope="row"></th>
           <th scope="row" class="text-center">$ {{total}}</th>
           </tr>
           {{/each}}
@@ -61,3 +60,4 @@
 
 
     <script src="/js/today_month_year.js"></script>
+    <script src="/js/today_year.js"></script>

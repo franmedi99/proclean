@@ -2,27 +2,38 @@
   <a href="/clients" class=" text-primary ml-5 btn-block mt-2"><h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4></a>
 </nav>
 
-
-
 <div class="mx-auto">
   <h3 class="text-center"><i class="fa fa-address-card mr-1" aria-hidden="true"></i>Registro</h3>
 </div>
-<div class="mx-auto text-center col-4 p-3 border">
-  <h5 class="text-success">Importe total</h5>
+<div class="mx-auto text-center col-8 border">
+  <h5 class="text-success mt-1">Importe total</h5>
   <h4 class="text-primary">{{#if result}}{{#each result as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h4>
-  <div class="form-row col-12">
-    <div class="col-6 mx-auto">
+  <hr>
+  <!--Cantidad C y L-->
+  <div class="form-row mx-auto ">
+    <div class="col-6">
+  <h5 class="text-success text-center">Lavados : 26</h5>
+  </div>
+  <div class="col-6">
+  <h5 class="text-success text-center">Cocheras : 30</h5>
+  </div>
+  </div>
+  <!--Botones-->
+  <hr>
+  <div class="form-row col-12 mx-auto ">
+    <div class="col-md-6 mx-auto mb-2">
   <form action="/close-day" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
     <input type="hidden" id="theDate" name="fecha">
     <input type="hidden" name="total" {{#each result as |item|}} value="{{item.box}}"{{/each}}>
-    <button type="submit" class=" btn btn-primary btn-block  "> Cerrar Dia </button>
+    <button type="submit" class="btn btn-primary btn-block">Cerrar Dia</button>
   </form>
   </div>
-  <div class="col-6 mx-auto">
-  <a href="#ventana11" class="btn btn-success btn-block " type="submit" data-toggle="modal"  style="height: 100%;" > <i class="fa fa-cog mr-1"  aria-hidden="true"></i>Mas Opciones</a>
+  <div class="col-md-6 mx-auto mb-2">
+  <a href="#ventana11" class=" btn btn-success btn-block" type="submit" data-toggle="modal"  style="height: 100%;" > <i class="fa fa-cog mr-1"  aria-hidden="true"></i>Mas Opciones</a>
   </div>
   </div>
 </div>
+  <!--Tabla-->
    <table class="table col-11 mx-auto mt-3">
         <thead class="thead-dark">
           <tr>
@@ -76,7 +87,7 @@
       <div class="form-row col-10 mx-auto"> <!--Botones-->
         <div class="col-12 form-group mt-3"><a href="/register/days" class="btn btn-success btn-block">Registro Mensual</a></div>
         <div class="col-12 form-group "><a href="/register/month" class="btn btn-success btn-block">Registro Anual</a></div>
-        <div class="col-12 form-group "><a href="#" class="btn btn-success btn-block">Registro Total</a></div>
+        <div class="col-12 form-group "><a href="/register/total" class="btn btn-success btn-block">Registro Total</a></div>
       </div>
        </div> <!--Fin Opciones-->          
       </div> <!--Fin Contenido-->

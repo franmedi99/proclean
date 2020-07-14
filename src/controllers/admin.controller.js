@@ -138,8 +138,8 @@ adminCtrl.renderclients=async(req,res) =>{
             };
 
             adminCtrl.rendermonths=async(req,res) =>{
-              const lavados = await Mes.aggregate([{$match:{show:1}},{$group:{_id:null,lavados:{$sum:"$lavados"}}}]);
-              const cocheras = await Mes.aggregate([{$match:{show:1}},{$group:{_id:null,cocheras:{$sum:"$cocheras"}}}]);
+              const lavados = await Anual.aggregate([{$match:{}},{$group:{_id:null,lavados:{$sum:"$lavados"}}}]);
+              const cocheras = await Anual.aggregate([{$match:{}},{$group:{_id:null,cocheras:{$sum:"$cocheras"}}}]);
               const historial = await Anual.find({show:1});
               const result = await Anual.aggregate([{$match:{show:1}},{$group:{_id:null,total:{$sum:"$total"}}}]);
               res.render('admins/year-register',{historial,result,lavados,cocheras});

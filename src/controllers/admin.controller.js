@@ -30,8 +30,8 @@ adminCtrl.deleteuser= async(req,res) =>{
 //box
 adminCtrl.renderbox= async(req,res) =>{
     const historial = await Box.find({ show: 0 });
-    const lavados = await Box.count({action:"LAVADO"});
-    const cocheras = await Box.count({action:"COCHERA"});
+    const lavados = await Box.countDocuments({action:"LAVADO",show:0});
+    const cocheras = await Box.countDocuments({action:"COCHERA",show:0});
     const result = await Box.aggregate([{$match:{show:0}},{$group:{_id:null,box:{$sum:"$box"}}}]);
     res.render('admins/historial-box',{historial,result,lavados,cocheras});
     
@@ -116,16 +116,20 @@ adminCtrl.renderclients=async(req,res) =>{
 
 
         adminCtrl.renderdays=async(req,res) =>{
-         
+          const lavados = await Mes.aggregate([{$match:{}},{$group:{_id:null,lavados:{$sum:"$lavados"}}}]);
+          const cocheras = await Mes.aggregate([{$match:{}},{$group:{_id:null,cocheras:{$sum:"$cocheras"}}}]);
           const historial = await Mes.find();
           const result = await Mes.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
-           console.log(result);
-          res.render('admins/month-register',{historial,result});
+           console.log(lavados);
+           console.log(cocheras);
+          res.render('admins/month-register',{historial,result,lavados,cocheras});
           };
 
           adminCtrl.closemonth=async(req,res) =>{
-            const{ fecha , total} = req.body;
-            const sendmonth =  await new Anual({fecha,total});
+
+            const{fecha,total,lavados,cocheras} = req.body;
+            console.log(req.body);
+            const sendmonth=  await new Anual({fecha,total,lavados,cocheras});
             await sendmonth.save();
             await Mes.deleteMany();
             req.flash('success_msg', 'Mes cerrado Satisfactoriamente');
@@ -134,18 +138,19 @@ adminCtrl.renderclients=async(req,res) =>{
             };
 
             adminCtrl.rendermonths=async(req,res) =>{
-         
+              const lavados = await Mes.aggregate([{$match:{show:1}},{$group:{_id:null,lavados:{$sum:"$lavados"}}}]);
+              const cocheras = await Mes.aggregate([{$match:{show:1}},{$group:{_id:null,cocheras:{$sum:"$cocheras"}}}]);
               const historial = await Anual.find({show:1});
               const result = await Anual.aggregate([{$match:{show:1}},{$group:{_id:null,total:{$sum:"$total"}}}]);
-              res.render('admins/year-register',{historial,result});
+              res.render('admins/year-register',{historial,result,lavados,cocheras});
               };
 
               adminCtrl.closemonths=async(req,res) =>{
-                const{ fecha , total} = req.body;
-                const sendmonth =  await new Total({fecha,total});
+                const{ fecha , total,lavados,cocheras} = req.body;
+                const sendmonth =  await new Total({fecha,total,lavados,cocheras});
                 await sendmonth.save();
                 await Anual.updateMany({show:1},{ $set: { show: 0 } })
-                req.flash('success_msg', 'Mes cerrado Satisfactoriamente');
+                req.flash('success_msg', 'Año cerrado Satisfactoriamente');
                 res.redirect('/list-box');
                 
                 };

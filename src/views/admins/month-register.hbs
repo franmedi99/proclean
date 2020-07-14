@@ -14,10 +14,10 @@
   <hr>
   <div class="form-row mx-auto">
     <div class="col-6 ">
-  <h5 class="text-success text-center">Lavados : 26</h5>
+  <h5 class="text-success text-center">Lavados : {{#if lavados}}{{#each lavados as |item|}}{{item.lavados}}{{/each}}{{else}}0{{/if}}</h5>
   </div>
    <div class="col-6">
-  <h5 class="text-success text-center">Cocheras : 30</h5>
+  <h5 class="text-success text-center">Cocheras :  {{#if cocheras}}{{#each cocheras as |item|}}{{item.cocheras}}{{/each}}{{else}}0{{/if}}</h5>
   </div>
   </div>
   <hr>
@@ -25,6 +25,8 @@
      <form action="/close-month" method="post" onsubmit="return confirm('¿Desea cerrar el mes?');">
      <input type="hidden" id="month" name="fecha">
      <input type="hidden" name="total" {{#each result as |item|}} value="{{item.total}}"{{/each}}>
+     <input type="hidden" name="lavados" {{#each lavados as |item|}} value="{{item.lavados}}"{{/each}}>
+     <input type="hidden" name="cocheras" {{#each cocheras as |item|}} value="{{item.cocheras}}"{{/each}}>
      <div class="mx-auto col-md-4">
      <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 "> Cerrar Mes </button>
      </div>

@@ -8,7 +8,9 @@ const RUcajaSchema= new Schema({
     fecha:{type:String,required:true},
     hora:{type:String,required:true},
     show:{type:Number, default: 1}
-})
+},
+{timestamps:true}
+)
 
 
 module.exports = model('RUcaja', RUcajaSchema);

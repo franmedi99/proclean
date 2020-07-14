@@ -29,7 +29,7 @@ adminCtrl.deleteuser= async(req,res) =>{
 
 //box
 adminCtrl.renderbox= async(req,res) =>{
-    const historial = await Box.find({ show: 0 });
+    const historial = await Box.find({ show: 0 }).sort({createdAt: 'asc'});;
     const lavados = await Box.countDocuments({action:"LAVADO",show:0});
     const cocheras = await Box.countDocuments({action:"COCHERA",show:0});
     const result = await Box.aggregate([{$match:{show:0}},{$group:{_id:null,box:{$sum:"$box"}}}]);
@@ -55,7 +55,7 @@ adminCtrl.updatereceipt = async(req,res)=>{
 
 
 
-
+//.sort({createdAt: 'desc'});
 
 
 adminCtrl.deletereceipt= async(req,res) =>{
@@ -87,9 +87,7 @@ adminCtrl.renderclients=async(req,res) =>{
       
       };
 
-      adminCtrl.renderprices=async(req,res) =>{
-        res.render('admins/price');
-        };
+
 
 
         adminCtrl.editclient= async(req,res) =>{
@@ -118,7 +116,7 @@ adminCtrl.renderclients=async(req,res) =>{
         adminCtrl.renderdays=async(req,res) =>{
           const lavados = await Mes.aggregate([{$match:{}},{$group:{_id:null,lavados:{$sum:"$lavados"}}}]);
           const cocheras = await Mes.aggregate([{$match:{}},{$group:{_id:null,cocheras:{$sum:"$cocheras"}}}]);
-          const historial = await Mes.find();
+          const historial = await Mes.find().sort({createdAt: 'desc'});
           const result = await Mes.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
            console.log(lavados);
            console.log(cocheras);
@@ -140,7 +138,7 @@ adminCtrl.renderclients=async(req,res) =>{
             adminCtrl.rendermonths=async(req,res) =>{
               const lavados = await Anual.aggregate([{$match:{}},{$group:{_id:null,lavados:{$sum:"$lavados"}}}]);
               const cocheras = await Anual.aggregate([{$match:{}},{$group:{_id:null,cocheras:{$sum:"$cocheras"}}}]);
-              const historial = await Anual.find({show:1});
+              const historial = await Anual.find({show:1}).sort({createdAt: 'desc'});;
               const result = await Anual.aggregate([{$match:{show:1}},{$group:{_id:null,total:{$sum:"$total"}}}]);
               res.render('admins/year-register',{historial,result,lavados,cocheras});
               };
@@ -158,7 +156,7 @@ adminCtrl.renderclients=async(req,res) =>{
 
                 adminCtrl.renderyears=async(req,res) =>{
          
-                  const historial = await Total.find();
+                  const historial = await Total.find().sort({createdAt: 'desc'});;
                   const result = await Total.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
                   res.render('admins/total-register',{historial,result});
                   };
@@ -166,10 +164,12 @@ adminCtrl.renderclients=async(req,res) =>{
 
 
                   adminCtrl.oldmonths=async(req,res) =>{
-                      const months=  await Anual.find({show:0});
+                      const months=  await Anual.find({show:0}).sort({createdAt: 'desc'});;
                       res.render('admins/old-month',{months});
                     };
   
-
+                    adminCtrl.renderprices=async(req,res) =>{
+                      res.render('admins/price');
+                      };
       
 module.exports = adminCtrl;

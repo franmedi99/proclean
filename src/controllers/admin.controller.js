@@ -30,8 +30,10 @@ adminCtrl.deleteuser= async(req,res) =>{
 //box
 adminCtrl.renderbox= async(req,res) =>{
     const historial = await Box.find({ show: 0 });
+    const lavados = await Box.count({action:"LAVADO"});
+    const cocheras = await Box.count({action:"COCHERA"});
     const result = await Box.aggregate([{$match:{show:0}},{$group:{_id:null,box:{$sum:"$box"}}}]);
-    res.render('admins/historial-box',{historial,result});
+    res.render('admins/historial-box',{historial,result,lavados,cocheras});
     
 };
 
@@ -76,8 +78,8 @@ adminCtrl.renderclients=async(req,res) =>{
     };
 
     adminCtrl.closeday=async(req,res) =>{
-      const{ fecha , total} = req.body;
-      const sendmonth =  await new Mes({fecha,total});
+      const{ fecha,total,lavados,cocheras} = req.body;
+      const sendmonth =  await new Mes({fecha,total,lavados,cocheras});
       await sendmonth.save();
       await Box.deleteMany( { show: 0 } );
       req.flash('success_msg', 'Dia cerrado Satisfactoriamente');

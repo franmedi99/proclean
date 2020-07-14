@@ -12,10 +12,10 @@
   <!--Cantidad C y L-->
   <div class="form-row mx-auto ">
     <div class="col-6">
-  <h5 class="text-success text-center">Lavados : 26</h5>
+  <h5 class="text-success text-center">Lavados : {{lavados}}</h5>
   </div>
   <div class="col-6">
-  <h5 class="text-success text-center">Cocheras : 30</h5>
+  <h5 class="text-success text-center">Cocheras : {{cocheras}}</h5>
   </div>
   </div>
   <!--Botones-->
@@ -25,6 +25,8 @@
   <form action="/close-day" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
     <input type="hidden" id="theDate" name="fecha">
     <input type="hidden" name="total" {{#each result as |item|}} value="{{item.box}}"{{/each}}>
+    <input type="hidden" name="lavados" value="{{lavados}}">
+    <input type="hidden" name="cocheras" value="{{cocheras}}">
     <button type="submit" class="btn btn-primary btn-block">Cerrar Dia</button>
   </form>
   </div>

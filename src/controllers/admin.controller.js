@@ -3,6 +3,7 @@ const User = require('../models/user');
 const Box = require('../models/empleado.caja');
 const Client = require('../models/client');
 const Mes = require('../models/registro.mes');
+const Anual = require('../models/registro.anual');
 
 
 //users
@@ -122,15 +123,20 @@ adminCtrl.renderclients=async(req,res) =>{
 
           adminCtrl.closemonth=async(req,res) =>{
             const{ fecha , total} = req.body;
-            const sendmonth =  await new Mes({fecha,total});
+            const sendmonth =  await new Anual({fecha,total});
             await sendmonth.save();
-            await Box.deleteMany( { show: 0 } );
-            req.flash('success_msg', 'Dia cerrado Satisfactoriamente');
+            await Mes.deleteMany();
+            req.flash('success_msg', 'Mes cerrado Satisfactoriamente');
             res.redirect('/list-box');
             
             };
 
-
+            adminCtrl.rendermonths=async(req,res) =>{
+         
+              const historial = await Anual.find();
+              const result = await Anual.aggregate([{$match:{}},{$group:{_id:null,total:{$sum:"$total"}}}]);
+              res.render('admins/year-register',{historial,result});
+              };
 
       
 module.exports = adminCtrl;

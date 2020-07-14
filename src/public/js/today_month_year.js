@@ -7,6 +7,9 @@ var year = date.getFullYear();
 if (month < 10) month = "0" + month;
 if (day < 10) day = "0" + day;
 
-var today = day + "/" + month + "/" + year;
-document.getElementById("theDate").value = today;
-document.getElementById("theDate1").value = today;
+var mes =  month + "/" + year;
+
+
+
+document.getElementById("month").value = mes;
+document.getElementById("year").value = year;

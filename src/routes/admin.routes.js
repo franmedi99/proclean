@@ -2,7 +2,8 @@ const {Router} = require('express');
 const router = Router();
 const {rendersignupForm,  signup}   = require('../controllers/index.controller');
 const { isAuthenticated, isAdmin } = require('../helpers/auth');
-const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt,updatereceipt, renderclients,closeday,renderprices,editclient,updateclient,deleteclient,renderdays} = require('../controllers/admin.controller');
+const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt,updatereceipt, renderclients,closeday,
+        renderprices,editclient,updateclient,deleteclient,renderdays, closemonth, rendermonths} = require('../controllers/admin.controller');
 
 
 //registrar usuario
@@ -19,6 +20,7 @@ router.post('/historial/edit/:id',isAuthenticated,isAdmin,updatereceipt);//modif
 
 router.post('/historial/delete/:id',isAuthenticated,isAdmin,deletereceipt);//render edit receipt
 router.post('/close-day',isAuthenticated,isAdmin,closeday);//render edit receipt
+router.post('/close-month',isAuthenticated,isAdmin,closemonth);//render edit receipt
 
 //rutas de clientes
 router.get('/all-clients',isAuthenticated,isAdmin, renderclients);//render list users
@@ -30,7 +32,7 @@ router.post('/client/delete/:id',isAuthenticated,isAdmin, deleteclient);//render
 
 //registros
 router.get('/register/days',isAuthenticated,isAdmin, renderdays);//render list users
-
+router.get('/register/month',isAuthenticated,isAdmin, rendermonths);//render list users
 
 
 

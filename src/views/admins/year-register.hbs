@@ -21,18 +21,11 @@
   </div>
   <hr>
      
-<<<<<<< HEAD
-      
-     <form action="/close-month" method="post" onsubmit="return confirm('¿Desea cerrar el mes?');">
-     <input type="hidden" id="month" name="fecha">
-=======
-       <h3 class="text-center mt-3"><i class="fa fa-archive mr-1" aria-hidden="true"></i>Registro Diario</h3>
-     <form action="/close-year" method="post" onsubmit="return confirm('¿Desea cerrar el mes?');">
+     <form action="/close-year" method="post" onsubmit="return confirm('¿Desea cerrar el año?');">
      <input type="hidden" id="year" name="fecha">
->>>>>>> 0319e960316c0a8932775a22345cab6c9bb1f881
      <input type="hidden" name="total" {{#each result as |item|}} value="{{item.total}}"{{/each}}>
      <div class="mx-auto col-md-4">
-     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 "> Cerrar Año </button>
+     <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 ">Cerrar Año</button>
      </div>
   </form>
   </div>
@@ -63,3 +56,4 @@
 
 
     <script src="/js/today_month_year.js"></script>
+    <script src="/js/today_year.js"></script>

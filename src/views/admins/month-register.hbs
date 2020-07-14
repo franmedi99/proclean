@@ -39,6 +39,8 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col">Fecha</th>
+            <th scope="col">Lavados</th>
+            <th scope="col">Cocheras</th>
             <th scope="col" class="text-center">Caja Diaria</th>    
           </tr>
 
@@ -49,6 +51,8 @@
           {{#each historial}}
           <tr>
           <th scope="row">{{fecha}}</th>
+          <th scope="row">{{lavados}}</th>
+          <th scope="row">{{cocheras}}</th>
           <th scope="row" class="text-center">$ {{total}}</th>
           </tr>
           {{/each}}

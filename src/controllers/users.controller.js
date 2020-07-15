@@ -2,6 +2,8 @@ const usersCtrl = {};
 const Client = require('../models/client');
 const Garage = require('../models/garage');
 const Box = require('../models/empleado.caja');
+const Auto = require('../models/auto.precios');
+const Camioneta = require('../models/camioneta.precios');
 //---------------------------------------------CONTROLADORES GENERALES----------------------------------------------------
 usersCtrl.renderClients= async(req,res) =>{
 if(req.user.rol == "Administrador"){
@@ -17,7 +19,14 @@ usersCtrl.findClient= async(req,res) =>{
     const {patente} = req.body;
     const findClient =  await Client.findOne({patente:patente});
     if(findClient){
-        res.render('clients/client-movement',{findClient});
+        console.log(findClient.tipo);
+        if(findClient.tipo=="Auto"){
+            const precio = await Auto.findOne();
+        res.render('clients/client-movement',{findClient,precio});
+    }else{
+        const precio = await Camioneta.findOne();
+        res.render('clients/client-movement',{findClient,precio});
+    }
     }else{
         req.flash('error_msg', 'Cliente inválido.');
         res.redirect('/clients');
@@ -31,7 +40,7 @@ usersCtrl.createNewClient= async (req,res) =>{
     const{patente,marca,modelo,phone,tipo} = req.body
     if(!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.tipo){
  
-    req.flash('error_msg', 'la patente,marca,modelo y tipo son obligatorias para ingresar un nuevo cliente.');
+    req.flash('error_msg', 'La patente,marca,modelo y tipo son obligatorias para ingresar un nuevo cliente.');
     res.redirect('/clients');
 }else{
     const newClient = await  new Client({patente,marca,modelo,phone,tipo});
@@ -119,9 +128,20 @@ usersCtrl.renderListGarage=async(req,res) =>{
 
 usersCtrl.sendToBoxCar=async(req,res) =>{
         const car = await Garage.findById(req.params.id);
-        res.render('clients/egreso', {car});    
+        if(car){
+            if(car.tipo=="Auto"){
+                const precio = await Auto.findOne();
+                res.render('clients/egreso', {car,precio});  
+            }else{
+                 const precio = await Camioneta.findOne();
+                 res.render('clients/egreso', {car,precio});  
+            }
+          
+}else{
+    req.flash('error_msg', 'Ha ocurrido error por favor vuelva a intentarlo');
+    res.redirect('/garage');
+}
 };
-
 
 usersCtrl.deleteofGarage=async(req,res) =>{
     const{identi, box,type, fecha , hora} = req.body;

@@ -15,7 +15,8 @@ const CamionetaSchema= new Schema({
     acrilico: {type:Number},
     tapizado: {type:Number},
     barro: {type:Number},
-    lustre: {type:Number}
+    lustre: {type:Number},
+    show:{type:Number, default:1}
 
 })
 

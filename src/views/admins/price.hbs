@@ -26,85 +26,96 @@
 
       <div class="form-row"> <!--Division-->
 
-      <div class="col-11 mx-auto"> <!--Auto-->
+      <div class="col-12 mx-auto"> <!--Auto-->
 
       <form action="/price/auto" method="post" >
     
 
            
-          <h3 class="text-center text-primary">Auto</h3>
-          <hr>
-      
-          <div class="form-group">    
+          <div class="border-bottom">
+              <h3 class="text-center text-primary">Auto</h3>
+          </div>
+        
+        <div class="form-row ">
+         <div class="col-6 ml-auto">
+             <h4 class="text-center text-success  ">Cochera</h4>
+            <hr> 
+          <div class="form-group mr-3">    
              <label>Media Hora</label>
-             <input type="number" name="mhora" class="form-control">
+             <input type="number" name="mhora" value="{{preciosA.mhora}}" class="form-control text-center">
           </div>
       
-         <div class="form-group">
+         <div class="form-group  mr-3">
              <label>Hora</label>
-             <input type="number" name="hora" class="form-control">
+             <input type="number" name="hora" class="form-control text-center" value="{{preciosA.hora}}">
          </div>
          
-        <div class="form-group">
+        <div class="form-group  mr-3">
              <label>Medio Dia</label>
-             <input type="number" name="mdia"  class="form-control">
+             <input type="number" name="mdia"  class="form-control text-center" value="{{preciosA.mdia}}">
          </div>
           
-         <div class="form-group">
+         <div class="form-group  mr-3">
              <label>Dia</label>
-             <input type="number" name="dia"  class="form-control">
+             <input type="number" name="dia"  class="form-control text-center" value="{{preciosA.dia}}">
          </div>
       
-        <div class="form-group">
+        <div class="form-group  mr-3">
             <label>Semana</label>
-            <input type="number" name="semana"  class="form-control">
+            <input type="number" name="semana"  class="form-control text-center" value="{{preciosA.semana}}">
         </div>
            
-        <div class="form-group">
+        <div class="form-group  mr-3">
             <label>Quicena</label>
-            <input type="number" name="quincena"  class="form-control">
+            <input type="number" name="quincena"  class="form-control text-center" value="{{preciosA.quincena}}">
         </div>
           
-        <div class="form-group">
+        <div class="form-group  mr-3">
             <label>Mes</label>
-            <input type="number" name="mes"  class="form-control">
+            <input type="number" name="mes"  class="form-control text-center" value="{{preciosA.mes}}">
         </div>
+            </div>
       
-          <div class="form-group">    
+         <div class="col-6  mr-auto  border-left">
+                           <h4 class="text-center text-success">Lavadero</h4>
+              <hr>
+              <div class="form-group ml-3">    
              <label>Lavado</label>
-             <input type="number" name="lavado" class="form-control">
+             <input type="number" name="lavado" class="form-control text-center" value="{{preciosA.lavado}}">
           </div>
       
-         <div class="form-group">
+         <div class="form-group ml-3">
              <label>Motor</label>
-             <input type="number" name="motor" class="form-control">
+             <input type="number" name="motor" class="form-control text-center" value="{{preciosA.motor}}">
          </div>
          
-        <div class="form-group">
+        <div class="form-group ml-3">
              <label>Hidr. Cuero</label>
-             <input type="number" name="cuero" class="form-control">
+             <input type="number" name="cuero" class="form-control text-center" value="{{preciosA.cuero}}">
          </div>
 
-         <div class="form-group">
+         <div class="form-group ml-3">
              <label>Trat. Acrilico S/L</label>
-             <input type="number" name="acrilico" class="form-control">
+             <input type="number" name="acrilico" class="form-control text-center" value="{{preciosA.acrilico}}">
          </div>
       
-        <div class="form-group">
+        <div class="form-group ml-3">
             <label>Tapizado</label>
-            <input type="number" name="tapizado" class="form-control">
+            <input type="number" name="tapizado" class="form-control text-center" value="{{preciosA.tapizado}}">
         </div>
            
-        <div class="form-group">
+        <div class="form-group ml-3">
             <label>Adic. Barro</label>
-            <input type="number" name="barro" class="form-control">
+            <input type="number" name="barro" class="form-control text-center" value="{{preciosA.barro}}">
         </div>
-          
-        <div class="form-group">
+           
+        <div class="form-group ml-3 border-left">
             <label>Adic. Lustre</label>
-            <input type="number" name="lustre" class="form-control">
+            <input type="number" name="lustre" class="form-control text-center" value="{{preciosA.lustre}}">
         </div>  
+         </div>
      
+        </div>
        </div> <!--Fin Auto-->
        </div>
                 
@@ -123,7 +134,6 @@
     </div>
   </div>
 </div>
-
 </div>
 
 <!--Modal Camioneta-->
@@ -138,87 +148,95 @@
 
       <form action="/price/camioneta" method="post" >
     
-
-           
-          <h3 class="text-center text-primary">Camioneta</h3>
-          <hr>
-      
-          <div class="form-group">    
+            <div class="border-bottom">
+                <h3 class="text-center text-primary">Camioneta</h3>
+            </div>
+        <div class="form-row ">
+         <div class="col-6 ml-auto">
+            <h4 class="text-center text-success">Cochera</h4>
+            <hr>
+          <div class="form-group mr-3">    
              <label>Media Hora</label>
-             <input type="number" name="mhora" class="form-control">
+             <input type="number" name="mhora" class="form-control text-center" value="{{preciosC.mhora}}" >
           </div>
       
-         <div class="form-group">
+         <div class="form-group  mr-3">
              <label>Hora</label>
-             <input type="number" name="hora" class="form-control">
+             <input type="number" name="hora" class="form-control text-center" value="{{preciosC.hora}}">
          </div>
          
-        <div class="form-group">
+        <div class="form-group  mr-3">
              <label>Medio Dia</label>
-             <input type="number" name="mdia"  class="form-control">
+             <input type="number" name="mdia"  class="form-control text-center" value="{{preciosC.mdia}}">
          </div>
           
-         <div class="form-group">
+         <div class="form-group  mr-3">
              <label>Dia</label>
-             <input type="number" name="dia"  class="form-control">
+             <input type="number" name="dia"  class="form-control text-center" value="{{preciosC.dia}}">
          </div>
       
-        <div class="form-group">
+        <div class="form-group  mr-3">
             <label>Semana</label>
-            <input type="number" name="semana"  class="form-control">
+            <input type="number" name="semana"  class="form-control text-center" value="{{preciosC.semana}}">
         </div>
            
-        <div class="form-group">
+        <div class="form-group  mr-3">
             <label>Quicena</label>
-            <input type="number" name="quincena"  class="form-control">
+            <input type="number" name="quincena"  class="form-control text-center" value="{{preciosC.quincena}}">
         </div>
           
-        <div class="form-group">
+        <div class="form-group  mr-3">
             <label>Mes</label>
-            <input type="number" name="mes"  class="form-control">
+            <input type="number" name="mes"  class="form-control text-center" value="{{preciosC.mes}}">
         </div>
-     
-          <div class="form-group">    
+            </div>
+      
+         <div class="col-6  mr-auto border-left">
+              <h4 class="text-center text-success">Lavadero</h4>
+              <hr>
+              <div class="form-group ml-3">    
              <label>Lavado</label>
-             <input type="number" name="lavado" class="form-control">
+             <input type="number" name="lavado" class="form-control text-center" value="{{preciosC.lavado}}">
           </div>
       
-         <div class="form-group">
+         <div class="form-group ml-3">
              <label>Motor</label>
-             <input type="number" name="motor" class="form-control">
+             <input type="number" name="motor" class="form-control text-center" value="{{preciosC.motor}}">
          </div>
          
-        <div class="form-group">
+        <div class="form-group ml-3">
              <label>Hidr. Cuero</label>
-             <input type="number" name="cuero" class="form-control">
+             <input type="number" name="cuero" class="form-control text-center" value="{{preciosC.cuero}}">
          </div>
 
-         <div class="form-group">
+         <div class="form-group ml-3">
              <label>Trat. Acrilico S/L</label>
-             <input type="number" name="acrilico" class="form-control">
+             <input type="number" name="acrilico" class="form-control text-center" value="{{preciosC.acrilico}}">
          </div>
       
-        <div class="form-group">
+        <div class="form-group ml-3">
             <label>Tapizado</label>
-            <input type="number" name="tapizado" class="form-control">
+            <input type="number" name="tapizado" class="form-control text-center" value="{{preciosC.tapizado}}">
         </div>
            
-        <div class="form-group">
+        <div class="form-group ml-3">
             <label>Adic. Barro</label>
-            <input type="number" name="barro" class="form-control">
+            <input type="number" name="barro" class="form-control text-center" value="{{preciosC.barro}}">
         </div>
-          
-        <div class="form-group">
+           
+        <div class="form-group ml-3">
             <label>Adic. Lustre</label>
-            <input type="number" name="lustre" class="form-control">
+            <input type="number" name="lustre" class="form-control text-center" value="{{preciosC.lustre}}">
         </div>  
-      
+         </div>
+     
+        </div>
        </div> <!--Fin Auto-->
        </div>
                 
       </div> <!--Fin Contenido-->
       <div class="modal-footer">
-        <div class="form-row col-12">
+          <div class="form-row col-12">
               <div class="col-md-6">
         <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-floppy-o  mr-1" aria-hidden="true"></i>Guardar</button>
         </div>

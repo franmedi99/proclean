@@ -73,7 +73,7 @@ function abc(mhora,hora) {
     
     
     var iphora = document.getElementById('iphora');
-    var hora_total = mhora.value  * iphora.value;
+    var hora_total = hora.value  * iphora.value;
 
     
 

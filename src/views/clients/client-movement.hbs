@@ -15,15 +15,22 @@
 
      
     
-    
+    <div class="form-row">
+    <div class="col-6 border-right">
     <h3 class=" text-center text-success">Patente</h3>
     <h5 class="text-dark text-center">{{findClient.patente}}</h5>
 
     <h3 class=" text-center text-success">Marca</h3>
     <h5 class="text-dark text-center">{{findClient.marca}}</h5>
-
+    </div>
+    <div class="col-6">
     <h3 class=" text-center text-success">Modelo</h3>
     <h5  class="text-dark text-center">{{findClient.modelo}}</h5>
+
+    <h3 class=" text-center text-success">Tipo</h3>
+    <h5  class="text-dark text-center">{{findClient.tipo}}</h5>
+    </div>
+    </div>
 
 
 
@@ -87,31 +94,31 @@
                             <li style="list-style: none;">
                                 <ul>
                                 <label>Lustre</label>
-                                <input type="checkbox" name="lustre" id="lustre" value="500"  onclick="abc()" > 
+                                <input type="checkbox" name="lustre" id="lustre" value="{{precio.lustre}}"  onclick="abc()" > 
                                 </ul>
                                 <ul>
                                 <label>Motor</label>
-                                <input type="checkbox" name="motor" id="motor" value="600" onclick="abc()" >
+                                <input type="checkbox" name="motor" id="motor" value="{{precio.motor}}" onclick="abc()" >
                                 </ul>
                                 <ul>
                                 <label>Lavado</label>
-                                <input type="checkbox" name="lavado" id="lavado" value="700" onclick="abc()"> 
+                                <input type="checkbox" name="lavado" id="lavado" value="{{precio.lavado}}" onclick="abc()"> 
                                 </ul>
                                 <ul>
                                 <label>Tapizado</label>
-                                <input type="checkbox" name="tapizado" id="tapizado" value="800" onclick="abc()">
+                                <input type="checkbox" name="tapizado" id="tapizado" value="{{precio.tapizado}}" onclick="abc()">
                                 </ul>
                                 <ul>
                                 <label>Aduc. Barro</label>
-                                <input type="checkbox" name="barro" id="barro" value="450" onclick="abc()">
+                                <input type="checkbox" name="barro" id="barro" value="{{precio.barro}}" onclick="abc()">
                                 </ul>
                                 <ul>
                                 <label>Hidratacion de Cuero</label>
-                                <input type="checkbox" name="cuero" id="cuero" value="1500" onclick="abc()">
+                                <input type="checkbox" name="cuero" id="cuero" value="{{precio.cuero}}" onclick="abc()">
                                 </ul>
                                 <ul>
                                 <label>Tratamiento Acrilico S/L</label>
-                                <input type="checkbox" name="acrilico" id="acrilico" value="2000" onclick="abc()">
+                                <input type="checkbox" name="acrilico" id="acrilico" value="{{precio.acrilico}}" onclick="abc()">
                                 </ul>
                             </li>
                         
@@ -126,8 +133,9 @@
                             <input type="text" id="thetime1" name="hora" class="form-control text-center" placeholder="Hora">
                             </div>
                             </div>
-                            <div class="form-row text-primary">
-                            <label for="final">Importe</label>
+                            <hr>
+                            <div class="form-row text-primary mx-auto text-center">
+                            <label for="final" class="text-center mx-auto">Importe</label>
                             <input type="text" class="text-center text-danger col col-md-12" id="total" disabled>
                             </div>
                             </div>

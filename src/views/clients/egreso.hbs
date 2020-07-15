@@ -24,38 +24,38 @@
                                     
                                 <ul>
                                 <label>Media hora</label>
-                                <input type="checkbox"  id="mhora" value="500"  onchange="abc();" > 
+                                <input type="checkbox"  id="mhora" value="{{precio.mhora}}"  onchange="abc();" > 
                                 <div id="ipmh" style="display: none" class="mr-5"><input type="text"  min="0" class="val1 form-control text-center" id="ipmhora" onkeyup="abc()" placeholder="Media hora"/></div>
                                 </ul>
                                 <ul>
                                 <label>Hora</label>
-                                <input type="checkbox"  id="hora" value="600"  onchange="abc();" > 
+                                <input type="checkbox"  id="hora" value="{{precio.hora}}"  onchange="abc();" > 
                                 <div id="iph" style="display: none" class="mr-5"><input type="text"  min="0" class="val2 form-control text-center" id="iphora" onkeyup="abc()" placeholder="Hora"/></div>
                                 </ul>
 
                                 <ul>
                                 <label>Medio dia</label>
-                                <input type="checkbox" id="mdia" value="700" onchange="abc()"> 
+                                <input type="checkbox" id="mdia" value="{{precio.mdia}}" onchange="abc()"> 
                                 <div id="ipmd" style="display: none" class="mr-5"><input type="text"  min="0" class="val3 form-control text-center" id="ipmdia" onkeyup="abc()" placeholder="Medio Dia"/></div>
                                 </ul>
                                 <ul>
                                 <label>Dia</label>
-                                <input type="checkbox"  id="dia" value="800" onchange="abc()">
+                                <input type="checkbox"  id="dia" value="{{precio.dia}}" onchange="abc()">
                                 <div id="ipd" style="display: none" class="mr-5"><input type="text"  min="0" class="val4 form-control text-center" id="ipdia" onkeyup="abc()"  placeholder="Dias"/></div>
                                 </ul>
                                 <ul>
                                 <label>Semana</label>
-                                <input type="checkbox"  id="semana" value="450" onchange="abc()">
+                                <input type="checkbox"  id="semana" value="{{precio.semana}}" onchange="abc()">
                                 <div id="ips" style="display: none" class="mr-5"><input type="text"  min="0" class="val5 form-control text-center" id="ipsemana" onkeyup="abc()"   placeholder="Semana"/></div>
                                 </ul>
                                 <ul>
                                 <label>Quincena</label>
-                                <input type="checkbox"  id="quincena" value="1500" onchange="abc()">
+                                <input type="checkbox"  id="quincena" value="{{precio.quincena}}" onchange="abc()">
                                 <div id="ipq" style="display: none" class="mr-5"><input type="text"  min="0" class="val6 form-control text-center" id="ipquincena" onkeyup="abc()"   placeholder="Quincena"/></div>
                                 </ul>
                                 <ul>
                                 <label>Mes</label>
-                                <input type="checkbox" id="mes" value="2000" onchange="abc()">
+                                <input type="checkbox" id="mes" value="{{precio.mes}}" onchange="abc()">
                                 <div id="ipm" style="display: none" class="mr-5"><input type="text"  min="0" class="val7 form-control text-center" id="ipmes" onkeyup="abc()"   placeholder="Mes"/></div>
                                 </ul>
                                 
@@ -65,18 +65,18 @@
                             
                     
 
-                            <div>
-                            <label for="final" class="text-primary">Importe total</label>
+                            <div class="mx-auto text-center">
+                            <label for="final" class="text-primary mt-1">Importe total</label>
                             <br>
                             <input type="text" class="text-center col col-md-12" id="total" disabled>
                             </div>
                             
-                            <div class="p-3 text-center form-row mx-auto">
-                                <div class="col-md-6">
+                            <div class=" text-center form-row mx-auto  mt-3">
+                            <div class="col-md-6">
                             <button type="submit" class="btn btn-success btn-block mb-1"><i class="fa fa-paper-plane mr-1" aria-hidden="true"></i>Enviar</button>
                             </div>
                             <div class="col-md-6 ml-auto">
-                            <a href="/garage" type="submit" class="btn btn-warning btn-block"><i class="fa fa-times mr-1" aria-hidden="true"></i>Cancelar Egreso</a>
+                            <a href="/garage" type="submit" class="btn btn-warning btn-block mb-1"><i class="fa fa-times mr-1" aria-hidden="true"></i>Cancelar Egreso</a>
                             </div>
                             </div>
                             </div>

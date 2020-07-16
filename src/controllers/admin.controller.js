@@ -30,7 +30,7 @@ adminCtrl.deleteuser= async(req,res) =>{
 
 //box
 adminCtrl.renderbox= async(req,res) =>{
-    const historial = await Box.find({ show: 0 }).sort({createdAt: 'asc'});;
+    const historial = await Box.find({ show: 0 }).sort({createdAt: 'asc'});
     const lavados = await Box.countDocuments({action:"LAVADO",show:0});
     const cocheras = await Box.countDocuments({action:"COCHERA",show:0});
     const result = await Box.aggregate([{$match:{show:0}},{$group:{_id:null,box:{$sum:"$box"}}}]);
@@ -73,7 +73,7 @@ res.redirect('/list-box');
 
 adminCtrl.renderclients=async(req,res) =>{
 
-    const clients = await Client.find();
+    const clients = await Client.find().sort({"patente": 1});
     res.render('admins/client-list',{clients});
     
     };

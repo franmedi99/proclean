@@ -9,7 +9,7 @@ usersCtrl.renderClients= async(req,res) =>{
 if(req.user.rol == "Administrador"){
 res.render('admins/admin-actions');
 }else{
-    const clients = await Client.find({},{patente:1, _id:1});
+    const clients = await Client.find({},{patente:1, _id:1}).sort({"patente": 1});
     const box = await Box.aggregate([{$match:{user:req.user.username}},{$match:{show:1}},{$group:{_id:null,box:{$sum:"$box"}}}]);
      res.render('clients/client-actions',{clients, box});
 }
@@ -119,7 +119,7 @@ usersCtrl.sendToGarage= async(req,res)=>{
 
 
 usersCtrl.renderListGarage=async(req,res) =>{
-    const findCars =  await Garage.find();
+    const findCars =  await Garage.find().sort({createdAt: 'desc'});
     res.render('clients/garage',{findCars});
 };
 

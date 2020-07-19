@@ -13,12 +13,12 @@
   <!--Cantidad C y L-->
   <hr>
   <div class="form-row mx-auto">
-    <div class="col-md-6 ">
+    <div class="col-md-12 ">
   <h5 class="text-success text-center">Lavados : {{#if lavados}}{{#each lavados as |item|}}{{item.lavados}}{{/each}}{{else}}0{{/if}}</h5>
   </div>
-   <div class="col-md-6">
+   {{!-- <div class="col-md-6">
   <h5 class="text-success text-center">Cocheras :  {{#if cocheras}}{{#each cocheras as |item|}}{{item.cocheras}}{{/each}}{{else}}0{{/if}}</h5>
-  </div>
+  </div> --}}
   </div>
   <hr>
   <!--Botones-->  
@@ -26,7 +26,7 @@
      <input type="hidden" id="month" name="fecha">
      <input type="hidden" name="total" {{#each result as |item|}} value="{{item.total}}"{{/each}}>
      <input type="hidden" name="lavados" {{#each lavados as |item|}} value="{{item.lavados}}"{{/each}}>
-     <input type="hidden" name="cocheras" {{#each cocheras as |item|}} value="{{item.cocheras}}"{{/each}}>
+     {{!-- <input type="hidden" name="cocheras" {{#each cocheras as |item|}} value="{{item.cocheras}}"{{/each}}> --}}
      <div class="mx-auto col-md-4">
      <button type="submit" class="btn btn-primary btn-block mt-3 mb-3 "><i class="fa fa-flag-checkered mr-1" aria-hidden="true"></i>Cerrar Mes</button>
      </div>
@@ -40,7 +40,7 @@
           <tr>
             <th scope="col">Fecha</th>
             <th scope="col">Lavados</th>
-            <th scope="col">Cocheras</th>
+            {{!-- <th scope="col">Cocheras</th> --}}
             <th scope="col" class="text-center">Caja Diaria</th>    
           </tr>
 
@@ -53,7 +53,7 @@
           <tr>
           <th scope="row">{{fecha}}</th>
           <th scope="row">{{lavados}}</th>
-          <th scope="row">{{cocheras}}</th>
+          {{!-- <th scope="row">{{cocheras}}</th> --}}
           <th scope="row" class="text-center">$ {{total}}</th>
           </tr>
           {{/each}}

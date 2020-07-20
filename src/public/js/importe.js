@@ -6,6 +6,7 @@ function abc(valor_lustre, valor_motor, valor_extra) {
     }else{
         var valor_lustre = 0;
     }
+    console.log(valor_lustre);
    
     //motor
     var motor = document.getElementById('motor');
@@ -34,8 +35,10 @@ function abc(valor_lustre, valor_motor, valor_extra) {
 
     //barro
     var barro = document.getElementById('barro');
+    var ipb = document.getElementById('ipb');
+    ipb.style.display = barro.checked ? "block" : "none";
     if(barro.checked){
-        var valor_barro = barro.value
+        var valor_barro = document.getElementById('ipbarro').value;
     }else{
         var valor_barro = 0
     }

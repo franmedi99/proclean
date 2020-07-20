@@ -1,12 +1,15 @@
 function abc(valor_lustre, valor_motor, valor_extra) {
     //lustre
     var lustre = document.getElementById("lustre");
+    var ipl = document.getElementById('ipl');
+    ipl.style.display = lustre.checked ? "block" : "none";
     if(lustre.checked){
-        var valor_lustre = lustre.value;
+        var valor_lustre = document.getElementById('iplustre').value * lustre.value;
     }else{
         var valor_lustre = 0;
+        document.getElementById('iplustre').value = 0;
     }
-    console.log(valor_lustre);
+    
    
     //motor
     var motor = document.getElementById('motor');
@@ -38,9 +41,11 @@ function abc(valor_lustre, valor_motor, valor_extra) {
     var ipb = document.getElementById('ipb');
     ipb.style.display = barro.checked ? "block" : "none";
     if(barro.checked){
-        var valor_barro = document.getElementById('ipbarro').value;
+        var valor_barro = document.getElementById('ipbarro').value * barro.value;
     }else{
         var valor_barro = 0
+        document.getElementById('ipbarro').value = 0;
+        
     }
 
      //cuero

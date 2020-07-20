@@ -92,10 +92,7 @@
                             <div class="form-row">       
                             <div class="form-group p-3 col-12 mx-auto" >
                             <li style="list-style: none;">
-                                <ul>
-                                <label>Lustre</label>
-                                <input type="checkbox" name="lustre" id="lustre" value="{{precio.lustre}}"  onclick="abc()" > 
-                                </ul>
+                               
                                 <ul>
                                 <label>Motor</label>
                                 <input type="checkbox" name="motor" id="motor" value="{{precio.motor}}" onclick="abc()" >
@@ -108,11 +105,7 @@
                                 <label>Tapizado</label>
                                 <input type="checkbox" name="tapizado" id="tapizado" value="{{precio.tapizado}}" onclick="abc()">
                                 </ul>
-                                <ul>
-                                <label>Adic. Barro</label>
-                                <input type="checkbox" name="barro" id="barro"  onclick="abc()">
-                                <div id="ipb" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="ipbarro" onkeyup="abc()" placeholder="Adicional"/></div>
-                                </ul>
+                               
                                 <ul>
                                 <label>Hidratacion de Cuero</label>
                                 <input type="checkbox" name="cuero" id="cuero" value="{{precio.cuero}}" onclick="abc()">
@@ -120,6 +113,17 @@
                                 <ul>
                                 <label>Tratamiento Acrilico S/L</label>
                                 <input type="checkbox" name="acrilico" id="acrilico" value="{{precio.acrilico}}" onclick="abc()">
+                                </ul> 
+                                <!-- Adicionales-->
+                                 <ul>
+                                <label>Adic. Barro</label>
+                                <input type="checkbox" name="barro" id="barro" value="1" onclick="abc()">
+                                <div id="ipb" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="ipbarro" onkeyup="abc()" placeholder="Adicional"/></div>
+                                </ul>
+                                 <ul>
+                                <label>Adic. Lustre</label>
+                                <input type="checkbox" name="lustre" id="lustre" value="1"  onclick="abc()" > 
+                                <div id="ipl" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="iplustre" onkeyup="abc()" placeholder="Adicional"/></div>
                                 </ul>
                             </li>
                         

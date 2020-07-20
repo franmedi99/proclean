@@ -101,11 +101,7 @@
                                 <label>Lavado</label>
                                 <input type="checkbox" name="lavado" id="lavado" value="{{precio.lavado}}" onclick="abc()"> 
                                 </ul>
-                                <ul>
-                                <label>Tapizado</label>
-                                <input type="checkbox" name="tapizado" id="tapizado" value="{{precio.tapizado}}" onclick="abc()">
-                                </ul>
-                               
+                              
                                 <ul>
                                 <label>Hidratacion de Cuero</label>
                                 <input type="checkbox" name="cuero" id="cuero" value="{{precio.cuero}}" onclick="abc()">
@@ -115,6 +111,11 @@
                                 <input type="checkbox" name="acrilico" id="acrilico" value="{{precio.acrilico}}" onclick="abc()">
                                 </ul> 
                                 <!-- Adicionales-->
+                                <ul>
+                                <label>Adic. Tapizado</label>
+                                <input type="checkbox" name="tapizado" id="tapizado" value="1" onclick="abc()">
+                                <div id="ipt" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="iptapizado" onkeyup="abc()" placeholder="Adicional"/></div>
+                                </ul>
                                  <ul>
                                 <label>Adic. Barro</label>
                                 <input type="checkbox" name="barro" id="barro" value="1" onclick="abc()">

@@ -30,10 +30,14 @@ function abc(valor_lustre, valor_motor, valor_extra) {
 
     //tapizado
     var tapizado = document.getElementById('tapizado');
+    var ipt = document.getElementById('ipt');
+    ipt.style.display = tapizado.checked ? "block" : "none";
+
     if(tapizado.checked){
-        var valor_tapizado = tapizado.value
+        var valor_tapizado = document.getElementById('iptapizado').value * tapizado.value;
     }else{
-        var valor_tapizado = 0
+        var valor_tapizado = 0;
+        document.getElementById('iptapizado').value = 0;
     }
 
     //barro

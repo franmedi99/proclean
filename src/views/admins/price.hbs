@@ -11,12 +11,16 @@
 
 <!--Botones-->
 <div class="mx-auto form-row col-12 mb-5">
-    <!--Auto-->
-    <div class="col-md-6 mb-1 mt-3 mx-auto">
-<a href="#ventana10" type="submit" class="btn btn-success btn-block " data-toggle="modal" data-target=".bd-auto-modal-lg"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Auto</a>
+    <!--Auto chico-->
+    <div class="col-md-4 mb-1 mt-3 mx-auto">
+<a href="#ventana10" type="submit" class="btn btn-success btn-block " data-toggle="modal" data-target=".bd-auto-modal-lg"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Auto chico</a>
+    </div>
+        <!--Auto grande-->
+    <div class="col-md-4 mb-1 mt-3 mx-auto">
+<a href="#ventana10" type="submit" class="btn btn-success btn-block " data-toggle="modal" data-target=".bd-autogrande-modal-lg"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Auto grande</a>
     </div>
     <!--Camioneta-->
-    <div class="col-md-6 mb-1 mt-3 mx-auto">
+    <div class="col-md-4 mb-1 mt-3 mx-auto">
 <a href="#ventana10" type="submit" class="btn btn-success btn-block " data-toggle="modal" data-target=".bd-camioneta-modal-lg"> <i class="fa fa-truck mr-1"  aria-hidden="true"></i>Camioneta</a>
     </div>
 </div>
@@ -27,12 +31,10 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-body"> <!--Contenido-->
-      <div><h4 class="text-center text-success mt-3">Lavadero</h4></div>
-      <hr>
 
       <div class="form-row"> <!--Division-->
 
-      <div class="col-6 mx-auto"> <!--Auto chico-->
+      <div class="col-12 mx-auto"> <!--Auto chico-->
 
       <form action="/price/auto" method="post" >
 
@@ -122,52 +124,7 @@
 
 
 
-<div class="col-6 mx-auto"> <!--Auto chico-->
 
-      <form action="/price/auto" method="post" >
-    
-
-           
-          <div class="border-bottom">
-              <h3 class="text-center text-primary"><i class="fa fa-car mr-1" aria-hidden="true"></i>Auto grande</h3>
-          </div>
-        
-        <div class="form-row ">
-         
-      
-         <div class="col-12 mx-auto">
-            
-              
-            <div class="form-group">    
-             <label>Lavado</label>
-             <input type="number" name="lavado" class="form-control text-center" value="{{preciosA.lavado}}">
-          </div>
-      
-         <div class="form-group ">
-             <label>Motor</label>
-             <input type="number" name="motor" class="form-control text-center" value="{{preciosA.motor}}">
-         </div>
-         
-        <div class="form-group ">
-             <label>Hidr. Cuero</label>
-             <input type="number" name="cuero" class="form-control text-center" value="{{preciosA.cuero}}">
-         </div>
-
-         <div class="form-group ">
-             <label>Trat. Acrilico S/L</label>
-             <input type="number" name="acrilico" class="form-control text-center" value="{{preciosA.acrilico}}">
-         </div>
-      
-        <div class="form-group ">
-            <label>Tapizado</label>
-            <input type="number" name="tapizado" class="form-control text-center" value="{{preciosA.tapizado}}">
-        </div>
-           
-         </div>
-     
-        </div>
-       </div> <!--Fin Auto chico-->
-       </div>
 
                 
       </div> <!--Fin Contenido-->
@@ -195,12 +152,12 @@
 
       <div class="form-row"> <!--Division-->
 
-      <div class="col-11 mx-auto"> <!--Auto-->
+      <div class="col-12 mx-auto"> <!--Auto-->
 
       <form action="/price/camioneta" method="post" >
     
             <div class="border-bottom">
-                <h3 class="text-center text-primary">Camioneta</h3>
+                <h3 class="text-center text-primary"><i class="fa fa-truck mr-1"  aria-hidden="true"></i>Camioneta</h3>
             </div>
         <div class="form-row ">
          {{!-- <div class="col-6 ml-auto">
@@ -242,30 +199,29 @@
         </div>
             </div> --}}
       
-         <div class="col-12  mr-auto border-left">
-              <h4 class="text-center text-success mt-3">Lavadero</h4>
-              <hr>
-              <div class="form-group ml-3">    
+         <div class="col-12  mr-auto ">
+              
+              <div class="form-group ">    
              <label>Lavado</label>
              <input type="number" name="lavado" class="form-control text-center" value="{{preciosC.lavado}}">
           </div>
       
-         <div class="form-group ml-3">
+         <div class="form-group ">
              <label>Motor</label>
              <input type="number" name="motor" class="form-control text-center" value="{{preciosC.motor}}">
          </div>
          
-        <div class="form-group ml-3">
+        <div class="form-group ">
              <label>Hidr. Cuero</label>
              <input type="number" name="cuero" class="form-control text-center" value="{{preciosC.cuero}}">
          </div>
 
-         <div class="form-group ml-3">
+         <div class="form-group ">
              <label>Trat. Acrilico S/L</label>
              <input type="number" name="acrilico" class="form-control text-center" value="{{preciosC.acrilico}}">
          </div>
       
-        <div class="form-group ml-3">
+        <div class="form-group ">
             <label>Tapizado</label>
             <input type="number" name="tapizado" class="form-control text-center" value="{{preciosC.tapizado}}">
         </div>
@@ -277,6 +233,81 @@
        </div>
                 
       </div> <!--Fin Contenido-->
+      <div class="modal-footer">
+          <div class="form-row col-12">
+              <div class="col-md-6">
+        <button type="submit" class="btn btn-primary mb-1 btn-block"><i class="fa fa-floppy-o  mr-1" aria-hidden="true"></i>Guardar</button>
+        </div>
+        </form>
+        <div class="col-md-6">
+        <button type="button" class="btn btn-secondary mb-1 btn-block" data-dismiss="modal"><i class="fa fa-times mr-1" aria-hidden="true"></i>Cerra</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade bd-autogrande-modal-lg" aria-labelledby="myLargeModalLabel" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body"> <!--Contenido-->
+
+      
+      <div class="col-12 mx-auto"> <!--Auto grande-->
+
+      <form action="/price/auto_grandes" method="post" >
+    
+
+           
+          <div class="border-bottom">
+              <h3 class="text-center text-primary"><i class="fa fa-car mr-1" aria-hidden="true"></i>Auto grande</h3>
+          </div>
+        
+        <div class="form-row ">
+         
+         <div class="col-12 mx-auto">
+            
+              
+            <div class="form-group">    
+             <label>Lavado</label>
+             <input type="number" name="lavado" class="form-control text-center" value="{{preciosAG.lavado}}">
+          </div>
+      
+         <div class="form-group ">
+             <label>Motor</label>
+             <input type="number" name="motor" class="form-control text-center" value="{{preciosAG.motor}}">
+         </div>
+         
+        <div class="form-group ">
+             <label>Hidr. Cuero</label>
+             <input type="number" name="cuero" class="form-control text-center" value="{{preciosAG.cuero}}">
+         </div>
+
+         <div class="form-group ">
+             <label>Trat. Acrilico S/L</label>
+             <input type="number" name="acrilico" class="form-control text-center" value="{{preciosAG.acrilico}}">
+         </div>
+      
+        <div class="form-group ">
+            <label>Tapizado</label>
+            <input type="number" name="tapizado" class="form-control text-center" value="{{preciosAG.tapizado}}">
+        </div>
+           
+         </div>
+     
+        </div>
+       </div> <!--Fin Auto grande-->
+
+
+       </div> <!--Fin Contenido-->
       <div class="modal-footer">
           <div class="form-row col-12">
               <div class="col-md-6">

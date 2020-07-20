@@ -4,6 +4,7 @@ const Garage = require('../models/garage');
 const Box = require('../models/empleado.caja');
 const Auto = require('../models/auto.precios');
 const Camioneta = require('../models/camioneta.precios');
+const AutoGrande= require("../models/auto_grande.precios");
 //---------------------------------------------CONTROLADORES GENERALES----------------------------------------------------
 usersCtrl.renderClients= async(req,res) =>{
 if(req.user.rol == "Administrador"){
@@ -20,12 +21,18 @@ usersCtrl.findClient= async(req,res) =>{
     const findClient =  await Client.findOne({patente:patente});
     if(findClient){
         
-        if(findClient.tipo=="Auto"){
+        if(findClient.tipo=="Auto_chico"){
             const precio = await Auto.findOne();
-        res.render('clients/client-movement',{findClient,precio});
+            const tipos= "Auto chico";
+        res.render('clients/client-movement',{findClient,precio,tipos});
+    }else if(findClient.tipo=="Auto_grande"){
+        const precio = await AutoGrande.findOne();
+        const tipos= "Auto grande";
+        res.render('clients/client-movement',{findClient,precio,tipos});
     }else{
         const precio = await Camioneta.findOne();
-        res.render('clients/client-movement',{findClient,precio});
+        const tipos= "Camioneta";
+        res.render('clients/client-movement',{findClient,precio,tipos});
     }
     }else{
         req.flash('error_msg', 'Cliente inválido.');

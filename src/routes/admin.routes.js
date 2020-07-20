@@ -4,14 +4,13 @@ const {rendersignupForm,  signup}   = require('../controllers/index.controller')
 const { isAuthenticated, isAdmin } = require('../helpers/auth');
 const { renderusers, renderbox, deleteuser, editreceipt,deletereceipt,updatereceipt, renderclients,closeday,
         renderprices,editclient,updateclient,deleteclient,renderdays, closemonth, rendermonths,closemonths,
-        oldmonths,renderyears,sendAutos,sendCamionetas} = require('../controllers/admin.controller');
+        oldmonths,renderyears,sendAutos,sendCamionetas,sendAutosGrandes} = require('../controllers/admin.controller');
 
 
 //registrar usuario
 router.get('/register', isAuthenticated, isAdmin, rendersignupForm);
 router.post('/register',isAuthenticated, isAdmin,signup);
 router.post('/user/delete/:id',isAuthenticated,isAdmin, deleteuser );//borra un usuario
-
 //rutas de caja
 router.get('/list-users',isAuthenticated,isAdmin, renderusers);//render list users
 router.get('/list-box',isAuthenticated,isAdmin, renderbox);//render list box
@@ -49,6 +48,8 @@ router.get('/old/months',isAuthenticated,isAdmin,oldmonths);//render list users
 
 
 router.post('/price/auto',isAuthenticated,isAdmin,sendAutos);//render list users
+router.post('/price/auto_grandes',isAuthenticated,isAdmin,sendAutosGrandes);//render list users
+
 router.post('/price/camioneta',isAuthenticated,isAdmin,sendCamionetas);//render list users
 
 module.exports = router;

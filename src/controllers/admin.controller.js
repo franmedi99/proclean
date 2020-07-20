@@ -6,6 +6,7 @@ const Mes = require('../models/registro.mes');
 const Anual = require('../models/registro.anual');
 const Total = require('../models/registro.total');
 const Auto = require('../models/auto.precios');
+const AutoGrande= require("../models/auto_grande.precios");
 const Camioneta = require('../models/camioneta.precios');
 //users
 adminCtrl.renderusers= async(req,res) =>{
@@ -179,18 +180,18 @@ adminCtrl.renderclients=async(req,res) =>{
 
 
                       adminCtrl.sendAutos=async(req,res) =>{
-                        const{mhora,hora,mdia,dia,semana,quincena,mes,lavado,motor,cuero,acrilico,tapizado,barro,lustre} = req.body;
+                        const{lavado,motor,cuero,acrilico} = req.body;
                         const precio = await Auto.find();
                      
                         if(precio !=""){
                         await Auto.deleteMany({});
-                        const precios1 =  await new Auto({mhora,hora,mdia,dia,semana,quincena,mes,lavado,motor,cuero,acrilico,tapizado,barro,lustre});
+                        const precios1 =  await new Auto({lavado,motor,cuero,acrilico});
                         await precios1.save();
                         req.flash('success_msg', 'Precios de autos modificados Satisfactoriamente');
                         res.redirect('/price');
                         }else{
                           
-                          const precios2 =  await new Auto({mhora,hora,mdia,dia,semana,quincena,mes,lavado,motor,cuero,acrilico,tapizado,barro,lustre});
+                          const precios2 =  await new Auto({lavado,motor,cuero,acrilico});
                           await precios2.save();
                           req.flash('success_msg', 'Precios de autos creados Satisfactoriamente');
                           res.redirect('/price');
@@ -198,19 +199,44 @@ adminCtrl.renderclients=async(req,res) =>{
 
                         };
 
+                        adminCtrl.sendAutosGrandes=async(req,res) =>{
+                          const{lavado,motor,cuero,acrilico} = req.body;
+                          const precio = await AutoGrande.find();
+                       //mhora,hora,mdia,dia,semana,quincena,mes,
+                          if(precio !=""){
+                          await AutoGrande.deleteMany({});
+                          const precios1 =  await new AutoGrande({lavado,motor,cuero,acrilico});
+                          await precios1.save();
+                          req.flash('success_msg', 'Precios de autos modificados Satisfactoriamente');
+                          res.redirect('/price');
+                          }else{
+                            
+                            const precios2 =  await new AutoGrande({lavado,motor,cuero,acrilico});
+                            await precios2.save();
+                            req.flash('success_msg', 'Precios de autos creados Satisfactoriamente');
+                            res.redirect('/price');
+                          }
+  
+                          };
+  
+
+
+
+
+
                         adminCtrl.sendCamionetas=async(req,res) =>{
-                          const{mhora,hora,mdia,dia,semana,quincena,mes,lavado,motor,cuero,acrilico,tapizado,barro,lustre } = req.body;
+                          const{lavado,motor,cuero,acrilico} = req.body;
                           const precio = await Camioneta.find();
-                       
+                       // mhora,hora,mdia,dia,semana,quincena,mes,
                           if(precio !=""){
                           await Camioneta.deleteMany({});
-                          const precios1 =  await new Camioneta({mhora,hora,mdia,dia,semana,quincena,mes,lavado,motor,cuero,acrilico,tapizado,barro,lustre});
+                          const precios1 =  await new Camioneta({lavado,motor,cuero,acrilico});
                           await precios1.save();
                           req.flash('success_msg', 'Precios de camionetas modificados Satisfactoriamente');
                           res.redirect('/price');
                           }else{
                             
-                            const precios2 =  await new Camioneta({mhora,hora,mdia,dia,semana,quincena,mes,lavado,motor,cuero,acrilico,tapizado,barro,lustre});
+                            const precios2 =  await new Camioneta({lavado,motor,cuero,acrilico});
                             await precios2.save();
                             req.flash('success_msg', 'Precios de camionetas creados Satisfactoriamente');
                             res.redirect('/price');

@@ -1,6 +1,6 @@
 const {Schema, model} =require('mongoose');
 
-const CamionetaSchema= new Schema({
+const AutograndeSchema= new Schema({
     // mhora: {type:Number},
     // hora: {type:Number},
     // mdia: {type:Number},
@@ -20,4 +20,4 @@ const CamionetaSchema= new Schema({
 
 })
 
-module.exports = model('Camioneta', CamionetaSchema);
+module.exports = model('Autogrande', AutograndeSchema);

@@ -172,8 +172,9 @@ adminCtrl.renderclients=async(req,res) =>{
   
                     adminCtrl.renderprices=async(req,res) =>{
                       const preciosA = await Auto.findOne();
+                      const preciosAG = await AutoGrande.findOne();
                       const preciosC = await Camioneta.findOne();
-                      res.render('admins/price',{preciosA,preciosC});
+                      res.render('admins/price',{preciosA,preciosC,preciosAG});
                       };
 
 

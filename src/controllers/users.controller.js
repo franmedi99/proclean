@@ -19,7 +19,7 @@ usersCtrl.findClient= async(req,res) =>{
     const {patente} = req.body;
     const findClient =  await Client.findOne({patente:patente});
     if(findClient){
-        console.log(findClient.tipo);
+        
         if(findClient.tipo=="Auto"){
             const precio = await Auto.findOne();
         res.render('clients/client-movement',{findClient,precio});

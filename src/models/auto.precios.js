@@ -1,13 +1,13 @@
 const {Schema, model} =require('mongoose');
 
 const AutoSchema= new Schema({
-    mhora: {type:Number},
-    hora: {type:Number},
-    mdia: {type:Number},
-    dia: {type:Number},
-    semana: {type:Number},
-    quincena: {type:Number},
-    mes: {type:Number},
+    // mhora: {type:Number},
+    // hora: {type:Number},
+    // mdia: {type:Number},
+    // dia: {type:Number},
+    // semana: {type:Number},
+    // quincena: {type:Number},
+    // mes: {type:Number},
 
     lavado: {type:Number},
     motor: {type:Number},

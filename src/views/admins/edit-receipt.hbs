@@ -1,56 +1,59 @@
-
 <div>
-                <div class="row">
-                    <div class="col-md-6 mt-2 mx-auto text-center">
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h1 class="text-primary">Editar</h1>
+    <div class="row">
+        <div class="col-md-6 mt-2 mx-auto text-center">
+
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-primary">Editar</h1>
+                </div>
+                <div class="card-body col-10 mx-auto">
+
+                    <form action="/historial/edit/{{receipt._id}}" method="POST">
+                        <div class="form-group text-left">
+                            <label for="patente">Usuario</label>
+                            <input type="text" name="user" class="form-control text-center" placeholder="Usuario"
+                                value="{{receipt.user}}" autocomplete="off">
+                        </div>
+                        <div class="form-group text-left">
+                            <label>Accion</label>
+                            <select class="form-control text-center mx-auto" name="action">
+                                <option value="LAVADO">Lavado</option>
+                                {{!-- <option value="COCHERA">Cochera</option> --}}
+                            </select>
+                        </div>
+
+                        <div class="form-group  text-left">
+                            <label for="patente">Importe</label>
+                            <input type="text" name="box" class="form-control text-center" placeholder="Importe"
+                                value="{{receipt.box}}">
+                        </div>
+
+
+                        <div class="form-group text-left">
+                            <label>Tipo</label>
+                            <select class="form-control text-center mx-auto" name="type">
+                                <option value="Auto">Auto</option>
+                                <option value="Camioneta">Camioneta</option>
+                            </select>
+                        </div>
+                        <hr>
+
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-success mb-1 btn-block btn-lg"><i
+                                        class="fa fa-floppy-o mr-1" aria-hidden="true"></i>Guardar</button>
                             </div>
-                            <div class="card-body col-10 mx-auto">
-                                
-                                <form action="/historial/edit/{{receipt._id}}" method="POST">
-                                <div class="form-group text-left">
-                                <label for="patente">Usuario</label>
-                                <input type="text" name="user" class="form-control text-center" placeholder="Usuario" value="{{receipt.user}}" autocomplete="off">
-                                </div>
-                                <div class="form-group text-left">
-                                     <label>Accion</label>
-                                    <select class="form-control text-center mx-auto" name="action">
-                                    <option value="LAVADO">Lavado</option>
-                                    {{!-- <option value="COCHERA">Cochera</option> --}}
-                                    </select>
-                                </div>
-                
-                                <div class="form-group  text-left">
-                                    <label for="patente">Importe</label>
-                                <input type="text" name="box" class="form-control text-center" placeholder="Importe" value="{{receipt.box}}">
-                                </div>
-                
-  
-                                <div class="form-group text-left">
-                                     <label>Tipo</label>
-                                    <select class="form-control text-center mx-auto" name="type">
-                                    <option value="Auto">Auto</option>
-                                    <option value="Camioneta">Camioneta</option>
-                                    </select>
-                                </div>
-                                <hr>
-                                
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                    <button type="submit" class="btn btn-success mb-1 btn-block btn-lg"><i class="fa fa-floppy-o mr-1" aria-hidden="true"></i>Guardar</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <a href="/list-box" class="btn btn-secondary mb-1 btn-block btn-lg"><i class="fa fa-times mr-1" aria-hidden="true"></i>Cancelar</a>
-                                    </div>
-                                    </div>
-                                </form>
-                                
+                            <div class="col-md-6">
+                                <a href="/list-box" class="btn btn-secondary mb-1 btn-block btn-lg"><i
+                                        class="fa fa-times mr-1" aria-hidden="true"></i>Cancelar</a>
                             </div>
                         </div>
-                        
-                    </div>
+                    </form>
+
                 </div>
-                
             </div>
+
+        </div>
+    </div>
+
+</div>

@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = require('./server');
 require('./database');
-app.listen(app.get('port') , ()=>{
+app.listen(app.get('port'), () => {
     console.log('Environment:', process.env.NODE_ENV);
     console.log('server on port', app.get('port'))
 });

@@ -1,49 +1,55 @@
 <nav>
-  <a href="/clients" class=" text-primary ml-5 btn-block mt-2"><h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4></a>
+  <a href="/clients" class=" text-primary ml-5 btn-block mt-2">
+    <h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4>
+  </a>
 </nav>
 
-  
-  <div class="form-row">
+
+<div class="form-row">
   <div class="border mb-2 mx-auto col col-md-6 " style="max-width: 43rem;">
 
-    
+
 
     <!-- Datos cliente -->
 
     <h3 class="text-center mt-1 text-primary">Datos del Cliente</h3>
     <hr>
 
-     
-    
+
+
     <div class="form-row">
-    <div class="col-6 border-right">
-    <h3 class=" text-center text-success">Patente</h3>
-    <h5 class="text-dark text-center">{{findClient.patente}}</h5>
+      <div class="col-6 border-right">
+        <h3 class=" text-center text-success">Patente</h3>
+        <h5 class="text-dark text-center">{{findClient.patente}}</h5>
 
-    <h3 class=" text-center text-success">Marca</h3>
-    <h5 class="text-dark text-center">{{findClient.marca}}</h5>
-    </div>
-    <div class="col-6">
-    <h3 class=" text-center text-success">Modelo</h3>
-    <h5  class="text-dark text-center">{{findClient.modelo}}</h5>
+        <h3 class=" text-center text-success">Marca</h3>
+        <h5 class="text-dark text-center">{{findClient.marca}}</h5>
+      </div>
+      <div class="col-6">
+        <h3 class=" text-center text-success">Modelo</h3>
+        <h5 class="text-dark text-center">{{findClient.modelo}}</h5>
 
-    <h3 class=" text-center text-success">Tipo</h3>
-    <h5  class="text-dark text-center">{{tipos}}</h5>
-    </div>
+        <h3 class=" text-center text-success">Tipo</h3>
+        <h5 class="text-dark text-center">{{tipos}}</h5>
+      </div>
     </div>
 
 
 
 
     <!--Opciones-->
-    <div class="text-center"><hr></div>
-    <div class="text-center mt-4 mb-1 text-primary"><h2>Opcion</h2></div>
+    <div class="text-center">
+      <hr>
+    </div>
+    <div class="text-center mt-4 mb-1 text-primary">
+      <h2>Opcion</h2>
+    </div>
     <div class="col-4 mx-auto mb-2"><img src="/img/ram.jpg" class=" img-fluid"></div>
-  <div class="container mx-auto mb-3">
-    <div class="form-row col-12 mx-auto">
-      
-    
-    <!--Cochera-->
+    <div class="container mx-auto mb-3">
+      <div class="form-row col-12 mx-auto">
+
+
+        <!--Cochera-->
         {{!-- <div class="col-6 mb-1 ">
         <form action="/clients/send-garage"  method="POST" onsubmit="return confirm('Desea enviar este cliente a la cochera?');">
         <div id="element-to-hide">
@@ -56,117 +62,128 @@
         </div> --}}
         {{!-- <button  type="submit" class="btn btn-success btn-block"> <i class="fa fa-car mr-1"  aria-hidden="true"></i>Cochera</button> --}}
         </form>
-        </div>
-        
+      </div>
 
-        <!--Lavadero-->
-        <div class="col-12 mb-1">
+
+      <!--Lavadero-->
+      <div class="col-12 mb-1">
         <div>
-        <a href="#ventana4" class="btn btn-success btn-block"  type="submit" data-toggle="modal" style="height: 100%;" > <i class="fa fa-tint mr-1"  aria-hidden="true"></i>Lavadero</a>
+          <a href="#ventana4" class="btn btn-success btn-block" type="submit" data-toggle="modal" style="height: 100%;">
+            <i class="fa fa-tint mr-1" aria-hidden="true"></i>Lavadero</a>
         </div>
-        </div>        
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
 
- </div>
+</div>
 </div>
 
-  
 
 
 
-        <div>
-            <div class="modal fade" tabindex="-1" role="dialog" id="ventana4">
-                <div class="modal-dialog form-row col-11" role="document" style="width: max-content;">
-                  <div class="modal-content form-group">
-                    <div class="modal-body">
-                        <div class="border">
-                            <form action="/tobox" method="POST">
-                            <div id="element-to-hide">
-                            <input type="hidden" id="final" name="box">
-                            <input type="hidden" name="type" value="{{findClient.tipo}}">
-                            </div> 
-                                   
-                            <h3 class="pt-1 text-center text-primary">Atencion Recibida</h3>
-                            <hr>
-                            <div class="form-row">       
-                            <div class="form-group p-3 col-12 mx-auto" >
-                            <li style="list-style: none;">
-                               
-                                <ul>
-                                <label>Motor</label>
-                                <input type="checkbox" name="motor" id="motor" value="{{precio.motor}}" onclick="abc()" >
-                                </ul>
-                                <ul>
-                                <label>Lavado</label>
-                                <input type="checkbox" name="lavado" id="lavado" value="{{precio.lavado}}" onclick="abc()"> 
-                                </ul>
-                              
-                                <ul>
-                                <label>Hidratacion de Cuero</label>
-                                <input type="checkbox" name="cuero" id="cuero" value="{{precio.cuero}}" onclick="abc()">
-                                </ul>
-                                <ul>
-                                <label>Tratamiento Acrilico S/L</label>
-                                <input type="checkbox" name="acrilico" id="acrilico" value="{{precio.acrilico}}" onclick="abc()">
-                                </ul> 
-                                <!-- Adicionales-->
-                                <ul>
-                                <label>Adic. Tapizado</label>
-                                <input type="checkbox" name="tapizado" id="tapizado" value="1" onclick="abc()">
-                                <div id="ipt" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="iptapizado" onkeyup="abc()" placeholder="Adicional"/></div>
-                                </ul>
-                                 <ul>
-                                <label>Adic. Barro</label>
-                                <input type="checkbox" name="barro" id="barro" value="1" onclick="abc()">
-                                <div id="ipb" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="ipbarro" onkeyup="abc()" placeholder="Adicional"/></div>
-                                </ul>
-                                 <ul>
-                                <label>Adic. Lustre</label>
-                                <input type="checkbox" name="lustre" id="lustre" value="1"  onclick="abc()" > 
-                                <div id="ipl" style="display: none" class="mr-5"><input type="number"  min="0" class="val1 form-control text-center" id="iplustre" onkeyup="abc()" placeholder="Adicional"/></div>
-                                </ul>
-                            </li>
-                        
-                            <div class="form-group col">
-                            <div class="form-row">
-                            <div class="form-group col-md-6 text-center mx-auto">
-                            <label>Fecha</label>
-                            <input type="text" id="theDate1" name="fecha" class="form-control text-center" placeholder="Fecha">
-                            </div>
-                            <div class="form-group col-md-6 text-center mx-auto">
-                            <label>Hora</label>
-                            <input type="text" id="thetime1" name="hora" class="form-control text-center" placeholder="Hora">
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="form-row text-primary mx-auto text-center">
-                            <label for="final" class="text-center mx-auto">Importe</label>
-                            <input type="text" class="text-center text-danger col col-md-12" id="total" disabled>
-                            </div>
-                            </div>
-                            <div class="form-action-buttons p-3 text-center">
-                            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-paper-plane mr-1" aria-hidden="true"></i>Enviar</button>
-                            </div>
-                            </div>
-                            </div>
-                         </form>
-                        </div>
+
+<div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="ventana4">
+    <div class="modal-dialog form-row col-11" role="document" style="width: max-content;">
+      <div class="modal-content form-group">
+        <div class="modal-body">
+          <div class="border">
+            <form action="/tobox" method="POST">
+              <div id="element-to-hide">
+                <input type="hidden" id="final" name="box">
+                <input type="hidden" name="type" value="{{findClient.tipo}}">
+              </div>
+
+              <h3 class="pt-1 text-center text-primary">Atencion Recibida</h3>
+              <hr>
+              <div class="form-row">
+                <div class="form-group p-3 col-12 mx-auto">
+                  <li style="list-style: none;">
+
+                    <ul>
+                      <label>Motor</label>
+                      <input type="checkbox" name="motor" id="motor" value="{{precio.motor}}" onclick="abc()">
+                    </ul>
+                    <ul>
+                      <label>Lavado</label>
+                      <input type="checkbox" name="lavado" id="lavado" value="{{precio.lavado}}" onclick="abc()">
+                    </ul>
+
+                    <ul>
+                      <label>Hidratacion de Cuero</label>
+                      <input type="checkbox" name="cuero" id="cuero" value="{{precio.cuero}}" onclick="abc()">
+                    </ul>
+                    <ul>
+                      <label>Tratamiento Acrilico S/L</label>
+                      <input type="checkbox" name="acrilico" id="acrilico" value="{{precio.acrilico}}" onclick="abc()">
+                    </ul>
+                    <!-- Adicionales-->
+                    <ul>
+                      <label>Adic. Tapizado</label>
+                      <input type="checkbox" name="tapizado" id="tapizado" value="1" onclick="abc()">
+                      <div id="ipt" style="display: none" class="mr-5"><input type="number" min="0"
+                          class="val1 form-control text-center" id="iptapizado" onkeyup="abc()"
+                          placeholder="Adicional" /></div>
+                    </ul>
+                    <ul>
+                      <label>Adic. Barro</label>
+                      <input type="checkbox" name="barro" id="barro" value="1" onclick="abc()">
+                      <div id="ipb" style="display: none" class="mr-5"><input type="number" min="0"
+                          class="val1 form-control text-center" id="ipbarro" onkeyup="abc()" placeholder="Adicional" />
+                      </div>
+                    </ul>
+                    <ul>
+                      <label>Adic. Lustre</label>
+                      <input type="checkbox" name="lustre" id="lustre" value="1" onclick="abc()">
+                      <div id="ipl" style="display: none" class="mr-5"><input type="number" min="0"
+                          class="val1 form-control text-center" id="iplustre" onkeyup="abc()" placeholder="Adicional" />
+                      </div>
+                    </ul>
+                  </li>
+
+                  <div class="form-group col">
+                    <div class="form-row">
+                      <div class="form-group col-md-6 text-center mx-auto">
+                        <label>Fecha</label>
+                        <input type="text" id="theDate1" name="fecha" class="form-control text-center"
+                          placeholder="Fecha">
+                      </div>
+                      <div class="form-group col-md-6 text-center mx-auto">
+                        <label>Hora</label>
+                        <input type="text" id="thetime1" name="hora" class="form-control text-center"
+                          placeholder="Hora">
+                      </div>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1" aria-hidden="true"></i>Cerrar</button>
+                    <hr>
+                    <div class="form-row text-primary mx-auto text-center">
+                      <label for="final" class="text-center mx-auto">Importe</label>
+                      <input type="text" class="text-center text-danger col col-md-12" id="total" disabled>
                     </div>
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-              </div><!-- /.modal -->
-            </div>
+                  </div>
+                  <div class="form-action-buttons p-3 text-center">
+                    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-paper-plane mr-1"
+                        aria-hidden="true"></i>Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"
+              aria-hidden="true"></i>Cerrar</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>
 
-  
 
 
-            
-    
-    
+
+
+
+
 
 <script src="/js/alert.js"></script>
 <script src="/js/today_date.js"></script>

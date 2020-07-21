@@ -1,7 +1,9 @@
-const { Router } = require('express');
+const {
+        Router
+} = require('express');
 const router = Router();
 
-const { 
+const {
         createNewClient,
         renderListGarage,
         renderClients,
@@ -9,29 +11,30 @@ const {
         sendToGarage,
         sendToBox,
         sendToBoxCar,
-       deleteofGarage,
-       closeBox
+        deleteofGarage,
+        closeBox
 
-}
-        = require('../controllers/users.controller');
+} = require('../controllers/users.controller');
 
-        const { isAuthenticated } = require('../helpers/auth');
+const {
+        isAuthenticated
+} = require('../helpers/auth');
 
 //----------------------Rutas de USUARIOS----------------
 //GET GENERAL
-router.get('/clients',isAuthenticated , renderClients);//render forms
+router.get('/clients', isAuthenticated, renderClients); //render forms
 
 //GET COCHERA
 // router.get('/garage',isAuthenticated , renderListGarage);//render forms
 // router.get('/egreso/:id',isAuthenticated , sendToBoxCar);//render del formulario con cochera
 
 //POST GENERAL
-router.post('/clients/new-client',isAuthenticated , createNewClient);//creando clientes
-router.post('/clients/find-client',isAuthenticated ,findClient);//buscando clientes
-router.post('/closebox',isAuthenticated ,closeBox);//enviando a la caja
+router.post('/clients/new-client', isAuthenticated, createNewClient); //creando clientes
+router.post('/clients/find-client', isAuthenticated, findClient); //buscando clientes
+router.post('/closebox', isAuthenticated, closeBox); //enviando a la caja
 
 //POST LAVADO
-router.post('/tobox',isAuthenticated , sendToBox);//enviando a la caja
+router.post('/tobox', isAuthenticated, sendToBox); //enviando a la caja
 
 //POST COCHERA
 //router.post('/clients/send-garage',isAuthenticated , sendToGarage);//enviar cliente al garage

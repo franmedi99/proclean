@@ -1,49 +1,54 @@
 <div>
-<nav>
-  <a href="/clients" class=" text-primary ml-5 btn-block mt-2"><h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4></a>
-</nav>
-    <div class="mx-auto">
-      
+  <nav>
+    <a href="/clients" class=" text-primary ml-5 btn-block mt-2">
+      <h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4>
+    </a>
+  </nav>
+  <div class="mx-auto">
+
     <h2 class="text-center  col-12"><i class="fa fa-user-o mr-1" aria-hidden="true"></i>Registro de Clientes</h2>
-    </div>
+  </div>
 
-    <table class="table col-11 mx-auto mt-3">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Patente</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Tipo de Vehiculo</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Borrar</th>
-          </tr>
+  <table class="table col-11 mx-auto mt-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Patente</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Tipo de Vehiculo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Borrar</th>
+      </tr>
 
-         
-        </thead>
-        <tbody>
 
-         {{#each clients}}
+    </thead>
+    <tbody>
 
-          <tr>
-          <th scope="row">{{patente}}</th>
-          <th scope="row">{{marca}}</th>
-          <th scope="row">{{modelo}}</th>
-          <th scope="row">{{tipo}}</th>
-          <th scope="row">{{phone}}</th>
-          <td><a class="btn btn-primary col-12 mx-auto" href="/client/edit/{{_id}}"><i class="fa fa-pencil mr-1" aria-hidden="true"></i>Editar</a></td>
-          <td>
-           <form action="/client/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea eliminar este cliente?');">
-           <button type="submit" class="btn btn-danger col-12 mx-auto"><i class="fa fa-trash-o mr-1" aria-hidden="true"></i>Borrar</button>
-           </form>
-           </td>
-          </td>
-          </tr>
+      {{#each clients}}
 
-          {{/each}}
-          
-        </tbody>
-      </table>
+      <tr>
+        <th scope="row">{{patente}}</th>
+        <th scope="row">{{marca}}</th>
+        <th scope="row">{{modelo}}</th>
+        <th scope="row">{{tipo}}</th>
+        <th scope="row">{{phone}}</th>
+        <td><a class="btn btn-primary col-12 mx-auto" href="/client/edit/{{_id}}"><i class="fa fa-pencil mr-1"
+              aria-hidden="true"></i>Editar</a></td>
+        <td>
+          <form action="/client/delete/{{_id}}" method="POST"
+            onsubmit="return confirm('Desea eliminar este cliente?');">
+            <button type="submit" class="btn btn-danger col-12 mx-auto"><i class="fa fa-trash-o mr-1"
+                aria-hidden="true"></i>Borrar</button>
+          </form>
+        </td>
+        </td>
+      </tr>
+
+      {{/each}}
+
+    </tbody>
+  </table>
 
 
 
@@ -55,5 +60,3 @@
 
 
 </div>
-
-

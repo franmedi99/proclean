@@ -1,6 +1,8 @@
 <!--Registro Mensual-->
 <nav class="nav nav-bar">
-  <a href="/clients" class=" text-primary ml-5 btn-block mt-2"><h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4></a>
+  <a href="/clients" class=" text-primary ml-5 btn-block mt-2">
+    <h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4>
+  </a>
 </nav>
 
 
@@ -8,36 +10,37 @@
   <div class="col-6 mx-auto border">
     <h3 class="text-center mt-3"><i class="fa fa-archive mr-1" aria-hidden="true"></i>Registro total</h3>
     <h4 class="text-success text-center">Importe total</h4>
-    <h4 class="text-primary text-center">{{#if result}}{{#each result as |item|}}${{item.total}}{{/each}}{{else}} $0{{/if}}</h4>
+    <h4 class="text-primary text-center">{{#if result}}{{#each result as |item|}}${{item.total}}{{/each}}{{else}}
+      $0{{/if}}</h4>
   </div>
 </div>
 
 <div class="container col-10 mx-auto">
-<table class="table col-11 mx-auto mt-3">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Año</th>
-            <th scope="col">Lavados</th>
-            {{!-- <th scope="col">Cocheras</th> --}}
-            <th scope="col" class="text-center">Total</th>    
-          </tr>
+  <table class="table col-11 mx-auto mt-3">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Año</th>
+        <th scope="col">Lavados</th>
+        {{!-- <th scope="col">Cocheras</th> --}}
+        <th scope="col" class="text-center">Total</th>
+      </tr>
 
-         
-        </thead>
-        <tbody>
 
-          {{#each historial}}
-          <tr>
-          <th scope="row">{{fecha}}</th>
-          <th scope="row">{{lavados}}</th>
-          {{!-- <th scope="row">{{cocheras}}</th> --}}
-          <th scope="row" class="text-center">$ {{total}}</th>
-          </tr>
-          {{/each}}
-          
-        </tbody>
-      </table>
+    </thead>
+    <tbody>
+
+      {{#each historial}}
+      <tr>
+        <th scope="row">{{fecha}}</th>
+        <th scope="row">{{lavados}}</th>
+        {{!-- <th scope="row">{{cocheras}}</th> --}}
+        <th scope="row" class="text-center">$ {{total}}</th>
+      </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
 </div>
 
 
-    <script src="/js/today_month_year.js"></script>
+<script src="/js/today_month_year.js"></script>

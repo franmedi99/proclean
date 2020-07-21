@@ -1,5 +1,7 @@
 <nav>
-  <a href="/clients" class=" text-primary ml-5 btn-block mt-2"><h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4></a>
+  <a href="/clients" class=" text-primary ml-5 btn-block mt-2">
+    <h4><i class="fa fa-arrow-left mr-1" aria-hidden="true"></i>Volver al Menu</h4>
+  </a>
 </nav>
 
 <div class="mx-auto">
@@ -7,16 +9,16 @@
 </div>
 
 
-    <div class="mx-auto text-center col-8 border">
+<div class="mx-auto text-center col-8 border">
   <h5 class="text-success mt-1">Importe total</h5>
   <h4 class="text-primary">{{#if result}}{{#each result as |item|}}${{item.box}}{{/each}}{{else}} $0{{/if}}</h4>
   <hr>
   <!--Cantidad C y L-->
   <div class="form-row mx-auto ">
     <div class="col-md-12">
-  <h5 class="text-success text-center">Lavados : {{lavados}}</h5>
-  </div>
-  {{!-- <div class="col-md-6">
+      <h5 class="text-success text-center">Lavados : {{lavados}}</h5>
+    </div>
+    {{!-- <div class="col-md-6">
   <h5 class="text-success text-center">Cocheras : {{cocheras}}</h5>
   </div> --}}
   </div>
@@ -24,81 +26,96 @@
   <hr>
   <div class="form-row col-12 mx-auto ">
     <div class="col-md-6 mx-auto mb-2">
-  <form action="/close-day" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
-    <input type="hidden" id="theDate" name="fecha">
-    <input type="hidden" name="total" {{#each result as |item|}} value="{{item.box}}"{{/each}}>
-    <input type="hidden" name="lavados" value="{{lavados}}">
-    {{!-- <input type="hidden" name="cocheras" value="{{cocheras}}"> --}}
-    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-flag-checkered mr-1" aria-hidden="true"></i>Cerrar Dia</button>
-  </form>
-  </div>
-  <div class="col-md-6 mx-auto mb-2">
-  <a href="#ventana11" class=" btn btn-success btn-block" type="submit" data-toggle="modal" data-target=".bd-opciones-modal-lg" style="height: 100%;" > <i class="fa fa-cog mr-1"  aria-hidden="true"></i>Mas Opciones</a>
-  </div>
+      <form action="/close-day" method="post" onsubmit="return confirm('¿Desea cerrar la caja?');">
+        <input type="hidden" id="theDate" name="fecha">
+        <input type="hidden" name="total" {{#each result as |item|}} value="{{item.box}}" {{/each}}>
+        <input type="hidden" name="lavados" value="{{lavados}}">
+        {{!-- <input type="hidden" name="cocheras" value="{{cocheras}}"> --}}
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-flag-checkered mr-1"
+            aria-hidden="true"></i>Cerrar Dia</button>
+      </form>
+    </div>
+    <div class="col-md-6 mx-auto mb-2">
+      <a href="#ventana11" class=" btn btn-success btn-block" type="submit" data-toggle="modal"
+        data-target=".bd-opciones-modal-lg" style="height: 100%;"> <i class="fa fa-cog mr-1" aria-hidden="true"></i>Mas
+        Opciones</a>
+    </div>
   </div>
 </div>
 
 
 
 
-  <!--Tabla-->
-   <table class="table col-11 mx-auto mt-3">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Usuario</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Ocupó</th>
-            <th scope="col">Hora</th>
-            <th scope="col" class="text-center">Importe</th>
-            <th scope="col" class="text-center">Editar</th>
-            <th scope="col" class="text-center">Borrar</th>
-          </tr>
-
-         
-        </thead>
-        <tbody>
-
-          {{#each historial}}
-          <tr>
-          <th scope="row">{{user}}</th>
-          <th scope="row">{{type}}</th>
-          <th scope="row">{{action}}</th>
-          <th scope="row">{{hora}}</th>
-          <th scope="row" class="text-center">${{box}}</th>
-          <td><a class="btn btn-primary col-12 mx-auto" href="/historial/edit/{{_id}}"><i class="fa fa-pencil mr-1" aria-hidden="true"></i>Editar</a></td>
-          <td>
-            <form action="/historial/delete/{{_id}}" method="POST" onsubmit="return confirm('Desea eliminar este recibo de la caja?');">
-            <button type="submit" class="btn btn-danger col-12 mx-auto"><i class="fa fa-trash-o mr-1" aria-hidden="true"></i>Borrar</button>
-            </form>
-          </td>
-          {{/each}}
-         
-          </tr>
-          
-        </tbody>
-      </table>
+<!--Tabla-->
+<table class="table col-11 mx-auto mt-3">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Usuario</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Ocupó</th>
+      <th scope="col">Hora</th>
+      <th scope="col" class="text-center">Importe</th>
+      <th scope="col" class="text-center">Editar</th>
+      <th scope="col" class="text-center">Borrar</th>
+    </tr>
 
 
+  </thead>
+  <tbody>
+
+    {{#each historial}}
+    <tr>
+      <th scope="row">{{user}}</th>
+      <th scope="row">{{type}}</th>
+      <th scope="row">{{action}}</th>
+      <th scope="row">{{hora}}</th>
+      <th scope="row" class="text-center">${{box}}</th>
+      <td><a class="btn btn-primary col-12 mx-auto" href="/historial/edit/{{_id}}"><i class="fa fa-pencil mr-1"
+            aria-hidden="true"></i>Editar</a></td>
+      <td>
+        <form action="/historial/delete/{{_id}}" method="POST"
+          onsubmit="return confirm('Desea eliminar este recibo de la caja?');">
+          <button type="submit" class="btn btn-danger col-12 mx-auto"><i class="fa fa-trash-o mr-1"
+              aria-hidden="true"></i>Borrar</button>
+        </form>
+      </td>
+      {{/each}}
+
+    </tr>
+
+  </tbody>
+</table>
 
 
 
 
 
-      <!--Modal Mas Opciones-->
-<div class="modal fade bd-opciones-modal-lg" aria-labelledby="myLargeModalLabel" tabindex="-1" role="dialog" id="ventana11">
+
+
+<!--Modal Mas Opciones-->
+<div class="modal fade bd-opciones-modal-lg" aria-labelledby="myLargeModalLabel" tabindex="-1" role="dialog"
+  id="ventana11">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-body"> <!--Contenido-->
-      <div class="col-12"> <!--Opciones-->
-      <h3 class="text-center"><i class="fa fa-cog mr-1" aria-hidden="true"></i>Opciones</h3>
-      <hr>
-      <div class="form-row col-10 mx-auto"> <!--Botones-->
-        <div class="col-12 form-group mt-3"><a href="/register/days" class="btn btn-success btn-block"><i class="fa fa-list mr-1" aria-hidden="true"></i>Registro Mensual</a></div>
-        <div class="col-12 form-group "><a href="/register/month" class="btn btn-success btn-block"><i class="fa fa-list mr-1" aria-hidden="true"></i>Registro Anual</a></div>
-        <div class="col-12 form-group "><a href="/register/total" class="btn btn-success btn-block"><i class="fa fa-list mr-1" aria-hidden="true"></i>Registro Total</a></div>
+      <div class="modal-body">
+        <!--Contenido-->
+        <div class="col-12">
+          <!--Opciones-->
+          <h3 class="text-center"><i class="fa fa-cog mr-1" aria-hidden="true"></i>Opciones</h3>
+          <hr>
+          <div class="form-row col-10 mx-auto">
+            <!--Botones-->
+            <div class="col-12 form-group mt-3"><a href="/register/days" class="btn btn-success btn-block"><i
+                  class="fa fa-list mr-1" aria-hidden="true"></i>Registro Mensual</a></div>
+            <div class="col-12 form-group "><a href="/register/month" class="btn btn-success btn-block"><i
+                  class="fa fa-list mr-1" aria-hidden="true"></i>Registro Anual</a></div>
+            <div class="col-12 form-group "><a href="/register/total" class="btn btn-success btn-block"><i
+                  class="fa fa-list mr-1" aria-hidden="true"></i>Registro Total</a></div>
+          </div>
+        </div>
+        <!--Fin Opciones-->
       </div>
-       </div> <!--Fin Opciones-->          
-      </div> <!--Fin Contenido-->
+      <!--Fin Contenido-->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
@@ -106,8 +123,8 @@
   </div>
 </div>
 
-  
 
-     
 
-    <script src="/js/today_date.js"></script>
+
+
+<script src="/js/today_date.js"></script>

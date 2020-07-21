@@ -5,6 +5,7 @@ const ClientSchema= new Schema({
     marca: {type:String,default: ' '},
     modelo: {type:String,default: ' '},
     phone: {type:String,default: ' '},
+    cuenta: {type:String,default: ' ' },
     tipo: {type:String, required:true}
 },
     {timestamps:true}

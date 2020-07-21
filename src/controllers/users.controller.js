@@ -88,6 +88,7 @@ usersCtrl.createNewClient = async (req, res) => {
         marca,
         modelo,
         phone,
+        cuenta,
         tipo
     } = req.body
     if (!req.body.patente || !req.body.marca || !req.body.modelo || !req.body.tipo) {
@@ -100,6 +101,7 @@ usersCtrl.createNewClient = async (req, res) => {
             marca,
             modelo,
             phone,
+            cuenta,
             tipo
         });
         await newClient.save();
